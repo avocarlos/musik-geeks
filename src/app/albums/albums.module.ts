@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { AlbumsComponent } from './Albums.component';
+import { AlbumsComponent } from './albums.component';
 
 
 @NgModule({

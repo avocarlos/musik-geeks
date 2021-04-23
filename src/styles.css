@@ -46,10 +46,9 @@ text-transform: uppercase;
 color: #000000;
 }
 
-td{
+.dataCell{
   /* Base / XS */
 
-font-family: Roboto;
 font-style: normal;
 font-weight: normal;
 font-size: 15px;

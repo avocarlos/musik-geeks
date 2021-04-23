@@ -1,0 +1,44 @@
+
+<div class="container-fluid">
+  <div id="titleAlbums" class="row">
+    <div class="col-12 pageTitle">
+    Lista de Álbumes
+    </div>
+  </div>
+  <div id="AlbumsListRow" class="row filaContenido">
+    <div class="col-1"></div>
+  <div id="albumsDataTable" class="col-12 container-fluid">
+    <div class="row">
+      <div class="h4 col-2">Portada</div>
+      <div class="h4 col-3">Título</div>
+      <div class="h4 col-4">Músico</div>
+      <div class="h4 col-2">Lanzamiento</div>
+      <div class ="h4 col-1"></div>
+    </div>
+    <div class="row albumDataRow" *ngFor="let b of albumes">
+        <div class="col-2 dataCell">
+          <ngui-in-view>
+            <img src="{{b.cover}}" class="smallCover" >
+          </ngui-in-view>
+        </div>
+        <div class="col-3 dataCell nombre">
+          <dd>{{b.name}}</dd>
+        </div>
+        <div class="col-3 dataCell performers">
+          <dd>{{b.recordLabel}}</dd>
+        </div>
+        <div class="col-2 dataCell releaseDate">
+          <dd>{{b.releaseDate|date:'shortDate':'es'}}</dd>
+        </div>
+        <div class="col-1 dataCell">
+          <button type="button" class="btn btn-outline-secondary">
+            <svg xmlns="http://www.w3.org/2000/svg" class="openDetailsButton bi bi-chevron-right" viewBox="0 0 16 16">
+              <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"></path>
+            </svg>
+          </button>
+        </div>
+    </div>
+
+  </div>
+</div>
+</div>
