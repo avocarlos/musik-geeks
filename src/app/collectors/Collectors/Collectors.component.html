@@ -1,3 +1,36 @@
-<p>
-  Collectors works!
-</p>
+
+  <div class="container-fluid">
+    <div id="titleCollectors" class="row">
+      <div class="col-12" style="font-size: 18px;">
+          <b>Lista de Coleccionistas</b>
+      </div>
+    </div>
+    <div id="collectorsListRow" class="row filaContenido">
+      <div class="col-1"></div>
+      <div class="col-10">
+        <table class="table">
+          <thead>
+            <tr> 
+              <th class="h3">Nombre</th>
+              <th class="h3">Teléfono</th>
+              <th class="h3">Email</th>
+              <th class="h3"></th>
+            </tr> 
+          </thead>
+          <tbody>
+            <tr *ngFor="let b of collectors">
+              <td>
+                <dd>{{b.name}}</dd>
+              </td>
+              <td>
+                <dd>{{b.telephone}}</dd>
+              </td>
+              <td>
+                <dd>{{b.email}}</dd>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
