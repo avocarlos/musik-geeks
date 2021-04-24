@@ -2,22 +2,22 @@
 
 import { TestBed, async, inject, getTestBed } from '@angular/core/testing';
 import { AlbumsService } from './albums.service';
-import {album} from './album'
+import { Album } from './album';
 
 import {
  HttpTestingController,
  HttpClientTestingModule,
-} from "@angular/common/http/testing";
+} from '@angular/common/http/testing';
 
-import * as faker from "faker";
+import * as faker from 'faker';
 
-import { environment } from "../../environments/environment";
+import { environment } from '../../environments/environment';
 
 describe('Service: GetAlbums', () => {
   let injector: TestBed;
   let service: AlbumsService;
   let httpMock: HttpTestingController;
-  let apiUrl = environment.baseUrl + "albums";
+  const apiUrl = environment.baseUrl + 'albums';
 
   beforeEach(() => {
     TestBed.configureTestingModule({
@@ -26,26 +26,26 @@ describe('Service: GetAlbums', () => {
     });
 
     injector = getTestBed();
-    service = injector.get(AlbumsService);
-    httpMock = injector.get(HttpTestingController);
+    service = injector.inject(AlbumsService);
+    httpMock = injector.inject(HttpTestingController);
   });
 
   afterEach(() => {
     httpMock.verify();
   });
 
-  it('should create service...', inject([AlbumsService], (service: AlbumsService) => {
-    expect(service).toBeTruthy();
+  it('should create service...', inject([AlbumsService], (albumsService: AlbumsService) => {
+    expect(albumsService).toBeTruthy();
   }));
 
-  it("getAlbums() should return 10 records", () => {
-    let mockPosts: album[] = [];
+  it('getAlbums() should return 10 records', () => {
+    const mockPosts: Album[] = [];
 
     for (let i = 0; i < 10; i++) {
-      let nuevoAlbum = new album(
+      const nuevoAlbum = new Album(
         faker.lorem.sentence(),
         faker.lorem.sentence(),
-        faker.date.recent(),
+        faker.date.recent().toString(),
         faker.lorem.sentence(),
         faker.lorem.sentence(),
         faker.lorem.sentence(),
@@ -59,7 +59,7 @@ describe('Service: GetAlbums', () => {
     });
 
     const req = httpMock.expectOne(apiUrl);
-    expect(req.request.method).toBe("GET");
+    expect(req.request.method).toBe('GET');
     req.flush(mockPosts);
   });
 });

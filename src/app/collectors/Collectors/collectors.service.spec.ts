@@ -6,7 +6,7 @@ import { CollectorsService } from './collectors.service';
 import {
   HttpTestingController,
   HttpClientTestingModule,
- } from "@angular/common/http/testing";
+ } from '@angular/common/http/testing';
 
 describe('Service: Collectors', () => {
   let injector: TestBed;
@@ -20,15 +20,15 @@ describe('Service: Collectors', () => {
     });
 
     injector = getTestBed();
-    service = injector.get(CollectorsService);
-    httpMock = injector.get(HttpTestingController);
+    service = injector.inject(CollectorsService);
+    httpMock = injector.inject(HttpTestingController);
   });
 
   afterEach(() => {
     httpMock.verify();
   });
 
-  it('should ...', inject([CollectorsService], (service: CollectorsService) => {
-    expect(service).toBeTruthy();
+  it('should ...', inject([CollectorsService], (collectorsService: CollectorsService) => {
+    expect(collectorsService).toBeTruthy();
   }));
 });

@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { environment } from '../../../environments/environment';
 import { Observable } from 'rxjs';
-import { collector } from './collector';
+import { Collector } from './collector';
 
 @Injectable({
   providedIn: 'root'
@@ -14,8 +14,8 @@ export class CollectorsService {
 
     }
 
-    getCollectors(): Observable<collector[]> {
-      return this.http.get<collector[]>(this.apiUrl);
+    getCollectors(): Observable<Collector[]> {
+      return this.http.get<Collector[]>(this.apiUrl);
     }
 
 }
