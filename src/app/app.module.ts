@@ -5,6 +5,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import {AlbumsModule} from './albums/albums.module'
+import { CollectorsModule } from './collectors/Collectors/Collectors.module';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import {AlbumsModule} from './albums/albums.module'
     BrowserModule,
     AppRoutingModule,
     AlbumsModule,
-    HttpClientModule
+    HttpClientModule,
+    CollectorsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
