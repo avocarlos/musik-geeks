@@ -1,0 +1,24 @@
+<testExecutions version="1">
+  <file path="src/app/albums/albums.component.spec.ts">
+    <testCase name="AlbumsComponent Album list has performers object" duration="65"/>
+    <testCase name="AlbumsComponent Component has albums data table" duration="11"/>
+    <testCase name="AlbumsComponent Albums data table has data" duration="7"/>
+    <testCase name="AlbumsComponent Album list has image object" duration="9"/>
+    <testCase name="AlbumsComponent should create albums component" duration="9"/>
+    <testCase name="AlbumsComponent Album list has release date object" duration="7"/>
+    <testCase name="AlbumsComponent Album list has view details objects" duration="10"/>
+    <testCase name="AlbumsComponent Album list has name object" duration="6"/>
+    <testCase name="AlbumsComponent Title row is present" duration="8"/>
+    <testCase name="AlbumsComponent should render title" duration="8"/>
+  </file>
+  <file path="src/app/albums/albums.service.spec.ts">
+    <testCase name="Service: GetAlbums should create service..." duration="3"/>
+    <testCase name="Service: GetAlbums getAlbums() should return 10 records" duration="3"/>
+  </file>
+  <file path="src/app/app.component.spec.ts">
+    <testCase name="AppComponent should have as title 'Musik Geeks'" duration="9"/>
+    <testCase name="AppComponent Component has main content container" duration="5"/>
+    <testCase name="AppComponent should create the app" duration="9"/>
+    <testCase name="AppComponent Component has menu container" duration="4"/>
+  </file>
+</testExecutions>
