@@ -17,7 +17,7 @@ describe('Service: GetAlbums', () => {
   let injector: TestBed;
   let service: AlbumsService;
   let httpMock: HttpTestingController;
-  let apiUrl = environment.BaseURL + "albums";
+  let apiUrl = environment.baseUrl + "albums";
 
   beforeEach(() => {
     TestBed.configureTestingModule({
