@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  BaseURL: 'https://musiccollector-api.herokuapp.com/'
+  baseUrl: 'https://musiccollector-api.herokuapp.com/'
 };
 
 /*

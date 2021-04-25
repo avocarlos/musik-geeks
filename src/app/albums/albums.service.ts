@@ -8,7 +8,7 @@ import {album} from './album'
   providedIn: 'root'
 })
 export class AlbumsService {
-  private apiUrl = environment.BaseURL + 'albums';
+  private apiUrl = environment.baseUrl + 'albums';
 
   constructor(private http: HttpClient) {
 
