@@ -1,46 +1,57 @@
 <testExecutions version="1">
-  <file path="src/app/collectors/Collectors/collectors.service.spec.ts">
-    <testCase name="Service: Collectors should ..." duration="55"/>
-  </file>
-  <file path="src/app/musician/musician.service.spec.ts">
-    <testCase name="Service: SingerResources #getMusicins should call the API and return musicians" duration="8"/>
-  </file>
   <file path="src/app/app.component.spec.ts">
-    <testCase name="AppComponent should have as title 'Musik Geeks'" duration="37"/>
-    <testCase name="AppComponent Component has main content container" duration="35"/>
-    <testCase name="AppComponent Component has menu container" duration="21"/>
-    <testCase name="AppComponent should create the app" duration="14"/>
+    <testCase name="AppComponent should create the app" duration="57"/>
+    <testCase name="AppComponent Component has menu container" duration="12"/>
+    <testCase name="AppComponent should have as title 'Musik Geeks'" duration="8"/>
+    <testCase name="AppComponent Component has main content container" duration="8"/>
   </file>
-  <file path="src/app/shared/table/table.component.spec.ts">
-    <testCase name="TableComponent should render table" duration="21"/>
-    <testCase name="TableComponent should render a table with provided headers" duration="15"/>
-    <testCase name="TableComponent should render a table with provided rows" duration="12"/>
-    <testCase name="TableComponent should render row with provided data" duration="13"/>
+  <file path="src/app/collectors/collectors.component.spec.ts">
+    <testCase name="CollectorsComponent should render title" duration="12"/>
+    <testCase name="CollectorsComponent should create collectors component" duration="4"/>
+    <testCase name="CollectorsComponent Collectors list has name object" duration="5"/>
+    <testCase name="CollectorsComponent Collectors list has performers object" duration="4"/>
+    <testCase name="CollectorsComponent Component has collectors data table" duration="5"/>
+    <testCase name="CollectorsComponent Collectors data table has data" duration="4"/>
+    <testCase name="CollectorsComponent Collectors list has release date object" duration="4"/>
+    <testCase name="CollectorsComponent Collectors list has view details objects" duration="4"/>
+    <testCase name="CollectorsComponent Title row is present" duration="4"/>
+  </file>
+  <file path="src/app/collectors/collectors.service.spec.ts">
+    <testCase name="Service: GetCollectors getCollectors() should return 10 records" duration="2"/>
   </file>
   <file path="src/app/musician/musician-list/musician-list.component.spec.ts">
-    <testCase name="MusicianListComponent should render the table with musicians picture" duration="23"/>
-    <testCase name="MusicianListComponent should render the table with musicians name" duration="19"/>
-    <testCase name="MusicianListComponent should render the header with page name" duration="19"/>
-    <testCase name="MusicianListComponent should render the table with default headers" duration="11"/>
-  </file>
-  <file path="src/app/albums/albums.service.spec.ts">
-    <testCase name="Service: GetAlbums getAlbums() should return 10 records" duration="5"/>
-    <testCase name="Service: GetAlbums should create service..." duration="3"/>
-  </file>
-  <file path="src/app/albums/albums.component.spec.ts">
-    <testCase name="AlbumsComponent should render title" duration="16"/>
-    <testCase name="AlbumsComponent should create albums component" duration="17"/>
-    <testCase name="AlbumsComponent Album list has image object" duration="17"/>
-    <testCase name="AlbumsComponent should render Album list data" duration="17"/>
-    <testCase name="AlbumsComponent Album list has performers object" duration="20"/>
-    <testCase name="AlbumsComponent Album list has release date object" duration="17"/>
-    <testCase name="AlbumsComponent Album list has name object" duration="28"/>
+    <testCase name="MusicianListComponent should render the table with default headers" duration="5"/>
+    <testCase name="MusicianListComponent should render the table with musicians picture" duration="6"/>
+    <testCase name="MusicianListComponent should render the header with page name" duration="5"/>
+    <testCase name="MusicianListComponent should render the table with musicians name" duration="5"/>
   </file>
   <file path="src/app/shared/navbar/navbar.component.spec.ts">
-    <testCase name="NavbarComponent should render component" duration="16"/>
+    <testCase name="NavbarComponent should render component" duration="5"/>
+  </file>
+  <file path="src/app/albums/albums.component.spec.ts">
+    <testCase name="AlbumsComponent should create albums component" duration="10"/>
+    <testCase name="AlbumsComponent Album list has name object" duration="8"/>
+    <testCase name="AlbumsComponent Album list has image object" duration="8"/>
+    <testCase name="AlbumsComponent should render Album list data" duration="7"/>
+    <testCase name="AlbumsComponent should render title" duration="5"/>
+    <testCase name="AlbumsComponent Album list has release date object" duration="8"/>
+    <testCase name="AlbumsComponent Album list has performers object" duration="6"/>
+  </file>
+  <file path="src/app/albums/albums.service.spec.ts">
+    <testCase name="Service: GetAlbums getAlbums() should return 10 records" duration="2"/>
+    <testCase name="Service: GetAlbums should create service..." duration="2"/>
+  </file>
+  <file path="src/app/shared/table/table.component.spec.ts">
+    <testCase name="TableComponent should render row with provided data" duration="5"/>
+    <testCase name="TableComponent should render table" duration="4"/>
+    <testCase name="TableComponent should render a table with provided headers" duration="5"/>
+    <testCase name="TableComponent should render a table with provided rows" duration="4"/>
   </file>
   <file path="src/app/shared/list-header/list-header.component.spec.ts">
-    <testCase name="ListHeaderComponent should render list header with provided title" duration="14"/>
-    <testCase name="ListHeaderComponent should render component" duration="13"/>
+    <testCase name="ListHeaderComponent should render list header with provided title" duration="3"/>
+    <testCase name="ListHeaderComponent should render component" duration="4"/>
+  </file>
+  <file path="src/app/musician/musician.service.spec.ts">
+    <testCase name="Service: SingerResources #getMusicins should call the API and return musicians" duration="2"/>
   </file>
 </testExecutions>
