@@ -2,6 +2,12 @@
 
 html, body, app-root{
   height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  left: 0;
+  top: 0;
+  font-size: 100%;
 }
 
 
@@ -46,9 +52,10 @@ text-transform: uppercase;
 color: #000000;
 }
 
-.dataCell{
+td{
   /* Base / XS */
 
+font-family: Roboto;
 font-style: normal;
 font-weight: normal;
 font-size: 15px;
@@ -81,3 +88,20 @@ color:#FFFFFF;
   border: 2px solid #FFFFFF;
   background: #6751F2;
 }
+
+
+#lateralMenu {
+  width: 20%;
+  top: 0%;
+  background-color: #FFFFFF;
+  display: inline-block
+}
+
+#mainContent{
+  width: 80%;
+  background-color: #FFFFFF;
+  display: inline-block;
+  float: right;
+}
+
+

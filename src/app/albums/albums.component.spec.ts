@@ -2,7 +2,7 @@ import { AlbumsComponent } from "./albums.component";
 import { ComponentFixture, async, TestBed } from "@angular/core/testing";
 import { HttpClientTestingModule } from "@angular/common/http/testing";
 
-import faker from "faker";
+import * as faker from "faker";
 import { album } from "./album";
 import { DebugElement } from "@angular/core";
 import { By } from "@angular/platform-browser";

@@ -9,7 +9,7 @@ import {
  HttpClientTestingModule,
 } from "@angular/common/http/testing";
 
-import faker from "faker";
+import * as faker from "faker";
 
 import { environment } from "../../environments/environment";
 
