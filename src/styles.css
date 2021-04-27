@@ -1,20 +1,3 @@
 html, body {
   height: 100vh;
 }
-
-
-#lateralMenu {
-  width: 20%;
-  top: 0%;
-  background-color: #FFFFFF;
-  display: inline-block
-}
-
-#mainContent{
-  width: 80%;
-  background-color: #FFFFFF;
-  display: inline-block;
-  float: right;
-}
-
-
