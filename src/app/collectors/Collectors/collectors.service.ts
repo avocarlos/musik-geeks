@@ -8,12 +8,12 @@ import { collector } from './collector';
   providedIn: 'root'
 })
 export class CollectorsService {
-    private apiUrl = environment.BaseURL + 'collectors';
+    private apiUrl = environment.baseUrl + 'collectors';
 
-    constructor(private http: HttpClient) { 
+    constructor(private http: HttpClient) {
 
     }
-    
+
     getCollectors(): Observable<collector[]> {
       return this.http.get<collector[]>(this.apiUrl);
     }

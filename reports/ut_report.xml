@@ -1,24 +1,27 @@
 <testExecutions version="1">
-  <file path="src/app/albums/albums.component.spec.ts">
-    <testCase name="AlbumsComponent Album list has performers object" duration="64"/>
-    <testCase name="AlbumsComponent Albums data table has data" duration="17"/>
-    <testCase name="AlbumsComponent Album list has release date object" duration="11"/>
-    <testCase name="AlbumsComponent Album list has image object" duration="9"/>
-    <testCase name="AlbumsComponent Album list has view details objects" duration="9"/>
-    <testCase name="AlbumsComponent Album list has name object" duration="8"/>
-    <testCase name="AlbumsComponent Title row is present" duration="9"/>
-    <testCase name="AlbumsComponent should create albums component" duration="9"/>
-    <testCase name="AlbumsComponent Component has albums data table" duration="9"/>
-    <testCase name="AlbumsComponent should render title" duration="9"/>
-  </file>
   <file path="src/app/albums/albums.service.spec.ts">
-    <testCase name="Service: GetAlbums getAlbums() should return 10 records" duration="8"/>
+    <testCase name="Service: GetAlbums getAlbums() should return 10 records" duration="11"/>
     <testCase name="Service: GetAlbums should create service..." duration="2"/>
   </file>
+  <file path="src/app/albums/albums.component.spec.ts">
+    <testCase name="AlbumsComponent Album list has performers object" duration="32"/>
+    <testCase name="AlbumsComponent Title row is present" duration="10"/>
+    <testCase name="AlbumsComponent Albums data table has data" duration="5"/>
+    <testCase name="AlbumsComponent should render title" duration="4"/>
+    <testCase name="AlbumsComponent Album list has image object" duration="5"/>
+    <testCase name="AlbumsComponent Album list has release date object" duration="6"/>
+    <testCase name="AlbumsComponent Album list has view details objects" duration="7"/>
+    <testCase name="AlbumsComponent Album list has name object" duration="5"/>
+    <testCase name="AlbumsComponent should create albums component" duration="5"/>
+    <testCase name="AlbumsComponent Component has albums data table" duration="4"/>
+  </file>
+  <file path="src/app/collectors/Collectors/collectors.service.spec.ts">
+    <testCase name="Service: Collectors should ..." duration="1"/>
+  </file>
   <file path="src/app/app.component.spec.ts">
-    <testCase name="AppComponent Component has main content container" duration="11"/>
-    <testCase name="AppComponent should have as title 'Musik Geeks'" duration="6"/>
-    <testCase name="AppComponent should create the app" duration="10"/>
+    <testCase name="AppComponent should have as title 'Musik Geeks'" duration="7"/>
+    <testCase name="AppComponent should create the app" duration="4"/>
     <testCase name="AppComponent Component has menu container" duration="7"/>
+    <testCase name="AppComponent Component has main content container" duration="5"/>
   </file>
 </testExecutions>
