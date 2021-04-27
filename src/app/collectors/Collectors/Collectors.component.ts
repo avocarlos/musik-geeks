@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { collector } from './collector';
+import { Collector } from './collector';
 import { CollectorsService } from './collectors.service';
 
 @Component({
@@ -10,15 +10,15 @@ import { CollectorsService } from './collectors.service';
 export class CollectorsComponent implements OnInit {
 
   constructor(private collectorsService: CollectorsService) { }
-  public collectors: Array<collector> = [];
+  public collectors: Array<Collector> = [];
 
-  getCollectorsList() {
+  getCollectorsList(): void {
     this.collectorsService.getCollectors().subscribe(cs => {
       this.collectors = cs;
     });
   }
-  ngOnInit() {
-    this.getCollectorsList()
+  ngOnInit(): void {
+    this.getCollectorsList();
   }
 
 }

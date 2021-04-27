@@ -1,0 +1,19 @@
+<table class="table table-shadow">
+  <thead>
+    <tr>
+      <th class="text-uppercase text-secondary" *ngFor="let header of headers">
+        <small>{{header}}</small>
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let row of rows; index as idx;">
+      <td
+        *ngFor="let column of rows[idx]; index as columnIdx;" [innerHTML]="column"
+        id="{{headers[columnIdx] ? 'table-' + headers[columnIdx].toLowerCase() : ''}}"
+        class="align-middle"
+      >
+      </td>
+    </tr>
+  </tbody>
+</table>

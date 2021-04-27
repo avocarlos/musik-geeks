@@ -1,12 +1,11 @@
-export class album{
-    public constructor(
-      public name: string,
-      public cover:string,
-      public releaseDAte:Date,
-      public description:string,
-      public genre:string,
-      public recordLabel:string,
-      public id?:number){
-
-    }
+export class Album{
+  public constructor(
+    public name: string,
+    public cover: string,
+    public releaseDate: string,
+    public description: string,
+    public genre: string,
+    public recordLabel: string,
+    public id?: number
+  ) { }
 }
