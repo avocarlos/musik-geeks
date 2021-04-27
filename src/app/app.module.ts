@@ -5,7 +5,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { MusicianModule } from './musician/musician.module';
 import { AppComponent } from './app.component';
-import { CollectorsModule } from './collectors/Collectors/Collectors.module';
+import { CollectorsModule } from './collectors/collectors.module';
 import { AlbumsModule } from './albums/albums.module';
 import { SharedModule } from './shared/shared.module';
 

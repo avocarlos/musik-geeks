@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { CollectorsComponent } from './Collectors.component';
+import { CollectorsComponent } from './collectors.component';
+import { CollectorsService } from './collectors.service';
 
 @NgModule({
   imports: [
@@ -8,7 +9,10 @@ import { CollectorsComponent } from './Collectors.component';
   ],
   declarations: [
     CollectorsComponent
-  ] ,
+  ],
+  providers: [
+    CollectorsService
+  ],
   exports: [
     CollectorsComponent
   ]
