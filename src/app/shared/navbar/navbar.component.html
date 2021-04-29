@@ -1,5 +1,5 @@
-<nav class="d-flex h-100 flex-column flex-nowrap border-end">
-  <div class="logo">
+<nav [class.collapsed]="collapsed" class="left-navbar border-end">
+  <div [class.small]="collapsed" class="logo">
     <a href="#">
       <em class="bi bi-headphones"></em>
     </a>
@@ -8,7 +8,7 @@
     <li class="nav-item">
       <a [class.active]="current === 'albums'" class="nav-link" href="#" (click)="onAlbumsClick()">
         <em class="bi bi-disc"></em>
-        <span class="d-none d-sm-inline">
+        <span [class.d-md-inline]="!collapsed" class="d-none">
           Albumes
         </span>
       </a>
@@ -16,7 +16,7 @@
     <li class="nav-item">
       <a [class.active]="current === 'musicians'" class="nav-link" href="#" (click)="onMusiciansClick()">
         <em class="bi bi-lightning"></em>
-        <span class="d-none d-sm-inline">
+        <span [class.d-md-inline]="!collapsed" class="d-none">
           Musicos
         </span>
       </a>
@@ -24,7 +24,7 @@
     <li class="nav-item">
       <a [class.active]="current === 'collectors'" class="nav-link" href="#" (click)="onCollectorsClick()">
         <em class="bi bi-bookmark"></em>
-        <span class="d-none d-sm-inline">
+        <span [class.d-md-inline]="!collapsed" class="d-none">
           Coleccionistas
         </span>
       </a>
@@ -32,16 +32,16 @@
     <li class="nav-item">
       <a class="nav-link" href="#">
         <em class="bi bi-award"></em>
-        <span class="d-none d-sm-inline">
+        <span [class.d-md-inline]="!collapsed" class="d-none">
           Premios
         </span>
       </a>
     </li>
   </ul>
-  <div class="nav-item border-top">
+  <div (click)="onCollapseClick()" class="nav-item border-top d-none d-md-block">
     <a class="nav-link" href="#">
-      <em class="bi bi-arrow-left-circle"></em>
-      <span class="d-none d-sm-inline">
+      <em [class.bi-arrow-right-circle]="collapsed" class="bi bi-arrow-left-circle"></em>
+      <span [class.d-md-inline]="!collapsed" class="d-none">
         Colapsar
       </span>
     </a>

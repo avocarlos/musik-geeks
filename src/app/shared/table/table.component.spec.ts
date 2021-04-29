@@ -37,7 +37,7 @@ describe('TableComponent', () => {
     const table = fixture.debugElement.nativeElement;
     const headers = table.querySelectorAll('th');
 
-    expect(headers.length).toEqual(2);
+    expect(headers.length).toEqual(3);
     expect(headers[0].textContent).toEqual('Name');
     expect(headers[1].textContent).toEqual('Email');
   });
@@ -53,7 +53,7 @@ describe('TableComponent', () => {
     const table = fixture.debugElement.nativeElement;
     const columns = table.querySelectorAll('tbody td');
 
-    expect(columns.length).toEqual(2);
+    expect(columns.length).toEqual(3);
     expect(columns[0].textContent).toEqual(ROWS[0][0]);
     expect(columns[1].textContent).toEqual(ROWS[0][1]);
   });

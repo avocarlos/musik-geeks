@@ -4,15 +4,23 @@
       <th id="tableHeaders" class="text-uppercase text-secondary" *ngFor="let header of headers">
         <small>{{header}}</small>
       </th>
+      <th>
+      </th>
     </tr>
   </thead>
   <tbody>
     <tr *ngFor="let row of rows; index as idx;">
       <td
-        *ngFor="let column of rows[idx]; index as columnIdx;" [innerHTML]="column"
+        *ngFor="let column of rows[idx]; index as columnIdx;"
         id="{{headers[columnIdx] ? 'table-' + headers[columnIdx].toLowerCase() : ''}}"
         class="align-middle"
+        [innerHTML]="column"
       >
+      </td>
+      <td>
+        <button type="button" class="btn">
+          <em class="bem bi-chevron-right"></em>
+        </button>
       </td>
     </tr>
   </tbody>

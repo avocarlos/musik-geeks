@@ -43,7 +43,6 @@ export class AlbumsComponent implements OnInit {
   }
 }
 
-
 function imgTag(src: string): string {
   return `<img class="table-avatar" src="${src}" alt="Portada de album" />`;
 }
