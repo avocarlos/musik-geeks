@@ -16,4 +16,8 @@ export class MusicianService {
   getMusicians(): Observable<Musician[]> {
     return this.http.get<Musician[]>(this.apiUrl);
   }
+
+  getMusician(id: number): Observable<Musician> {
+    return this.http.get<Musician>(`${this.apiUrl}/${id}`);
+  }
 }
