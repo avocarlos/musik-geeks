@@ -1,9 +1,11 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { DetailHeaderComponent } from './detail-header/detail-header.component';
 import { ListHeaderComponent } from './list-header/list-header.component';
 import { TableComponent } from './table/table.component';
 import { NavbarComponent } from './navbar/navbar.component';
-
+import { BreadcrumbsComponent } from './breadcrumbs/breadcrumbs.component';
+import { LoadingComponent } from './loading/loading.component';
 @NgModule({
   imports: [
     CommonModule
@@ -11,12 +13,17 @@ import { NavbarComponent } from './navbar/navbar.component';
   declarations: [
     ListHeaderComponent,
     TableComponent,
-    NavbarComponent
+    NavbarComponent,
+    DetailHeaderComponent,
+    BreadcrumbsComponent,
+    LoadingComponent
   ],
   exports: [
     ListHeaderComponent,
     TableComponent,
-    NavbarComponent
+    NavbarComponent,
+    DetailHeaderComponent,
+    LoadingComponent
   ]
 })
 export class SharedModule { }

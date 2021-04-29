@@ -8,6 +8,7 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 export class NavbarComponent implements OnInit {
   @Input() current: string;
   @Output() buttonClick = new EventEmitter<string>();
+  public collapsed = false;
 
   constructor() { }
 
@@ -23,5 +24,9 @@ export class NavbarComponent implements OnInit {
 
   onAlbumsClick(): void {
     this.buttonClick.emit('albums');
+  }
+
+  onCollapseClick(): void {
+    this.collapsed = !this.collapsed;
   }
 }
