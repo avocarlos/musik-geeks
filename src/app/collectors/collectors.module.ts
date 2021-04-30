@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { CollectorsComponent } from './collectors.component';
+import { CollectorsDetailsComponent } from './collectors-details/collectors-details.component';
 import { CollectorsService } from './collectors.service';
 import { SharedModule } from '../shared/shared.module';
 @NgModule({
@@ -10,7 +11,8 @@ import { SharedModule } from '../shared/shared.module';
     SharedModule
   ],
   declarations: [
-    CollectorsComponent
+    CollectorsComponent,
+    CollectorsDetailsComponent
   ],
   exports: [
     CollectorsComponent

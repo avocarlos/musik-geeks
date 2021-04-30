@@ -1,41 +1,44 @@
 import { Component, OnInit } from '@angular/core';
 import { Collector } from './collector';
 import { CollectorsService } from './collectors.service';
-
+import { TableRow } from '../shared/table/table.component';
+interface collectorsTable {
+  headers: string[];
+  rows: TableRow[];
+}
 @Component({
   selector: 'app-collectors',
   templateUrl: './collectors.component.html',
   styleUrls: ['./collectors.component.css']
 })
 export class CollectorsComponent implements OnInit {
-  public collectors: Collector[] = [];
-  public title = ' Coleccionistas ';
-  public headers = [
-    'Nombre',
-    'Telefono',
-    'Email'
-  ];
-  public rows: string[][] = [];
+  selectedCollectors?: number;
+  collectors: Collector[];
+  table: collectorsTable = {
+    headers: ['Nombre','Colecciones','Comentarios',''],
+    rows: []
+  };
+  title = 'Coleccionistas';
 
   constructor(private collectorService: CollectorsService) { }
 
-  getCollectorsList(): void {
-    this.collectorService.getCollectors().subscribe(cs => {
-      this.collectors = cs;
-      cs[0].comments.length;
-      this.rows =
-      cs.map(({name, telephone, email}) => {
-        return [
-          name,
-          telephone,
-          email
-        ];
-      });
-    });
+    ngOnInit(): void {
+      this.getCollectorsList();
+    }
 
-  }
+    getCollectorsList(): void {
+      this.collectorService.getCollectorsList()
+        .subscribe((collectors) => {
+          this.collectors = collectors;
+          this.table.rows = collectors.map(({id, name,telephone,email}) => ({
+            columns: [name,telephone,email],
+            viewButtonClick: () => this.handleViewButtonClick(id)
+          }));
+        });
+    }
 
-  ngOnInit(): void {
-    this.getCollectorsList();
-  }
+    handleViewButtonClick(id: number): void {
+      this.selectedCollectors = id;
+    }
 }
+

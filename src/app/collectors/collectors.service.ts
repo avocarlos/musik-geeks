@@ -9,14 +9,19 @@ import { Collector } from './collector';
 })
 
 export class CollectorsService {
-  private apiUrl = environment.baseUrl + 'collectors';
+  apiUrl: string = environment.baseUrl + 'collectors';
 
   constructor(private http: HttpClient) {
 
   }
 
-  getCollectors(): Observable<Collector[]> {
+  getCollectorsList(): Observable<Collector[]> {
     return this.http.get<Collector[]>(this.apiUrl);
   }
+
+  getCollector(id: number): Observable<Collector> {
+    return this.http.get<Collector>(`${this.apiUrl}/${id}`);
+  }
+
 }
 
