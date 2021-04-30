@@ -8,14 +8,31 @@ import { CollectorsService } from './collectors.service';
   styleUrls: ['./collectors.component.css']
 })
 export class CollectorsComponent implements OnInit {
+  public collectors: Collector[] = [];
+  public title = ' Coleccionistas ';
+  public headers = [
+    'Nombre',
+    'Telefono',
+    'Email'
+  ];
+  public rows: string[][] = [];
 
   constructor(private collectorService: CollectorsService) { }
-  public collectors: Array<Collector> = [];
 
   getCollectorsList(): void {
     this.collectorService.getCollectors().subscribe(cs => {
       this.collectors = cs;
+      cs[0].comments.length;
+      this.rows =
+      cs.map(({name, telephone, email}) => {
+        return [
+          name,
+          telephone,
+          email
+        ];
+      });
     });
+
   }
 
   ngOnInit(): void {
