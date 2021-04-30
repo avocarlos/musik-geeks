@@ -29,7 +29,7 @@ describe('Service: GetCollectors', () => {
   it('getCollectors() should return 10 records', inject([CollectorsService], (collectorService: CollectorsService) => {
     const mockPosts: Collector[] = [];
 
-    service.getCollectors().subscribe((collectors) => {
+    service.getCollectorsList().subscribe((collectors) => {
       expect(collectors.length).toBe(0);
     });
 

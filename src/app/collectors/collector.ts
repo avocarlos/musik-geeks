@@ -1,11 +1,11 @@
-export class Collector {
-  public constructor(
-    public name: string,
-    public telephone: string,
-    public email: string,
-    public comments:[],
-    public favoritePerformers:[],
-    public collectorAlbums:[],
-    public id?: number
-  ) {}
+import { Album } from '../albums/album';
+export interface Collector {
+  id: number;
+  name: string;
+  telephone: string;
+  email: string;
+  comments: unknown[];
+  favoritePerformers: unknown[];
+  collectorAlbums: unknown[];
+  albums: Album[];
 }

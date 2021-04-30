@@ -1,3 +1,33 @@
-<p>
-  collectors-details works!
-</p>
+<app-loading *ngIf="!collector"></app-loading>
+<div *ngIf="collector">
+  <app-detail-header
+
+  [title]="collector.name"
+  [featured]="featured"
+
+  ></app-detail-header>
+  <div class="container mt-5 mb-5">
+    <div class="row mb-5">
+      <div class="col">
+        <h4 class="mb-3">Colecciones</h4>
+        <app-table [headers]="albumsTable.headers" [rows]="albumsTable.rows"></app-table>
+      </div>
+    </div>
+    <div class="row"> <br>
+    <div class="row">
+      <div class="col">
+        <h4 class="mb-3">Músicos favoritos</h4>
+        <app-table [headers]="favoritePerformersTable.headers" [rows]="favoritePerformersTable.rows"></app-table>
+      </div>
+    </div>
+    <div class="row"> <br>
+    </div>
+    <div class="row">
+      <div class="col">
+        <h4 class="mb-3">Comentarios recientes</h4>
+        <app-table [headers]="commentsTable.headers" [rows]="commentsTable.rows"></app-table>
+      </div>
+    </div>
+
+  </div>
+</div>

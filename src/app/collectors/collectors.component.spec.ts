@@ -19,19 +19,6 @@ describe('CollectorsComponent', () => {
     }).compileComponents();
   }));
 
-  beforeEach(() => {
-    fixture = TestBed.createComponent(CollectorsComponent);
-    component = fixture.componentInstance;
-    component.collectors = [
-      new Collector(
-        faker.name.firstName(),
-        faker.phone.phoneNumber(),
-        faker.internet.email()
-      ),
-    ];
-    fixture.detectChanges();
-    debug = fixture.debugElement;
-  });
 
   it('should create collectors component', () => {
     expect(component).toBeTruthy();
