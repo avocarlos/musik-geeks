@@ -12,14 +12,6 @@ describe('CollectorsComponent', () => {
   let fixture: ComponentFixture<CollectorsComponent>;
   let debug: DebugElement;
 
-  beforeEach(async(() => {
-    TestBed.configureTestingModule({
-      imports: [HttpClientTestingModule],
-      declarations: [CollectorsComponent],
-    }).compileComponents();
-  }));
-
-
   it('should create collectors component', () => {
     expect(component).toBeTruthy();
   });
