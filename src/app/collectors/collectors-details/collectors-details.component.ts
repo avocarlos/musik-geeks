@@ -67,18 +67,15 @@ export class CollectorsDetailsComponent implements OnInit {
         this.featured[2].subtitle = collector.telephone;
 
         this.albumsTable.rows = collector.collectorAlbums.map(({id, price, status}) => {
-          //const formattedImg = imgTag(cover);
-          //const formattedDate = formatDate(releaseDate, 'longDate', 'en-US');
-
           return {
             columns: [price, status, status],
             viewButtonClick: () => this.handleViewButtonClick(id)
           };
         });
 
-        this.favoritePerformersTable.rows = collector.favoritePerformers.map(({id,image, name}) => {
+        this.favoritePerformersTable.rows = collector.favoritePerformers.map(({id, image, name}) => {
           return {
-            columns: [imgTag(image),name],
+            columns: [imgTag(image), name],
             viewButtonClick: () => this.handleViewButtonClick(id)
           };
         });
