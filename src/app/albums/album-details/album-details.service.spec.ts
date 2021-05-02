@@ -1,8 +1,8 @@
 /* tslint:disable:no-unused-variable */
 
-import { TestBed, async, inject, getTestBed } from '@angular/core/testing';
-import { AlbumsService } from './albums.service';
-import { Album } from './album';
+import { TestBed, async, inject ,getTestBed} from '@angular/core/testing';
+import { AlbumDetailsService } from './album-details.service';
+import { Album } from '../album';
 
 import {
  HttpTestingController,
@@ -11,35 +11,36 @@ import {
 
 import * as faker from 'faker';
 
-import { environment } from '../../environments/environment';
+import { environment } from '../../../environments/environment';
 
-describe('Service: GetAlbums', () => {
+describe('Service: AlbumDetails', () => {
   let injector: TestBed;
-  let service: AlbumsService;
+  let service: AlbumDetailsService;
   let httpMock: HttpTestingController;
   const apiUrl = environment.baseUrl + 'albums';
 
   beforeEach(() => {
     TestBed.configureTestingModule({
       imports: [HttpClientTestingModule],
-      providers: [AlbumsService],
+      providers: [AlbumDetailsService]
     });
-
     injector = getTestBed();
-    service = injector.inject(AlbumsService);
+    service = injector.inject(AlbumDetailsService);
     httpMock = injector.inject(HttpTestingController);
   });
+
 
   afterEach(() => {
     httpMock.verify();
   });
 
-  it('should create service...', inject([AlbumsService], (albumsService: AlbumsService) => {
-    expect(albumsService).toBeTruthy();
+  it('should create service...', inject([AlbumDetailsService], (albumDetailssService: AlbumDetailsService) => {
+    expect(albumDetailssService).toBeTruthy();
   }));
 
-  it('getAlbums() should return 10 records', () => {
+  it('getAlbumDetails() should return the album searched', () => {
     const mockPosts: Album[] = [];
+    const id = faker.datatype.number();
 
     for (let i = 0; i < 10; i++) {
       const nuevoAlbum = new Album(
@@ -50,13 +51,13 @@ describe('Service: GetAlbums', () => {
         faker.lorem.sentence(),
         faker.lorem.sentence(),
         [],
-        faker.datatype.number()
+        id
       );
       mockPosts.push(nuevoAlbum);
     }
 
-    service.getAlbums().subscribe((albums) => {
-      expect(albums.length).toBe(10);
+    service.getAlbumDetails(id).subscribe((album) => {
+      expect(album.id).toBe(id);
     });
 
     const req = httpMock.expectOne(apiUrl);
@@ -64,3 +65,5 @@ describe('Service: GetAlbums', () => {
     req.flush(mockPosts);
   });
 });
+
+
