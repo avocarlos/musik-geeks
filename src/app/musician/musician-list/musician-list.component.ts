@@ -2,16 +2,23 @@ import { Component, OnInit } from '@angular/core';
 import { MusicianService } from '../musician.service';
 
 import type { Musician } from '../musician';
-
+import type { TableRow } from '../../shared/table/table.component';
+interface MusiciansTable {
+  headers: string[];
+  rows: TableRow[];
+}
 @Component({
   selector: 'app-musician-list',
   templateUrl: './musician-list.component.html',
   styleUrls: ['./musician-list.component.css']
 })
 export class MusicianListComponent implements OnInit {
+  selectedMusician?: number;
   musicians: Musician[];
-  headers: string[] = ['', 'Nombre'];
-  rows: string[][] = [];
+  table: MusiciansTable = {
+    headers: ['', 'Nombre'],
+    rows: []
+  };
   title = 'Músicos';
 
   constructor(private musicianService: MusicianService) { }
@@ -24,10 +31,18 @@ export class MusicianListComponent implements OnInit {
     this.musicianService.getMusicians()
       .subscribe((musicians) => {
         this.musicians = musicians;
-        this.rows = musicians.map(({image, name}) => [imgTag(image), name]);
+        this.table.rows = musicians.map(({id, image, name}) => ({
+          columns: [imgTag(image), name],
+          viewButtonClick: () => this.handleViewButtonClick(id)
+        }));
       });
   }
+
+  handleViewButtonClick(id: number): void {
+    this.selectedMusician = id;
+  }
 }
+
 
 function imgTag(src: string): string {
   return `<img class="table-avatar" src="${src}" alt="Imagen de músico" />`;

@@ -18,7 +18,6 @@ import { SharedModule } from './shared/shared.module';
     AppRoutingModule,
     HttpClientModule,
     AlbumsModule,
-    HttpClientModule,
     CollectorsModule,
     MusicianModule,
     SharedModule
