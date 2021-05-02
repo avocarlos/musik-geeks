@@ -39,10 +39,9 @@ describe('Service: AlbumDetails', () => {
   }));
 
   it('getAlbumDetails() should return the album searched', () => {
-    const mockPosts: Album[] = [];
+
     const id = faker.datatype.number();
 
-    for (let i = 0; i < 10; i++) {
       const nuevoAlbum = new Album(
         faker.lorem.sentence(),
         faker.lorem.sentence(),
@@ -53,16 +52,16 @@ describe('Service: AlbumDetails', () => {
         [],
         id
       );
-      mockPosts.push(nuevoAlbum);
-    }
+
+
 
     service.getAlbumDetails(id).subscribe((album) => {
-      expect(album.id).toBe(id);
+      expect(album).toEqual(nuevoAlbum);
     });
 
-    const req = httpMock.expectOne(apiUrl);
+    const req = httpMock.expectOne(apiUrl+'/'+id);
+    req.flush(nuevoAlbum);
     expect(req.request.method).toBe('GET');
-    req.flush(mockPosts);
   });
 });
 
