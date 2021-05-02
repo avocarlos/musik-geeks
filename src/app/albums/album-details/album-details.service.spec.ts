@@ -50,6 +50,8 @@ describe('Service: AlbumDetails', () => {
       faker.lorem.sentence(),
       faker.lorem.sentence(),
       [],
+      [],
+      [],
       id
     );
 

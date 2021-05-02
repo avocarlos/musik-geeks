@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { AlbumsComponent } from './albums.component';
 import { SharedModule } from '../shared/shared.module';
+import { AlbumDetailsComponent } from './album-details/album-details.component'
 
 @NgModule({
   imports: [
@@ -9,8 +10,9 @@ import { SharedModule } from '../shared/shared.module';
     SharedModule
   ],
   declarations: [
-    AlbumsComponent
+    AlbumsComponent,
+    AlbumDetailsComponent
   ],
-  exports: [AlbumsComponent]
+  exports: [AlbumsComponent, AlbumDetailsComponent]
 })
 export class AlbumsModule { }
