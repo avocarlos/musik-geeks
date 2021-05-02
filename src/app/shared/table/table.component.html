@@ -11,14 +11,14 @@
   <tbody>
     <tr *ngFor="let row of rows; index as idx;">
       <td
-        *ngFor="let column of rows[idx]; index as columnIdx;"
+        *ngFor="let value of row.columns; index as columnIdx;"
         id="{{headers[columnIdx] ? 'table-' + headers[columnIdx].toLowerCase() : ''}}"
         class="align-middle"
-        [innerHTML]="column"
+        [innerHTML]="value"
       >
       </td>
       <td>
-        <button type="button" class="btn">
+        <button *ngIf="row.viewButtonClick" type="button" class="btn" (click)="row.viewButtonClick()">
           <em class="bem bi-chevron-right"></em>
         </button>
       </td>

@@ -41,6 +41,11 @@ describe('MusicianListComponent', () => {
     fixture = TestBed.createComponent(MusicianListComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
+
+    const req = httpTestingController.expectOne('https://musiccollector-api.herokuapp.com/musicians');
+    req.flush(MUSICIANS);
+
+    fixture.detectChanges();
   });
 
   afterEach(() => {
@@ -52,9 +57,6 @@ describe('MusicianListComponent', () => {
     const title = musicianList.querySelector('h2');
 
     expect(title.textContent).toEqual('Músicos');
-
-    const req = httpTestingController.expectOne('https://musiccollector-api.herokuapp.com/musicians');
-    req.flush(MUSICIANS);
   });
 
   it('should render the table with default headers', () => {
@@ -64,17 +66,9 @@ describe('MusicianListComponent', () => {
 
     expect(headers[0].textContent).toEqual('');
     expect(headers[1].textContent).toEqual('Nombre');
-
-    const req = httpTestingController.expectOne('https://musiccollector-api.herokuapp.com/musicians');
-    req.flush(MUSICIANS);
   });
 
   it('should render the table with musicians picture', () => {
-    const req = httpTestingController.expectOne('https://musiccollector-api.herokuapp.com/musicians');
-    req.flush(MUSICIANS);
-
-    fixture.detectChanges();
-
     const musicianList = fixture.debugElement.nativeElement;
     const columns = musicianList.querySelectorAll('tbody td');
     const picture = columns[0].querySelector('img');
@@ -84,11 +78,6 @@ describe('MusicianListComponent', () => {
   });
 
   it('should render the table with musicians name', () => {
-    const req = httpTestingController.expectOne('https://musiccollector-api.herokuapp.com/musicians');
-    req.flush(MUSICIANS);
-
-    fixture.detectChanges();
-
     const musicianList = fixture.debugElement.nativeElement;
     const columns = musicianList.querySelectorAll('tbody td');
 

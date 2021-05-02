@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MusicianListComponent } from './musician-list/musician-list.component';
+import { MusicianDetailsComponent } from './musician-details/musician-details.component';
 import { MusicianService } from './musician.service';
 import { SharedModule } from '../shared/shared.module';
 @NgModule({
@@ -10,7 +11,8 @@ import { SharedModule } from '../shared/shared.module';
     SharedModule
   ],
   declarations: [
-    MusicianListComponent
+    MusicianListComponent,
+    MusicianDetailsComponent
   ],
   exports: [MusicianListComponent]
 })

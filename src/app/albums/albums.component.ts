@@ -3,6 +3,7 @@ import { formatDate } from '@angular/common';
 import { Album } from './album';
 import { AlbumsService } from './albums.service';
 
+import { TableRow } from '../shared/table/table.component';
 @Component({
   selector: 'app-albums',
   templateUrl: './albums.component.html',
@@ -17,7 +18,7 @@ export class AlbumsComponent implements OnInit {
     'Músico',
     'Lanzamiento'
   ];
-  public rows: string[][] = [];
+  public rows: TableRow[] = [];
 
   constructor(private albumsService: AlbumsService) { }
 
@@ -28,12 +29,9 @@ export class AlbumsComponent implements OnInit {
         const formattedImg = imgTag(cover);
         const formattedDate = formatDate(releaseDate, 'shortDate', 'en-US');
 
-        return [
-          formattedImg,
-          name,
-          recordLabel,
-          formattedDate
-        ];
+        return {
+          columns: [formattedImg, name, recordLabel, formattedDate]
+        };
       });
     });
   }
