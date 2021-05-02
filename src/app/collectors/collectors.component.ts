@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Collector } from './collector';
 import { CollectorsService } from './collectors.service';
 import { TableRow } from '../shared/table/table.component';
-interface collectorsTable {
+interface CollectorsTable {
   headers: string[];
   rows: TableRow[];
 }
@@ -14,8 +14,8 @@ interface collectorsTable {
 export class CollectorsComponent implements OnInit {
   selectedCollectors?: number;
   collectors: Collector[];
-  table: collectorsTable = {
-    headers: ['Nombre','Colecciones','Comentarios',''],
+  table: CollectorsTable = {
+    headers: ['Nombre', 'Colecciones', 'Comentarios', ''],
     rows: []
   };
   title = 'Coleccionistas';
@@ -30,8 +30,8 @@ export class CollectorsComponent implements OnInit {
       this.collectorService.getCollectorsList()
         .subscribe((collectors) => {
           this.collectors = collectors;
-          this.table.rows = collectors.map(({id, name,telephone,email}) => ({
-            columns: [name,telephone,email],
+          this.table.rows = collectors.map(({id, name, telephone, email}) => ({
+            columns: [name, telephone, email],
             viewButtonClick: () => this.handleViewButtonClick(id)
           }));
         });
