@@ -1,4 +1,4 @@
-import { Musician } from "../musician/musician";
+import { Musician } from '../musician/musician';
 
 export class Album{
   public constructor(

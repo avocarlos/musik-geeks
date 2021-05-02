@@ -1,6 +1,6 @@
 /* tslint:disable:no-unused-variable */
 
-import { TestBed, async, inject ,getTestBed} from '@angular/core/testing';
+import { TestBed, async, inject , getTestBed } from '@angular/core/testing';
 import { AlbumDetailsService } from './album-details.service';
 import { Album } from '../album';
 
@@ -42,7 +42,7 @@ describe('Service: AlbumDetails', () => {
 
     const id = faker.datatype.number();
 
-      const nuevoAlbum = new Album(
+      const nuevoAlbum = new Album (
         faker.lorem.sentence(),
         faker.lorem.sentence(),
         faker.date.recent().toString(),
@@ -59,7 +59,7 @@ describe('Service: AlbumDetails', () => {
       expect(album).toEqual(nuevoAlbum);
     });
 
-    const req = httpMock.expectOne(apiUrl+'/'+id);
+    const req = httpMock.expectOne(apiUrl + '/' + id);
     req.flush(nuevoAlbum);
     expect(req.request.method).toBe('GET');
   });
