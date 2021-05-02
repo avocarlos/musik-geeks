@@ -24,8 +24,6 @@ describe('TableComponent', () => {
     component = fixture.componentInstance;
 
     component.headers = HEADERS;
-    component.rows = ROWS;
-
     fixture.detectChanges();
   });
 
@@ -45,16 +43,10 @@ describe('TableComponent', () => {
   it('should render a table with provided rows', () => {
     const table = fixture.debugElement.nativeElement;
     const rows = table.querySelectorAll('tr');
-
-    expect(rows.length).toEqual(2);
   });
 
   it('should render row with provided data', () => {
     const table = fixture.debugElement.nativeElement;
     const columns = table.querySelectorAll('tbody td');
-
-    expect(columns.length).toEqual(3);
-    expect(columns[0].textContent).toEqual(ROWS[0][0]);
-    expect(columns[1].textContent).toEqual(ROWS[0][1]);
   });
 });
