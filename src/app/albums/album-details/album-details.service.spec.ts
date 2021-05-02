@@ -42,16 +42,16 @@ describe('Service: AlbumDetails', () => {
 
     const id = faker.datatype.number();
 
-      const nuevoAlbum = new Album (
-        faker.lorem.sentence(),
-        faker.lorem.sentence(),
-        faker.date.recent().toString(),
-        faker.lorem.sentence(),
-        faker.lorem.sentence(),
-        faker.lorem.sentence(),
-        [],
-        id
-      );
+    const nuevoAlbum = new Album (
+      faker.lorem.sentence(),
+      faker.lorem.sentence(),
+      faker.date.recent().toString(),
+      faker.lorem.sentence(),
+      faker.lorem.sentence(),
+      faker.lorem.sentence(),
+      [],
+      id
+    );
 
 
 
