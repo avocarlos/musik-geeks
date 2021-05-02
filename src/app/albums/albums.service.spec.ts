@@ -49,6 +49,7 @@ describe('Service: GetAlbums', () => {
         faker.lorem.sentence(),
         faker.lorem.sentence(),
         faker.lorem.sentence(),
+        [],
         faker.datatype.number()
       );
       mockPosts.push(nuevoAlbum);
