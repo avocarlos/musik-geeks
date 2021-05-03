@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { AlbumsComponent } from './albums.component';
 import { SharedModule } from '../shared/shared.module';
-import { AlbumDetailsComponent } from './album-details/album-details.component'
+import { AlbumDetailsComponent } from './album-details/album-details.component';
 
 @NgModule({
   imports: [

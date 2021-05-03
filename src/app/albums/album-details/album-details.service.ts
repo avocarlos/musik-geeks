@@ -16,7 +16,7 @@ export class AlbumDetailsService {
 
   getAlbumDetails(id: number): Observable<Album> {
     if (!id) {
-      return throwError("invalid ID");
+      return throwError('invalid ID');
     }
     else {
       return this.http.get<Album>(this.apiUrl + '/' + id.toString());

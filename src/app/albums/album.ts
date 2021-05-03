@@ -1,6 +1,6 @@
 import { Musician } from '../musician/musician';
 import { Track } from './tracks/tracks';
-import { Comment } from './comments/comments'
+import { Comment } from './comments/comments';
 
 export class Album {
 

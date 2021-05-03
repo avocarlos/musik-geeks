@@ -11,7 +11,7 @@ import { TableRow } from '../shared/table/table.component';
 })
 export class AlbumsComponent implements OnInit {
   public albumes: Album[] = [];
-  public selectedAlbum: number = 0;
+  public selectedAlbum = 0;
   public title = 'Álbumes';
   public headers = [
     'Portada',
@@ -32,7 +32,7 @@ export class AlbumsComponent implements OnInit {
             if (album.performers) {
               album.performers.forEach(performer => {
                 if (album.listaPerformers) {
-                  album.listaPerformers += ", " + performer.name;
+                  album.listaPerformers += ', ' + performer.name;
                 }
                 else {
                   album.listaPerformers = performer.name;
@@ -64,19 +64,4 @@ export class AlbumsComponent implements OnInit {
 
 function imgTag(src: string): string {
   return `<img class="table-avatar" src="${src}" alt="Portada de album" />`;
-}
-
-function performersList(): string {
-  let _performersList: string = "";
-  _performersList = "";
-  this.album.performers.forEach((performer) => {
-    if (_performersList == "") {
-      _performersList = performer.name;
-    }
-    else {
-      _performersList = _performersList + ", " + performer.name;
-    }
-
-  });
-  return _performersList;
 }

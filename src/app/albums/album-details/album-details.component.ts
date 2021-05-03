@@ -38,7 +38,7 @@ export class AlbumDetailsComponent implements OnInit {
   }];
   constructor(private albumDetailsService: AlbumDetailsService) { }
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.getAlbum();
   }
 
@@ -50,7 +50,7 @@ export class AlbumDetailsComponent implements OnInit {
       if (this.album.performers) {
         this.album.performers.forEach(performer => {
           if (this.album.listaPerformers) {
-            this.album.listaPerformers += ", " + performer.name;
+            this.album.listaPerformers += ', ' + performer.name;
           }
           else {
             this.album.listaPerformers = performer.name;
@@ -63,7 +63,7 @@ export class AlbumDetailsComponent implements OnInit {
       this.featured[0].subtitle = this.album.genre;
       this.featured[1].subtitle = formatDate(this.album.releaseDate, 'longDate', 'en-US', '+0');
       this.featured[2].subtitle = this.album.recordLabel;
-      let index: number = 0;
+      let index = 0;
       this.cancionesTable.rows = this.album.tracks.map(({ id, name, duration }) => {
         index += 1;
         return {
