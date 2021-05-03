@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { environment } from '../../../environments/environment';
 import { Observable } from 'rxjs';
 import { Album } from '../album';
+import { throwError } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -14,7 +15,14 @@ export class AlbumDetailsService {
   constructor(private http: HttpClient) {}
 
 getAlbumDetails(id: number): Observable<Album> {
-  return this.http.get<Album>(this.apiUrl + '/' + id.toString());
+  if(!id)
+  {
+    return throwError("invalid ID");
+  }
+  else
+  {
+    return this.http.get<Album>(this.apiUrl + '/' + id.toString());
+  }
 }
 
 }

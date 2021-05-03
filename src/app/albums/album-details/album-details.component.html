@@ -2,7 +2,7 @@
 <div *ngIf="album">
   <app-detail-header
     [title]="album.name"
-    [subtitle]="album.performersList"
+    [subtitle]="album.listaPerformers"
     [description]="album.description"
     [imgSrc]="album.cover"
     [breadcrumbs]="breadcrumbs"
@@ -22,12 +22,12 @@
     <h4 class="mb-3">Comentarios</h4>
   </div>
   </div>
-  <div class="row">
+  <div class="row" *ngIf="album">
     <div class="col-2" *ngFor="let comment of album.comments">
       <div class="card" >
         <div class="card-body">
-          <p class="card-title padded">{{comment.description}}</p>
-          <h5 class="card-text rating">5/{{comment.rating}}</h5>
+          <p class="card-title padded comment-description">{{comment.description}}</p>
+          <h5 class="card-text comment-rating">{{comment.rating}}/5</h5>
         </div>
       </div>
     </div>

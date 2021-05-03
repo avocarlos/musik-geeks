@@ -1,4 +1,5 @@
 import { formatDate } from '@angular/common';
+import { stringify } from '@angular/compiler/src/util';
 import { Input } from '@angular/core';
 import { Component, OnInit } from '@angular/core';
 import { Album } from '../album';
@@ -13,7 +14,6 @@ export class AlbumDetailsComponent implements OnInit {
 
   @Input() albumId: number;
   public album?: Album;
-  public listaPerformers: string = "";
   public cancionesTable = {
     headers: [
       '#',
@@ -43,9 +43,21 @@ export class AlbumDetailsComponent implements OnInit {
   }
 
   getAlbum(): void {
-    console.log("get album");
+
     this.albumDetailsService.getAlbumDetails(this.albumId).subscribe((item) => {
+
         this.album = item;
+        if(this.album.performers){
+        this.album.performers.forEach(performer => {
+            if(this.album.listaPerformers)
+            {
+              this.album.listaPerformers += ", " + performer.name;
+            }
+            else{
+              this.album.listaPerformers = performer.name;
+            }
+          });
+        }
         this.breadcrumbs.push(this.album.name);
 
 

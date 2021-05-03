@@ -14,3 +14,8 @@
 .featured-title {
   color: rgba(103, 81, 242, 1);
 }
+
+.featured-text-item
+{
+  margin-right: 50px;
+}

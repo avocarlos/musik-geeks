@@ -16,6 +16,8 @@ const ALBUM = new Album(
     faker.lorem.sentence(),
     faker.lorem.sentence(),
     [],
+    [],
+    [],
     faker.datatype.number()
   );
 

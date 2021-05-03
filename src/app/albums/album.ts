@@ -3,7 +3,7 @@ import { Track } from './tracks/tracks';
 import { Comment } from './comments/comments'
 
 export class Album{
-  private _performersList: string = "";
+
   public constructor(
     public name: string,
     public cover: string,
@@ -14,22 +14,9 @@ export class Album{
     public performers: Musician[],
     public tracks: Track[],
     public comments: Comment[],
-    public id?: number
-  ) {  }
+    public id?: number,
+    public listaPerformers?: string
+  ) {
 
-  public get performersList(): string {
-    this._performersList = "";
-    this.performers.forEach((performer) =>{
-      if(this._performersList == "")
-      {
-        this._performersList = performer.name;
-      }
-      else
-      {
-        this._performersList = this._performersList + ", " + performer.name;
-      }
-
-    });
-    return this._performersList;
-  }
+   }
 }
