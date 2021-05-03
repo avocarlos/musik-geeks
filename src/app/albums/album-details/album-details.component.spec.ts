@@ -92,7 +92,7 @@ describe('AlbumDetailsComponent', () => {
     fixture.detectChanges();
 
     // Intercept and mock outgoing request
-    const req = httpTestingController.expectOne(environment.baseUrl + "albums/" + albumId.toString());
+    const req = httpTestingController.expectOne(environment.baseUrl + 'albums/' + albumId.toString());
     req.flush(ALBUM);
 
     fixture.detectChanges();
