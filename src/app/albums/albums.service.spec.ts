@@ -5,8 +5,8 @@ import { AlbumsService } from './albums.service';
 import { Album } from './album';
 
 import {
- HttpTestingController,
- HttpClientTestingModule,
+  HttpTestingController,
+  HttpClientTestingModule,
 } from '@angular/common/http/testing';
 
 import * as faker from 'faker';
@@ -49,6 +49,8 @@ describe('Service: GetAlbums', () => {
         faker.lorem.sentence(),
         faker.lorem.sentence(),
         faker.lorem.sentence(),
+        [],
+        [],
         [],
         faker.datatype.number()
       );

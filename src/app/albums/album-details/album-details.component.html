@@ -1,0 +1,38 @@
+<app-loading *ngIf="!album"></app-loading>
+<div *ngIf="album">
+  <app-detail-header
+    [title]="album.name"
+    [subtitle]="album.listaPerformers"
+    [description]="album.description"
+    [imgSrc]="album.cover"
+    [breadcrumbs]="breadcrumbs"
+    [featured]="featured"
+  ></app-detail-header>
+</div>
+
+<div class="container-fluid mt-5 mb-5">
+  <div class="row mb-5">
+    <div class="col">
+      <h4 class="mb-3">Canciones</h4>
+      <app-table
+        [headers]="cancionesTable.headers"
+        [rows]="cancionesTable.rows"
+      ></app-table>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12">
+      <h4 class="mb-3">Comentarios</h4>
+    </div>
+  </div>
+  <div class="row" *ngIf="album">
+    <div class="col-2" *ngFor="let comment of album.comments">
+      <div class="card">
+        <div class="card-body">
+          <p class="card-title padded comment-description">{{ comment.description }}</p>
+          <h5 class="card-text comment-rating">{{ comment.rating }}/5</h5>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

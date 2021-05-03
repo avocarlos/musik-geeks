@@ -9,15 +9,17 @@ import { DebugElement } from '@angular/core';
 import { By } from '@angular/platform-browser';
 
 const ALBUM = new Album(
-    faker.lorem.sentence(),
-    faker.image.imageUrl(),
-    faker.date.recent().toString(),
-    faker.lorem.sentence(),
-    faker.lorem.sentence(),
-    faker.lorem.sentence(),
-    [],
-    faker.datatype.number()
-  );
+  faker.lorem.sentence(),
+  faker.image.imageUrl(),
+  faker.date.recent().toString(),
+  faker.lorem.sentence(),
+  faker.lorem.sentence(),
+  faker.lorem.sentence(),
+  [],
+  [],
+  [],
+  faker.datatype.number()
+);
 
 describe('AlbumsComponent', () => {
   let component: AlbumsComponent;

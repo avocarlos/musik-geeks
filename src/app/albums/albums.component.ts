@@ -11,6 +11,7 @@ import { TableRow } from '../shared/table/table.component';
 })
 export class AlbumsComponent implements OnInit {
   public albumes: Album[] = [];
+  public selectedAlbum = 0;
   public title = 'Álbumes';
   public headers = [
     'Portada',
@@ -23,17 +24,37 @@ export class AlbumsComponent implements OnInit {
   constructor(private albumsService: AlbumsService) { }
 
   getAlbumsList(): void {
-    this.albumsService.getAlbums().subscribe(cs => {
-      this.albumes = cs;
-      this.rows = cs.map(({cover, name, recordLabel, releaseDate}) => {
-        const formattedImg = imgTag(cover);
-        const formattedDate = formatDate(releaseDate, 'shortDate', 'en-US');
+    this.albumsService.getAlbums()
+      .subscribe(cs => {
+        this.albumes = cs;
+        if (this.albumes) {
+          this.albumes.forEach((album) => {
+            if (album.performers) {
+              album.performers.forEach(performer => {
+                if (album.listaPerformers) {
+                  album.listaPerformers += ', ' + performer.name;
+                }
+                else {
+                  album.listaPerformers = performer.name;
+                }
+              });
+            }
+          });
+        }
+        this.rows = cs.map(({ cover, name, listaPerformers, releaseDate, id }) => {
+          const formattedImg = imgTag(cover);
+          const formattedDate = formatDate(releaseDate, 'shortDate', 'en-US');
 
-        return {
-          columns: [formattedImg, name, recordLabel, formattedDate]
-        };
+          return {
+            columns: [formattedImg, name, listaPerformers, formattedDate],
+            viewButtonClick: () => this.handleViewButtonClick(id)
+          };
+        });
       });
-    });
+  }
+
+  handleViewButtonClick(id: number): void {
+    this.selectedAlbum = id;
   }
 
   ngOnInit(): void {
