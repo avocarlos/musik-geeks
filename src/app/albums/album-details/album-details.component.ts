@@ -46,30 +46,29 @@ export class AlbumDetailsComponent implements OnInit {
 
     this.albumDetailsService.getAlbumDetails(this.albumId).subscribe((item) => {
 
-        this.album = item;
-        if(this.album.performers){
+      this.album = item;
+      if (this.album.performers) {
         this.album.performers.forEach(performer => {
-            if(this.album.listaPerformers)
-            {
-              this.album.listaPerformers += ", " + performer.name;
-            }
-            else{
-              this.album.listaPerformers = performer.name;
-            }
-          });
-        }
-        this.breadcrumbs.push(this.album.name);
+          if (this.album.listaPerformers) {
+            this.album.listaPerformers += ", " + performer.name;
+          }
+          else {
+            this.album.listaPerformers = performer.name;
+          }
+        });
+      }
+      this.breadcrumbs.push(this.album.name);
 
 
-        this.featured[0].subtitle = this.album.genre;
-        this.featured[1].subtitle = formatDate(this.album.releaseDate, 'longDate', 'en-US', '+0');
-        this.featured[2].subtitle = this.album.recordLabel;
-        let index:number = 0;
-        this.cancionesTable.rows = this.album.tracks.map(({id, name, duration}) => {
-          index += 1;
-          return {
-            columns: [index, name, duration]
-          };
+      this.featured[0].subtitle = this.album.genre;
+      this.featured[1].subtitle = formatDate(this.album.releaseDate, 'longDate', 'en-US', '+0');
+      this.featured[2].subtitle = this.album.recordLabel;
+      let index: number = 0;
+      this.cancionesTable.rows = this.album.tracks.map(({ id, name, duration }) => {
+        index += 1;
+        return {
+          columns: [index, name, duration]
+        };
 
       });
     });

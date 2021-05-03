@@ -1,4 +1,4 @@
-export class Track{
+export class Track {
   public constructor(
     public name: string,
     public duration: string,

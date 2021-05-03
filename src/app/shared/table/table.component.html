@@ -1,24 +1,33 @@
 <table id="dataTable" summary="lista de datos" class="table table-shadow">
   <thead>
     <tr>
-      <th id="tableHeaders" class="text-uppercase text-secondary" *ngFor="let header of headers">
-        <small>{{header}}</small>
+      <th
+        id="tableHeaders"
+        class="text-uppercase text-secondary"
+        *ngFor="let header of headers"
+      >
+        <small>{{ header }}</small>
       </th>
-      <th id="table-actions">
-      </th>
+      <th id="table-actions"></th>
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let row of rows; index as idx;">
+    <tr *ngFor="let row of rows; index as idx">
       <td
-        *ngFor="let value of row.columns; index as columnIdx;"
-        id="{{headers[columnIdx] ? 'table-' + headers[columnIdx].toLowerCase() : ''}}"
+        *ngFor="let value of row.columns; index as columnIdx"
+        id="{{
+          headers[columnIdx] ? 'table-' + headers[columnIdx].toLowerCase() : ''
+        }}"
         class="align-middle"
         [innerHTML]="value"
-      >
-      </td>
+      ></td>
       <td>
-        <button *ngIf="row.viewButtonClick" type="button" class="btn" (click)="row.viewButtonClick()">
+        <button
+          *ngIf="row.viewButtonClick"
+          type="button"
+          class="btn"
+          (click)="row.viewButtonClick()"
+        >
           <em class="bem bi-chevron-right"></em>
         </button>
       </td>

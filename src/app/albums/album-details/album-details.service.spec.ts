@@ -1,12 +1,12 @@
 /* tslint:disable:no-unused-variable */
 
-import { TestBed, async, inject , getTestBed } from '@angular/core/testing';
+import { TestBed, async, inject, getTestBed } from '@angular/core/testing';
 import { AlbumDetailsService } from './album-details.service';
 import { Album } from '../album';
 
 import {
- HttpTestingController,
- HttpClientTestingModule,
+  HttpTestingController,
+  HttpClientTestingModule,
 } from '@angular/common/http/testing';
 
 import * as faker from 'faker';
@@ -42,7 +42,7 @@ describe('Service: AlbumDetails', () => {
 
     const id = faker.datatype.number();
 
-    const nuevoAlbum = new Album (
+    const nuevoAlbum = new Album(
       faker.lorem.sentence(),
       faker.lorem.sentence(),
       faker.date.recent().toString(),

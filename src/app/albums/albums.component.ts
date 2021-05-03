@@ -25,33 +25,32 @@ export class AlbumsComponent implements OnInit {
 
   getAlbumsList(): void {
     this.albumsService.getAlbums()
-    .subscribe(cs => {
-      this.albumes = cs;
-      if(this.albumes){
-        this.albumes.forEach((album) => {
-          if(album.performers){
-            album.performers.forEach(performer => {
-              if(album.listaPerformers)
-              {
-                album.listaPerformers += ", " + performer.name;
-              }
-              else{
-                album.listaPerformers = performer.name;
-              }
-            });
-          }
-        });
-      }
-      this.rows = cs.map(({cover, name, listaPerformers, releaseDate, id}) => {
-        const formattedImg = imgTag(cover);
-        const formattedDate = formatDate(releaseDate, 'shortDate', 'en-US');
+      .subscribe(cs => {
+        this.albumes = cs;
+        if (this.albumes) {
+          this.albumes.forEach((album) => {
+            if (album.performers) {
+              album.performers.forEach(performer => {
+                if (album.listaPerformers) {
+                  album.listaPerformers += ", " + performer.name;
+                }
+                else {
+                  album.listaPerformers = performer.name;
+                }
+              });
+            }
+          });
+        }
+        this.rows = cs.map(({ cover, name, listaPerformers, releaseDate, id }) => {
+          const formattedImg = imgTag(cover);
+          const formattedDate = formatDate(releaseDate, 'shortDate', 'en-US');
 
-        return {
-          columns: [formattedImg, name, listaPerformers, formattedDate],
-          viewButtonClick: () => this.handleViewButtonClick(id)
-        };
+          return {
+            columns: [formattedImg, name, listaPerformers, formattedDate],
+            viewButtonClick: () => this.handleViewButtonClick(id)
+          };
+        });
       });
-    });
   }
 
   handleViewButtonClick(id: number): void {
@@ -70,13 +69,11 @@ function imgTag(src: string): string {
 function performersList(): string {
   let _performersList: string = "";
   _performersList = "";
-  this.album.performers.forEach((performer) =>{
-    if(_performersList == "")
-    {
+  this.album.performers.forEach((performer) => {
+    if (_performersList == "") {
       _performersList = performer.name;
     }
-    else
-    {
+    else {
       _performersList = _performersList + ", " + performer.name;
     }
 

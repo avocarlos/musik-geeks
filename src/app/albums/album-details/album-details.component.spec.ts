@@ -7,7 +7,7 @@ import { HttpClientTestingModule, HttpTestingController } from '@angular/common/
 import { SharedModule } from '../../shared/shared.module';
 import { Album } from '../album';
 import { Track } from '../tracks/tracks';
-import {Comment} from '../comments/comments';
+import { Comment } from '../comments/comments';
 import { AlbumDetailsComponent } from './album-details.component';
 import * as faker from 'faker';
 import { environment } from 'src/environments/environment';
@@ -17,52 +17,52 @@ import { formatDate } from '@angular/common';
 
 
 const albumName: string = faker.lorem.sentence();
-  const albumId: number = faker.datatype.number();
+const albumId: number = faker.datatype.number();
 
-  const MUSICIANS = [
-    {
-      id: faker.datatype.number(),
-      name: faker.name.firstName() + ' ' +  faker.name.lastName(),
-      image:  faker.image.imageUrl(),
-      description: faker.lorem.sentence(),
-      birthDate:faker.date.recent().toString(),
-      albums:[],
-      performerPrizes: []
-    },
-    {
-      id: faker.datatype.number(),
-      name: faker.name.title + ' ' +  faker.name.lastName(),
-      image:  faker.image.imageUrl(),
-      description: faker.lorem.sentence(),
-      birthDate:faker.date.recent().toString(),
-      albums:[],
-      performerPrizes: []
-    }
-  ];
-
-  const TRACKS =  [{
-    name: faker.name.jobTitle(),
-    duration: faker.datatype.number().toString(),
-    id: faker.datatype.number()
-   }];
-   const COMMENTS = [{
-    description: faker.date.recent().toString(),
-    rating: faker.datatype.number(),
-    id: faker.datatype.number()
-      }];
-
-  const ALBUM = {
-    name: albumName,
-    cover:faker.image.imageUrl(),
-    releaseDate: faker.date.recent().toString(),
+const MUSICIANS = [
+  {
+    id: faker.datatype.number(),
+    name: faker.name.firstName() + ' ' + faker.name.lastName(),
+    image: faker.image.imageUrl(),
     description: faker.lorem.sentence(),
-    genre: faker.lorem.sentence(),
-    recordLabel:faker.lorem.sentence(),
-    performers: MUSICIANS,
-    tracks: TRACKS,
-    comments: COMMENTS,
-    id: albumId
-    };
+    birthDate: faker.date.recent().toString(),
+    albums: [],
+    performerPrizes: []
+  },
+  {
+    id: faker.datatype.number(),
+    name: faker.name.title + ' ' + faker.name.lastName(),
+    image: faker.image.imageUrl(),
+    description: faker.lorem.sentence(),
+    birthDate: faker.date.recent().toString(),
+    albums: [],
+    performerPrizes: []
+  }
+];
+
+const TRACKS = [{
+  name: faker.name.jobTitle(),
+  duration: faker.datatype.number().toString(),
+  id: faker.datatype.number()
+}];
+const COMMENTS = [{
+  description: faker.date.recent().toString(),
+  rating: faker.datatype.number(),
+  id: faker.datatype.number()
+}];
+
+const ALBUM = {
+  name: albumName,
+  cover: faker.image.imageUrl(),
+  releaseDate: faker.date.recent().toString(),
+  description: faker.lorem.sentence(),
+  genre: faker.lorem.sentence(),
+  recordLabel: faker.lorem.sentence(),
+  performers: MUSICIANS,
+  tracks: TRACKS,
+  comments: COMMENTS,
+  id: albumId
+};
 
 
 describe('AlbumDetailsComponent', () => {
@@ -78,7 +78,7 @@ describe('AlbumDetailsComponent', () => {
       ],
       declarations: [AlbumDetailsComponent]
     })
-    .compileComponents();
+      .compileComponents();
 
     httpTestingController = TestBed.inject(HttpTestingController);
   }));
@@ -114,35 +114,35 @@ describe('AlbumDetailsComponent', () => {
 
 
 
-    it('should call #getAlbums and format cancionesTable', () => {
-      expect(component.cancionesTable).toEqual({
-        headers: ['#',
+  it('should call #getAlbums and format cancionesTable', () => {
+    expect(component.cancionesTable).toEqual({
+      headers: ['#',
         'Título',
         'Duración'],
-        rows: [{
-          columns: [
-            1,
-            ALBUM.tracks[0].name,
-            ALBUM.tracks[0].duration
-          ]
-        }]
-      });
+      rows: [{
+        columns: [
+          1,
+          ALBUM.tracks[0].name,
+          ALBUM.tracks[0].duration
+        ]
+      }]
     });
+  });
 
-    it('should call #getAlbums and format featured', () => {
-      expect(component.featured).toEqual([{
-        title: 'Genero',
-        subtitle: ALBUM.genre
-      },
-      {
-        title: 'Lanzamiento',
-        subtitle: formatDate(ALBUM.releaseDate, 'longDate', 'en-US', '+0')
-      },
-      {
-        title: 'Firma',
-        subtitle: ALBUM.recordLabel
-      }]);
-    });
+  it('should call #getAlbums and format featured', () => {
+    expect(component.featured).toEqual([{
+      title: 'Genero',
+      subtitle: ALBUM.genre
+    },
+    {
+      title: 'Lanzamiento',
+      subtitle: formatDate(ALBUM.releaseDate, 'longDate', 'en-US', '+0')
+    },
+    {
+      title: 'Firma',
+      subtitle: ALBUM.recordLabel
+    }]);
+  });
 
 
   it('should render album header with information', () => {
@@ -170,7 +170,7 @@ describe('AlbumDetailsComponent', () => {
     expect(description).toBeTruthy();
     expect(rating).toBeTruthy();
     expect(description.nativeElement.textContent).toEqual(comment.description);
-    expect(rating.nativeElement.textContent).toEqual(comment.rating+'/5');
+    expect(rating.nativeElement.textContent).toEqual(comment.rating + '/5');
   });
 
 

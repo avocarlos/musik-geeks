@@ -12,17 +12,15 @@ export class AlbumDetailsService {
 
   private apiUrl = environment.baseUrl + 'albums';
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
 
-getAlbumDetails(id: number): Observable<Album> {
-  if(!id)
-  {
-    return throwError("invalid ID");
+  getAlbumDetails(id: number): Observable<Album> {
+    if (!id) {
+      return throwError("invalid ID");
+    }
+    else {
+      return this.http.get<Album>(this.apiUrl + '/' + id.toString());
+    }
   }
-  else
-  {
-    return this.http.get<Album>(this.apiUrl + '/' + id.toString());
-  }
-}
 
 }
