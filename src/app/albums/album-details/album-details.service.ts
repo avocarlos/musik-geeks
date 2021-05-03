@@ -15,12 +15,7 @@ export class AlbumDetailsService {
   constructor(private http: HttpClient) { }
 
   getAlbumDetails(id: number): Observable<Album> {
-    if (!id) {
-      return throwError('invalid ID');
-    }
-    else {
       return this.http.get<Album>(this.apiUrl + '/' + id.toString());
-    }
   }
 
 }
