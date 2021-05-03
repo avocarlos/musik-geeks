@@ -46,7 +46,7 @@ const TRACKS = [{
   id: faker.datatype.number()
 }];
 const COMMENTS = [{
-  description: faker.date.recent().toString(),
+  description: faker.lorem.paragraph(),
   rating: faker.datatype.number(),
   id: faker.datatype.number()
 }];

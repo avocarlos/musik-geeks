@@ -29,9 +29,7 @@
     <div class="col-2" *ngFor="let comment of album.comments">
       <div class="card">
         <div class="card-body">
-          <p class="card-title padded comment-description">
-            {{ comment.description }}
-          </p>
+          <p class="card-title padded comment-description">{{ comment.description }}</p>
           <h5 class="card-text comment-rating">{{ comment.rating }}/5</h5>
         </div>
       </div>
