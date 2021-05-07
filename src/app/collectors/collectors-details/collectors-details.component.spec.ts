@@ -1,67 +1,71 @@
 /* tslint:disable:no-unused-variable */
-import { TestBed,  ComponentFixture, inject, getTestBed } from '@angular/core/testing';
+import { TestBed,  ComponentFixture, async, inject, getTestBed } from '@angular/core/testing';
+import { SharedModule } from '../../shared/shared.module';
 import { HttpTestingController, HttpClientTestingModule, } from '@angular/common/http/testing';
+import { By } from '@angular/platform-browser';
 import { environment } from '../../../environments/environment';
-
-import { Collector } from '../collector';
+import { NO_ERRORS_SCHEMA } from '@angular/core';
 import { CollectorsService } from '../collectors.service';
 import { CollectorsDetailsComponent } from './collectors-details.component';
+import { DebugElement } from '@angular/core';
+import * as faker from 'faker';
+
+const collectorId: number = faker.datatype.number();
+
 
 
 describe('CollectorsDetailsComponent', () => {
-  let injector: TestBed;
-  let service: CollectorsService;
-  let httpMock: HttpTestingController;
-  let httpTestingController: HttpTestingController;
-  const apiUrl = environment.baseUrl + 'collectors';
+  let component: CollectorsDetailsComponent;
   let fixture: ComponentFixture<CollectorsDetailsComponent>;
+  let debug: DebugElement;
+  let httpTestingController: HttpTestingController;
 
+  beforeEach(async(() => {
+    TestBed.configureTestingModule({
+      declarations: [ CollectorsDetailsComponent ],
+      imports: [
+        HttpClientTestingModule,
+        SharedModule
+      ],
+      providers: [CollectorsService],
+      schemas: [NO_ERRORS_SCHEMA]
+    })
+    .compileComponents();
+    httpTestingController = TestBed.inject(HttpTestingController);
+  }));
 
   beforeEach(() => {
-    TestBed.configureTestingModule({
-      imports: [HttpClientTestingModule],
-      providers: [CollectorsService],
-      declarations: [CollectorsDetailsComponent]
-    }).compileComponents();
-
-    injector = getTestBed();
-    service = injector.inject(CollectorsService);
-    httpMock = injector.inject(HttpTestingController);
-    httpTestingController = TestBed.inject(HttpTestingController);
     fixture = TestBed.createComponent(CollectorsDetailsComponent);
-
+    component = fixture.componentInstance;
+    fixture.detectChanges();
+    debug = fixture.debugElement;
+    component.collectorId = collectorId;
   });
 
-  afterEach(() => {
-    httpMock.verify();
-    httpTestingController.verify();
+  it('should create Collectors Details component', () => {
+
+    expect(component).toBeTruthy();
   });
 
-  it('should render title', () => {
+  it('should call #getCollectors and format featured', () => {
+    expect(component.featured).toEqual([{
+      title: 'Correo Electronico',
+      subtitle: ''
+    },
+    {
+      title: 'Teléfono',
+      subtitle: ''
+    } ]);
+  });
+
+  it('should render Colecciones', () => {
     const compiled = fixture.nativeElement;
+    expect(compiled.querySelector('h4').textContent).toContain('Colecciones');
   });
 
-  it('should render Coleccionista list data', () => {
-    const compiled = fixture.nativeElement;
-    const rows = compiled.querySelectorAll('tbody tr');
+  it('should call #getCollector and format breadcrumbs', () => {
+    expect(component.breadcrumbs).toEqual(['Home', 'Coleccionistas']);
   });
-
-  it('Coleccionista list has image object', () => {
-    const compiled = fixture.nativeElement;
-    const rows = compiled.querySelectorAll('table');
-  });
-
-  it('getCollectors() should return 10 records', inject([CollectorsService], (collectorService: CollectorsService) => {
-    const mockPosts: Collector[] = [];
-
-    service.getCollectorsList().subscribe((collectors) => {
-      expect(collectors.length).toBe(0);
-    });
-
-    const req = httpMock.expectOne(apiUrl);
-    expect(req.request.method).toBe('GET');
-    req.flush(mockPosts);
-  }));
 
 });
 

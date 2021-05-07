@@ -1,11 +1,13 @@
-import { Album } from '../albums/album';
-export interface Collector {
+import { Comment } from '../albums/comments/comments';
+import { CollectorAlbums } from './collector-albums/collectoralbums';
+
+export class Collector {
   id: number;
   name: string;
   telephone: string;
   email: string;
-  comments: unknown[];
-  favoritePerformers: unknown[];
-  collectorAlbums: unknown[];
-  albums: Album[];
+  comments: Comment[];
+  favoritePerformers: any[];
+  cantidad: number;
+  collectorAlbums: CollectorAlbums[];
 }

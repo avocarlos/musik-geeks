@@ -1,33 +1,42 @@
 <app-loading *ngIf="!collector"></app-loading>
 <div *ngIf="collector">
   <app-detail-header
-
   [title]="collector.name"
-  [featured]="featured"
+  [breadcrumbs]="breadcrumbs"
+  [featured1]="featured"
 
   ></app-detail-header>
-  <div class="container mt-5 mb-5">
-    <div class="row mb-5">
-      <div class="col">
-        <h4 class="mb-3">Colecciones</h4>
-        <app-table [headers]="albumsTable.headers" [rows]="albumsTable.rows"></app-table>
-      </div>
-    </div>
-    <div class="row"> <br>
-    <div class="row">
-      <div class="col">
-        <h4 class="mb-3">Músicos favoritos</h4>
-        <app-table [headers]="favoritePerformersTable.headers" [rows]="favoritePerformersTable.rows"></app-table>
-      </div>
-    </div>
-    <div class="row"> <br>
-    </div>
-    <div class="row">
-      <div class="col">
-        <h4 class="mb-3">Comentarios recientes</h4>
-        <app-table [headers]="commentsTable.headers" [rows]="commentsTable.rows"></app-table>
-      </div>
-    </div>
+</div>
 
+<div class="container-fluid mt-5 mb-5">
+  <div class="row mb-5">
+    <div class="col">
+      <h4 class="mb-4">Colecciones</h4>
+      <app-table [headers]="albumsTable.headers" [rows]="albumsTable.rows"></app-table>
+    </div>
+  </div>
+
+  <div class="row mb-5">
+    <div class="col">
+      <h4 class="mb-4">Músicos favoritos</h4>
+      <app-table [headers]="favoritePerformersTable.headers" [rows]="favoritePerformersTable.rows"></app-table>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-12">
+      <h4 class="mb-3">Comentarios recientes</h4>
+    </div>
+  </div>
+  <div class="row" *ngIf="collector">
+    <div class="col-3" *ngFor="let comment of collector.comments">
+      <div class="card">
+        <div class="card-body">
+          <p class="card-title padded comment-description">{{ comment.description }}</p>
+          <h5 class="card-text comment-rating">{{ comment.rating }}/5</h5>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
+

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit , Output, EventEmitter} from '@angular/core';
 import { Collector } from './collector';
 import { CollectorsService } from './collectors.service';
 import { TableRow } from '../shared/table/table.component';
@@ -13,32 +13,30 @@ interface CollectorsTable {
 })
 export class CollectorsComponent implements OnInit {
   selectedCollectors?: number;
-  collectors: Collector[];
+  public collapsed = false;
+  collectors: Collector[] = new Array<Collector>();
   table: CollectorsTable = {
     headers: ['Nombre', 'Colecciones', 'Comentarios', ''],
     rows: []
   };
   title = 'Coleccionistas';
 
-  constructor(private collectorService: CollectorsService) { }
+  @Output() buttonClick = new EventEmitter<string>();
+
+  constructor(public collectorService: CollectorsService) { }
 
     ngOnInit(): void {
-      this.getCollectorsList();
-    }
-
-    getCollectorsList(): void {
-      this.collectorService.getCollectorsList()
-        .subscribe((collectors) => {
+      this.collectorService.getCollectorsList().subscribe((collectors) => {
           this.collectors = collectors;
-          this.table.rows = collectors.map(({id, name, telephone, email}) => ({
-            columns: [name, telephone, email],
-            viewButtonClick: () => this.handleViewButtonClick(id)
-          }));
-        });
+
+      });
     }
 
     handleViewButtonClick(id: number): void {
       this.selectedCollectors = id;
+    }
+    onCollapseClick(): void {
+      this.collapsed = !this.collapsed;
     }
 }
 

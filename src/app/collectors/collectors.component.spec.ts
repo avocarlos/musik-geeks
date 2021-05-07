@@ -1,67 +1,87 @@
-/* tslint:disable:no-unused-variable */
-import { TestBed,  ComponentFixture, inject, getTestBed } from '@angular/core/testing';
-import { HttpTestingController, HttpClientTestingModule, } from '@angular/common/http/testing';
-import { environment } from '../../environments/environment';
-
-import { Collector } from './collector';
-import { CollectorsService } from './collectors.service';
 import { CollectorsComponent } from './collectors.component';
+import { SharedModule } from '../shared/shared.module';
+import { ComponentFixture, async, TestBed } from '@angular/core/testing';
+import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
+import { NO_ERRORS_SCHEMA } from '@angular/core';
+import { DebugElement } from '@angular/core';
+
+const COLLECTORS = [
+  {
+    id: 1,
+    name: 'Manolo Bellon',
+    telephone: '3502457896',
+    email: 'manollo@caracol.com.co',
+    comments: [],
+    favoritePerformers: [],
+    collectorAlbums: [],
+  },
+];
 
 
 describe('CollectorsComponent', () => {
-  let injector: TestBed;
-  let service: CollectorsService;
-  let httpMock: HttpTestingController;
-  let httpTestingController: HttpTestingController;
-  const apiUrl = environment.baseUrl + 'collectors';
+  let component: CollectorsComponent;
   let fixture: ComponentFixture<CollectorsComponent>;
+  let debug: DebugElement;
+  let httpTestingController: HttpTestingController;
 
+  beforeEach(async(() => {
+    TestBed.configureTestingModule({
+      declarations: [ CollectorsComponent ],
+      imports: [
+        HttpClientTestingModule,
+        SharedModule
+      ],
+      schemas: [NO_ERRORS_SCHEMA]
+    })
+    .compileComponents();
+    httpTestingController = TestBed.inject(HttpTestingController);
+  }));
 
   beforeEach(() => {
-    TestBed.configureTestingModule({
-      imports: [HttpClientTestingModule],
-      providers: [CollectorsService],
-      declarations: [CollectorsComponent]
-    }).compileComponents();
-
-    injector = getTestBed();
-    service = injector.inject(CollectorsService);
-    httpMock = injector.inject(HttpTestingController);
-    httpTestingController = TestBed.inject(HttpTestingController);
     fixture = TestBed.createComponent(CollectorsComponent);
-
+    component = fixture.componentInstance;
+    fixture.detectChanges();
+    debug = fixture.debugElement;
+    const req = httpTestingController.expectOne('https://musiccollector-api.herokuapp.com/collectors');
+    req.flush(COLLECTORS);
+    fixture.detectChanges();
   });
 
+
   afterEach(() => {
-    httpMock.verify();
     httpTestingController.verify();
+  });
+
+  it('should create Collectors component', () => {
+    expect(component).toBeTruthy();
   });
 
   it('should render title', () => {
     const compiled = fixture.nativeElement;
+    expect(compiled.querySelector('h2').textContent).toContain('Coleccionistas');
   });
 
-  it('should render Coleccionista list data', () => {
-    const compiled = fixture.nativeElement;
-    const rows = compiled.querySelectorAll('tbody tr');
+  it('should render the header with page name', () => {
+    const collectorsList = fixture.debugElement.nativeElement;
+    const title = collectorsList.querySelector('h2');
+
+    expect(title.textContent).toEqual('Coleccionistas');
   });
 
-  it('Coleccionista list has image object', () => {
-    const compiled = fixture.nativeElement;
-    const rows = compiled.querySelectorAll('table');
+  it('should render the table with default headers', () => {
+    const collectorsList = fixture.debugElement.nativeElement;
+    const table = collectorsList.querySelector('table');
+    const headers = table.querySelectorAll('th');
+
+    expect(headers[0].textContent).toEqual('NOMBRE');
+    expect(headers[1].textContent).toEqual('COLECCIONES');
   });
 
-  it('getCollectors() should return 10 records', inject([CollectorsService], (collectorService: CollectorsService) => {
-    const mockPosts: Collector[] = [];
+  it('should render the table with Collectors name', () => {
+    const collectorsList = fixture.debugElement.nativeElement;
+    const columns = collectorsList.querySelectorAll('tbody td');
 
-    service.getCollectorsList().subscribe((collectors) => {
-      expect(collectors.length).toBe(0);
-    });
-
-    const req = httpMock.expectOne(apiUrl);
-    expect(req.request.method).toBe('GET');
-    req.flush(mockPosts);
-  }));
+    expect(columns[0].textContent).toEqual('Manolo Bellon');
+  });
 
 });
-

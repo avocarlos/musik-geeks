@@ -2,6 +2,9 @@ import { Component, OnInit, Input } from '@angular/core';
 import { Collector } from '../collector';
 import { CollectorsService } from '../collectors.service';
 import { formatDate } from '@angular/common';
+import { CollectorAlbums } from '../collector-albums/collectoralbums';
+import { Album } from '../../albums/album';
+import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-collectors-details',
@@ -11,14 +14,18 @@ import { formatDate } from '@angular/common';
 export class CollectorsDetailsComponent implements OnInit {
   @Input() collectorId: number;
   public collector?: Collector;
+  public collectorAlbums?: CollectorAlbums;
+  public collapsed = false;
   public albumsTable = {
     headers: [
-      'Portada',
+      '',
       'Título',
-      'Lanzamiento'
+      'Lanzamiento',
+      'Precio'
     ],
     rows: []
   };
+
   public favoritePerformersTable = {
     headers: [
       '',
@@ -34,26 +41,40 @@ export class CollectorsDetailsComponent implements OnInit {
     rows: []
   };
 
-
-  public breadcrumbs = ['Home', 'Coleccionista'];
+  public breadcrumbs = ['Home', 'Coleccionistas'];
   public featured = [{
-        title: '   Correo Electronico    ',
+        title: 'Correo Electronico',
         subtitle: ''
       },
       {
-        title:  '',
-        subtitle: ' '
-      },
-      {
-        title: '     Teléfono    ',
+        title: 'Teléfono',
         subtitle: ''
       }];
+
 
 
   constructor(private collectorsService: CollectorsService) { }
 
   ngOnInit(): void {
     this.getCollector();
+    this.getCollectorAlbums();
+
+  }
+
+  getCollectorAlbums(): void {
+    this.collectorsService.getCollectorAlbums(this.collectorId)
+      .subscribe((collectorAlbums) => {
+        this.collectorAlbums = collectorAlbums[0].album;
+        const price = collectorAlbums[0].price;
+        const peliculas = [collectorAlbums[0].album];
+        this.albumsTable.rows = peliculas.map(({cover, name, releaseDate}) => {
+          const formattedImg = imgTag(cover);
+          const formattedDate = formatDate(releaseDate, 'longDate', 'en-US', '+0');
+          return {
+            columns: [formattedImg, name, formattedDate, price]
+          };
+        });
+    });
   }
 
   getCollector(): void {
@@ -63,20 +84,10 @@ export class CollectorsDetailsComponent implements OnInit {
         this.breadcrumbs.push(collector.name);
 
         this.featured[0].subtitle = collector.email;
-        this.featured[1].subtitle = '';
-        this.featured[2].subtitle = collector.telephone;
-
-        this.albumsTable.rows = collector.collectorAlbums.map(({id, price, status}) => {
-          return {
-            columns: [price, status, status],
-            viewButtonClick: () => this.handleViewButtonClick(id)
-          };
-        });
-
+        this.featured[1].subtitle = collector.telephone;
         this.favoritePerformersTable.rows = collector.favoritePerformers.map(({id, image, name}) => {
           return {
-            columns: [imgTag(image), name],
-            viewButtonClick: () => this.handleViewButtonClick(id)
+            columns: [imgTag(image), name]
           };
         });
 
