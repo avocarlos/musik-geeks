@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { formatDate } from '@angular/common';
 import { Album } from './album';
 import { AlbumsService } from './albums.service';
+import { Router, ActivatedRoute } from '@angular/router';
 
 import { TableRow } from '../shared/table/table.component';
 @Component({
@@ -21,7 +22,9 @@ export class AlbumsComponent implements OnInit {
   ];
   public rows: TableRow[] = [];
 
-  constructor(private albumsService: AlbumsService) { }
+  constructor(private albumsService: AlbumsService,
+    private route: ActivatedRoute,
+    private router: Router) { }
 
   getAlbumsList(): void {
     this.albumsService.getAlbums()
@@ -47,14 +50,10 @@ export class AlbumsComponent implements OnInit {
 
           return {
             columns: [formattedImg, name, listaPerformers, formattedDate],
-            viewButtonClick: () => this.handleViewButtonClick(id)
+            viewButtonClick: () => this.router.navigate([`./${id}`], { relativeTo: this.route })
           };
         });
       });
-  }
-
-  handleViewButtonClick(id: number): void {
-    this.selectedAlbum = id;
   }
 
   ngOnInit(): void {

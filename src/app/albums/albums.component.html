@@ -1,4 +1,4 @@
-<div *ngIf="!selectedAlbum">
+<app-loading *ngIf="!albumes"></app-loading>
   <app-list-header [title]="title"> </app-list-header>
   <div class="container mt-5 mb-5">
     <div class="row">
@@ -7,8 +7,3 @@
       </div>
     </div>
   </div>
-</div>
-<app-album-details
-  *ngIf="selectedAlbum"
-  [albumId]="selectedAlbum"
-></app-album-details>

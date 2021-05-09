@@ -1,9 +1,8 @@
 import { formatDate } from '@angular/common';
-import { stringify } from '@angular/compiler/src/util';
-import { Input } from '@angular/core';
 import { Component, OnInit } from '@angular/core';
 import { Album } from '../album';
 import { AlbumDetailsService } from './album-details.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-album-details',
@@ -12,7 +11,7 @@ import { AlbumDetailsService } from './album-details.service';
 })
 export class AlbumDetailsComponent implements OnInit {
 
-  @Input() albumId: number;
+  public albumId?: number;
   public album?: Album;
   public cancionesTable = {
     headers: [
@@ -36,10 +35,13 @@ export class AlbumDetailsComponent implements OnInit {
     title: 'Firma',
     subtitle: ''
   }];
-  constructor(private albumDetailsService: AlbumDetailsService) { }
+  constructor(private albumDetailsService: AlbumDetailsService,
+    private route: ActivatedRoute) { }
 
   ngOnInit(): void {
-    this.getAlbum();
+
+    this.route.params.subscribe(params => {this.albumId = params.id});
+      this.getAlbum();
   }
 
   getAlbum(): void {

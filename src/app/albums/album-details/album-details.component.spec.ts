@@ -12,6 +12,7 @@ import { AlbumDetailsComponent } from './album-details.component';
 import * as faker from 'faker';
 import { environment } from 'src/environments/environment';
 import { formatDate } from '@angular/common';
+import { ActivatedRoute } from '@angular/router';
 
 
 
@@ -76,7 +77,15 @@ describe('AlbumDetailsComponent', () => {
         HttpClientTestingModule,
         SharedModule
       ],
-      declarations: [AlbumDetailsComponent]
+      declarations: [AlbumDetailsComponent],
+      providers: [{
+        provide: ActivatedRoute,
+        useValue: {
+          params: {
+            subscribe: (callback) => callback({ id: 100 })
+          }
+        }
+      }]
     })
       .compileComponents();
 
@@ -86,8 +95,6 @@ describe('AlbumDetailsComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(AlbumDetailsComponent);
     component = fixture.componentInstance;
-
-    component.albumId = albumId;
 
     fixture.detectChanges();
 

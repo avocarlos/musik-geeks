@@ -22,10 +22,6 @@ export class NavbarComponent implements OnInit {
     this.buttonClick.emit('collectors');
   }
 
-  onAlbumsClick(): void {
-    this.buttonClick.emit('albums');
-  }
-
   onCollapseClick(): void {
     this.collapsed = !this.collapsed;
   }
