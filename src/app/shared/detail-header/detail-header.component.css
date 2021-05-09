@@ -6,8 +6,8 @@
 
 .musician-img {
   object-fit: cover;
-  height: 250px;
-  width: 250px;
+  height: 280px;
+  width: 100%;
   box-shadow: 0px 0.5rem 1rem rgba(23, 97, 255, 0.15);
 }
 
@@ -15,7 +15,6 @@
   color: rgba(103, 81, 242, 1);
 }
 
-.featured-text-item
-{
+.featured-text-item {
   margin-right: 50px;
 }

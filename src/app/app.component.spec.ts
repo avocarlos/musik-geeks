@@ -1,6 +1,7 @@
 import { AppComponent } from './app.component';
 import { ComponentFixture, async, TestBed } from '@angular/core/testing';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { RouterTestingModule } from '@angular/router/testing';
 import { AlbumsModule } from './albums/albums.module';
 import { MusicianModule } from './musician/musician.module';
 import { SharedModule } from './shared/shared.module';
@@ -17,6 +18,7 @@ describe('AppComponent', () => {
     TestBed.configureTestingModule({
       declarations: [AppComponent],
       imports: [
+        RouterTestingModule,
         HttpClientTestingModule,
         AlbumsModule,
         MusicianModule,
