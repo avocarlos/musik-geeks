@@ -40,9 +40,13 @@ describe('NavbarComponent', () => {
   });
 
   it('should collapse navbar when collapse button is clicked', () => {
-    const buttons = fixture.debugElement.queryAll(By.css('.nav-item'));
-    buttons[4].triggerEventHandler('click', null);
+    const buttons = fixture.debugElement.queryAll(By.css('.nav-link'));
+    const event = { preventDefault: () => true };
+    spyOn(event, 'preventDefault');
 
+    buttons[4].triggerEventHandler('click', event);
+
+    expect(event.preventDefault).toHaveBeenCalled();
     expect(component.collapsed).toBe(true);
   });
 });

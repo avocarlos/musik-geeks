@@ -1,7 +1,7 @@
 /* tslint:disable:no-unused-variable */
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ActivatedRoute } from '@angular/router';
 import { By } from '@angular/platform-browser';
-import { DebugElement } from '@angular/core';
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 
 import { SharedModule } from '../../shared/shared.module';
@@ -42,7 +42,15 @@ describe('MusicianDetailsComponent', () => {
         HttpClientTestingModule,
         SharedModule
       ],
-      declarations: [MusicianDetailsComponent]
+      declarations: [MusicianDetailsComponent],
+      providers: [{
+        provide: ActivatedRoute,
+        useValue: {
+          params: {
+            subscribe: (callback) => callback({ id: 100 })
+          }
+        }
+      }]
     })
     .compileComponents();
 
@@ -52,8 +60,6 @@ describe('MusicianDetailsComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(MusicianDetailsComponent);
     component = fixture.componentInstance;
-
-    component.musicianId = MUSICIAN.id;
 
     fixture.detectChanges();
 
