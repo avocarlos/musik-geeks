@@ -154,7 +154,7 @@ describe('AlbumDetailsComponent', () => {
 
 
   it('should render album header with information', () => {
-    const name = fixture.debugElement.query(By.css('.featured-title'));
+    const name = fixture.debugElement.query(By.css('h1'));
     const performers = fixture.debugElement.query(By.css('.featured-subtitle'));
     const description = fixture.debugElement.query(By.css('.lead'));
     const thumbnail = fixture.debugElement.query(By.css('.musician-img'));

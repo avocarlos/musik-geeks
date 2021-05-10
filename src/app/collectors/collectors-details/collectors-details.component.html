@@ -1,10 +1,9 @@
 <app-loading *ngIf="!collector"></app-loading>
 <div *ngIf="collector">
   <app-detail-header
-  [title]="collector.name"
-  [breadcrumbs]="breadcrumbs"
-  [featured1]="featured"
-
+    [title]="collector.name"
+    [breadcrumbs]="breadcrumbs"
+    [featured]="featured"
   ></app-detail-header>
 </div>
 

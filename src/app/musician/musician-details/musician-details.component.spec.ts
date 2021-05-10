@@ -101,7 +101,7 @@ describe('MusicianDetailsComponent', () => {
   });
 
   it('should render musician header with information', () => {
-    const name = fixture.debugElement.query(By.css('.featured-title'));
+    const name = fixture.debugElement.query(By.css('h1'));
     const description = fixture.debugElement.query(By.css('.lead'));
     const thumbnail = fixture.debugElement.query(By.css('.musician-img'));
     const birthday = fixture.debugElement.query(By.css('.featured-text-item h4'));

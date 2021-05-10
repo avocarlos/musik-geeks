@@ -11,7 +11,7 @@ import { TableRow } from '../shared/table/table.component';
   styleUrls: ['./albums.component.css']
 })
 export class AlbumsComponent implements OnInit {
-  public albumes: Album[] = [];
+  public albumes?: Album[];
   public selectedAlbum = 0;
   public title = 'Álbumes';
   public headers = [

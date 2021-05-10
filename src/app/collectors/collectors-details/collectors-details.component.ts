@@ -15,7 +15,6 @@ export class CollectorsDetailsComponent implements OnInit {
   @Input() collectorId: number;
   public collector?: Collector;
   public collectorAlbums?: CollectorAlbums;
-  public collapsed = false;
   public albumsTable = {
     headers: [
       '',
