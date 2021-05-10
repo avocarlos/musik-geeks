@@ -17,7 +17,7 @@ interface MusiciansTable {
 export class MusicianListComponent implements OnInit {
   musicians: Musician[];
   table: MusiciansTable = {
-    headers: ['', 'Nombre'],
+    headers: ['Músico', 'Nombre'],
     rows: [],
     tableContentName: 'musicos'
   };

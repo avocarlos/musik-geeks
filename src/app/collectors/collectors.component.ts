@@ -13,9 +13,7 @@ interface CollectorsTable {
   styleUrls: ['./collectors.component.css']
 })
 export class CollectorsComponent implements OnInit {
-  selectedCollectors?: number;
-  public collapsed = false;
-  collectors: Collector[] = new Array<Collector>();
+  collectors?: Collector[];
   table: CollectorsTable = {
     headers: ['Nombre', 'Email', 'Teléfono', ''],
     rows: []
