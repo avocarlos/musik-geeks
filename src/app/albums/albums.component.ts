@@ -23,7 +23,8 @@ export class AlbumsComponent implements OnInit {
   public tableContentName = 'albumes';
   public rows: TableRow[] = [];
 
-  constructor(private albumsService: AlbumsService,
+  constructor(
+    private albumsService: AlbumsService,
     private route: ActivatedRoute,
     private router: Router) { }
 

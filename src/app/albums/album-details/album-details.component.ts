@@ -36,12 +36,15 @@ export class AlbumDetailsComponent implements OnInit {
     title: 'Firma',
     subtitle: ''
   }];
-  constructor(private albumDetailsService: AlbumDetailsService,
-    private route: ActivatedRoute) { }
+  constructor(
+    private albumDetailsService: AlbumDetailsService,
+    private route: ActivatedRoute) {
+
+    }
 
   ngOnInit(): void {
 
-    this.route.params.subscribe(params => { this.albumId = params.id });
+    this.route.params.subscribe(params => { this.albumId = params.id; });
     this.getAlbum();
   }
 
