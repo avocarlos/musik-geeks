@@ -58,14 +58,8 @@ describe('CollectorsDetailsComponent', () => {
     } ]);
   });
 
-  it('should render Colecciones', () => {
-    const compiled = fixture.nativeElement;
-    expect(compiled.querySelector('h4').textContent).toContain('Colecciones');
-  });
-
   it('should call #getCollector and format breadcrumbs', () => {
     expect(component.breadcrumbs).toEqual(['Home', 'Coleccionistas']);
   });
-
 });
 

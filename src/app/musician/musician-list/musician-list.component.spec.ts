@@ -64,7 +64,7 @@ describe('MusicianListComponent', () => {
     const table = musicianList.querySelector('table');
     const headers = table.querySelectorAll('th');
 
-    expect(headers[0].textContent).toEqual('');
+    expect(headers[0].textContent).toEqual('Músico');
     expect(headers[1].textContent).toEqual('Nombre');
   });
 

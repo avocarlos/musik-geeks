@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-navbar',
@@ -7,17 +7,11 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 })
 export class NavbarComponent implements OnInit {
   @Input() current: string;
-  @Output() buttonClick = new EventEmitter<string>();
   public collapsed = false;
 
   constructor() { }
 
   ngOnInit(): void { }
-
-  onCollectorsClick(): void {
-    this.buttonClick.emit('collectors');
-  }
-
 
   onCollapseClick($event: Event): void {
     $event.preventDefault();
