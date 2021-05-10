@@ -10,7 +10,7 @@
         <img class="musician-img mb-5 mb-lg-0" [src]="imgSrc" [alt]="title" />
       </div>
       <div class="col-12 {{ imgSrc ? 'col-lg-9' : 'col-lg-12' }}">
-        <h1 *ngIf="title">{{ title }}</h1>
+        <h1 *ngIf="title" class="featured-title">{{ title }}</h1>
         <h2 *ngIf="subtitle" class="h4 text-secondary featured-subtitle">{{ subtitle }}</h2>
         <p *ngIf="description" class="lead">{{ description }}</p>
         <div
@@ -18,15 +18,15 @@
           class="mt-4 container-fluid secondary-table"
         >
           <div class="row row-cols-auto">
-            <div
+            <dl
               *ngFor="let feature of featured"
               class="featured-text-item col"
             >
-              <h3 class="h6 text-uppercase fw-bold">
+              <dt class="text-uppercase fw-bold mb-2">
                 <small>{{ feature.title }}</small>
-              </h3>
-              <h4 class="h5 text-secondary">{{ feature.subtitle }}</h4>
-            </div>
+              </dt>
+              <dd class="h5">{{ feature.subtitle }}</dd>
+            </dl>
           </div>
         </div>
       </div>
