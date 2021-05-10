@@ -1,7 +1,8 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { formatDate } from '@angular/common';
 import { Musician } from '../musician';
 import { MusicianService } from '../musician.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-musician-details',
@@ -9,7 +10,6 @@ import { MusicianService } from '../musician.service';
   styleUrls: ['./musician-details.component.css']
 })
 export class MusicianDetailsComponent implements OnInit {
-  @Input() musicianId: number;
   public musician?: Musician;
   public albumsTable = {
     headers: [
@@ -17,7 +17,9 @@ export class MusicianDetailsComponent implements OnInit {
       'Título',
       'Lanzamiento'
     ],
-    rows: []
+    rows: [],
+    tableContentName: 'albumes'
+
   };
   public awardsTable = {
     headers: [
@@ -33,14 +35,17 @@ export class MusicianDetailsComponent implements OnInit {
     subtitle: ''
   }];
 
-  constructor(private musicianService: MusicianService) { }
+  constructor(
+    private musicianService: MusicianService,
+    private route: ActivatedRoute
+  ) { }
 
   ngOnInit(): void {
-    this.getMusician();
+    this.route.params.subscribe(params => this.getMusician(params.id));
   }
 
-  getMusician(): void {
-    this.musicianService.getMusician(this.musicianId)
+  getMusician(id: number): void {
+    this.musicianService.getMusician(id)
       .subscribe((musician) => {
         this.musician = musician;
         this.breadcrumbs.push(musician.name);

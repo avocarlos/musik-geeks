@@ -20,6 +20,7 @@ export class AlbumsComponent implements OnInit {
     'Músico',
     'Lanzamiento'
   ];
+  public tableContentName = 'albumes';
   public rows: TableRow[] = [];
 
   constructor(private albumsService: AlbumsService,

@@ -19,7 +19,8 @@ export class AlbumDetailsComponent implements OnInit {
       'Título',
       'Duración'
     ],
-    rows: []
+    rows: [],
+    tableContentName:'canciones'
   };
 
   public breadcrumbs = ['Home', 'Álbumes'];

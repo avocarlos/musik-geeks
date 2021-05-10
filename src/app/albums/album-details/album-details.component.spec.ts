@@ -82,7 +82,7 @@ describe('AlbumDetailsComponent', () => {
         provide: ActivatedRoute,
         useValue: {
           params: {
-            subscribe: (callback) => callback({ id: 100 })
+            subscribe: (callback) => callback({ id: albumId })
           }
         }
       }]
@@ -132,7 +132,8 @@ describe('AlbumDetailsComponent', () => {
           ALBUM.tracks[0].name,
           ALBUM.tracks[0].duration
         ]
-      }]
+      }],
+      tableContentName: 'canciones'
     });
   });
 
@@ -182,8 +183,8 @@ describe('AlbumDetailsComponent', () => {
 
 
   it('should render tracks table with albums tracks', () => {
-    const titulo = fixture.debugElement.query(By.css('#table-título'));
-    const duracion = fixture.debugElement.query(By.css('#table-duración'));
+    const titulo = fixture.debugElement.query(By.css('#table-título0'));
+    const duracion = fixture.debugElement.query(By.css('#table-duración0'));
 
     const [track] = ALBUM.tracks;
 

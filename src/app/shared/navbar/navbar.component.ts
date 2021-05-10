@@ -14,15 +14,13 @@ export class NavbarComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  onMusiciansClick(): void {
-    this.buttonClick.emit('musicians');
-  }
-
   onCollectorsClick(): void {
     this.buttonClick.emit('collectors');
   }
 
-  onCollapseClick(): void {
+
+  onCollapseClick($event: Event): void {
+    $event.preventDefault();
     this.collapsed = !this.collapsed;
   }
 }

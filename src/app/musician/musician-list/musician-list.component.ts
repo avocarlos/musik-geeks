@@ -1,11 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { MusicianService } from '../musician.service';
+import { Router, ActivatedRoute } from '@angular/router';
 
 import type { Musician } from '../musician';
 import type { TableRow } from '../../shared/table/table.component';
 interface MusiciansTable {
   headers: string[];
   rows: TableRow[];
+  tableContentName: string;
 }
 @Component({
   selector: 'app-musician-list',
@@ -13,15 +15,19 @@ interface MusiciansTable {
   styleUrls: ['./musician-list.component.css']
 })
 export class MusicianListComponent implements OnInit {
-  selectedMusician?: number;
   musicians: Musician[];
   table: MusiciansTable = {
     headers: ['', 'Nombre'],
-    rows: []
+    rows: [],
+    tableContentName: 'musicos'
   };
   title = 'Músicos';
 
-  constructor(private musicianService: MusicianService) { }
+  constructor(
+    private musicianService: MusicianService,
+    private route: ActivatedRoute,
+    private router: Router
+  ) { }
 
   ngOnInit(): void {
     this.getMusicians();
@@ -33,13 +39,9 @@ export class MusicianListComponent implements OnInit {
         this.musicians = musicians;
         this.table.rows = musicians.map(({id, image, name}) => ({
           columns: [imgTag(image), name],
-          viewButtonClick: () => this.handleViewButtonClick(id)
+          viewButtonClick: () => this.router.navigate([`./${id}`], { relativeTo: this.route })
         }));
       });
-  }
-
-  handleViewButtonClick(id: number): void {
-    this.selectedMusician = id;
   }
 }
 

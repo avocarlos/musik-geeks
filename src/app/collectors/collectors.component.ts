@@ -5,6 +5,7 @@ import { TableRow } from '../shared/table/table.component';
 interface CollectorsTable {
   headers: string[];
   rows: TableRow[];
+  tableContentName: string;
 }
 @Component({
   selector: 'app-collectors',
@@ -17,7 +18,8 @@ export class CollectorsComponent implements OnInit {
   collectors: Collector[] = new Array<Collector>();
   table: CollectorsTable = {
     headers: ['Nombre', 'Colecciones', 'Comentarios', ''],
-    rows: []
+    rows: [],
+    tableContentName: 'collectors'
   };
   title = 'Coleccionistas';
 

@@ -54,7 +54,7 @@ describe('MusicianListComponent', () => {
 
   it('should render the header with page name', () => {
     const musicianList = fixture.debugElement.nativeElement;
-    const title = musicianList.querySelector('h2');
+    const title = musicianList.querySelector('h1');
 
     expect(title.textContent).toEqual('Músicos');
   });

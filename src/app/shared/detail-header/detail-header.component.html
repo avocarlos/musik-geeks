@@ -9,22 +9,17 @@
       <div *ngIf="imgSrc" class="col-12 col-md-3">
         <img class="musician-img" [src]="imgSrc" [alt]="title" />
       </div>
-      <div class="col-12 {{ imgSrc ? 'col-md-9' : 'col-md-12' }}">
-        <h1 *ngIf="title" class="display-5 featured-title">{{ title }}</h1>
-        <h3 *ngIf="subtitle" class="text-secondary featured-subtitle">
-          {{ subtitle }}
-        </h3>
-        <p *ngIf="description" class="lead">{{ description }}</p>
-        <div *ngIf="featured.length" class="d-flex mt-5 container-fluid">
+      <div class="col-12 {{imgSrc ? 'col-md-9' : 'col-md-12'}}">
+        <h1 *ngIf="title" class="display-5 featured-title">{{title}}</h1>
+        <h3 *ngIf="subtitle" class="text-secondary featured-subtitle">{{subtitle}}</h3>
+        <p *ngIf="description" class="lead">{{description}}</p>
+        <div *ngIf="featured.length" class="mt-5 container-fluid">
           <div class="row">
-            <div
-              *ngFor="let feature of featured"
-              class="featured-text-item pe-3 col-fluid-3"
-            >
+            <div *ngFor="let feature of featured" class="featured-text-item pe-3 col-fluid-3">
               <h6 class="text-uppercase fw-bold">
-                <small>{{ feature.title }}</small>
+                <small>{{feature.title}}</small>
               </h6>
-              <h5 class="text-secondary">{{ feature.subtitle }}</h5>
+              <h5 class="text-secondary">{{feature.subtitle}}</h5>
             </div>
           </div>
         </div>

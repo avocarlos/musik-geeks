@@ -6,9 +6,11 @@ import { TableComponent } from './table/table.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { BreadcrumbsComponent } from './breadcrumbs/breadcrumbs.component';
 import { LoadingComponent } from './loading/loading.component';
+import { AppRoutingModule } from '../app-routing.module';
 @NgModule({
   imports: [
-    CommonModule
+    CommonModule,
+    AppRoutingModule
   ],
   declarations: [
     ListHeaderComponent,

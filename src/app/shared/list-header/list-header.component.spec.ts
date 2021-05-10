@@ -28,7 +28,7 @@ describe('ListHeaderComponent', () => {
   });
 
   it('should render list header with provided title', () => {
-    const title = fixture.debugElement.nativeElement.querySelector('h2');
+    const title = fixture.debugElement.nativeElement.querySelector('h1');
 
     expect(title.textContent).toEqual('Titulo de prueba');
   });

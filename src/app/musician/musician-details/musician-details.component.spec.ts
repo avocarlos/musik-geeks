@@ -1,7 +1,7 @@
 /* tslint:disable:no-unused-variable */
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ActivatedRoute } from '@angular/router';
 import { By } from '@angular/platform-browser';
-import { DebugElement } from '@angular/core';
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 
 import { SharedModule } from '../../shared/shared.module';
@@ -42,7 +42,15 @@ describe('MusicianDetailsComponent', () => {
         HttpClientTestingModule,
         SharedModule
       ],
-      declarations: [MusicianDetailsComponent]
+      declarations: [MusicianDetailsComponent],
+      providers: [{
+        provide: ActivatedRoute,
+        useValue: {
+          params: {
+            subscribe: (callback) => callback({ id: 100 })
+          }
+        }
+      }]
     })
     .compileComponents();
 
@@ -52,8 +60,6 @@ describe('MusicianDetailsComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(MusicianDetailsComponent);
     component = fixture.componentInstance;
-
-    component.musicianId = MUSICIAN.id;
 
     fixture.detectChanges();
 
@@ -81,7 +87,8 @@ describe('MusicianDetailsComponent', () => {
             'Buscando América',
             'August 1, 1984'
           ]
-        }]
+        }],
+        tableContentName: 'albumes'
       });
     });
 
@@ -106,9 +113,9 @@ describe('MusicianDetailsComponent', () => {
   });
 
   it('should render albums table with musician albums', () => {
-    const titulo = fixture.debugElement.query(By.css('#table-título'));
-    const portada = fixture.debugElement.query(By.css('#table-portada img'));
-    const lanzamiento = fixture.debugElement.query(By.css('#table-lanzamiento'));
+    const titulo = fixture.debugElement.query(By.css('#table-título0'));
+    const portada = fixture.debugElement.query(By.css('#table-portada0 img'));
+    const lanzamiento = fixture.debugElement.query(By.css('#table-lanzamiento0'));
 
     const [album] = MUSICIAN.albums;
 
