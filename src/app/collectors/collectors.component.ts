@@ -16,7 +16,7 @@ export class CollectorsComponent implements OnInit {
   selectedCollectors?: number;
   public collapsed = false;
   collectors: Collector[] = new Array<Collector>();
-  table: CollectorsTable = {
+  table: CollectorsTable = { 
     headers: ['Nombre', 'Email', 'Teléfono', ''],
     rows: []
   };
