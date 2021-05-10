@@ -1,7 +1,7 @@
 .details-header {
   padding-top: 48px;
   padding-bottom: 48px;
-  background: linear-gradient(126.7deg, #F6F2FF 0%, #F2FCFF 100%);
+  background: linear-gradient(126.7deg, #f6f2ff 0%, #f2fcff 100%);
 }
 
 .musician-img {
@@ -16,5 +16,9 @@
 }
 
 .featured-text-item {
-  margin-right: 50px;
+  width: auto;
+}
+
+.secondary-table {
+  padding-left: 0px;
 }

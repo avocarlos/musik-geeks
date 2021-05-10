@@ -1,4 +1,4 @@
-import { Component, OnInit , Output, EventEmitter} from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { Collector } from './collector';
 import { CollectorsService } from './collectors.service';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -6,6 +6,7 @@ import { TableRow } from '../shared/table/table.component';
 interface CollectorsTable {
   headers: string[];
   rows: TableRow[];
+  tableContentName: string;
 }
 @Component({
   selector: 'app-collectors',
@@ -45,6 +46,5 @@ export class CollectorsComponent implements OnInit {
           }));
         });
     }
-
 }
 

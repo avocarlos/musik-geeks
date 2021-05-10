@@ -17,7 +17,8 @@ export class MusicianDetailsComponent implements OnInit {
       'Título',
       'Lanzamiento'
     ],
-    rows: []
+    rows: [],
+    tableContentName: 'albumes'
   };
   public awardsTable = {
     headers: [
@@ -25,7 +26,8 @@ export class MusicianDetailsComponent implements OnInit {
       'Organización',
       'Año'
     ],
-    rows: []
+    rows: [],
+    tableContentName: 'awards'
   };
   public breadcrumbs = ['Home', 'Músicos'];
   public featured = [{
@@ -49,7 +51,7 @@ export class MusicianDetailsComponent implements OnInit {
         this.breadcrumbs.push(musician.name);
 
         this.featured[0].subtitle = formatDate(musician.birthDate, 'longDate', 'en-US', '+0');
-        this.albumsTable.rows = musician.albums.map(({cover, releaseDate, name}) => {
+        this.albumsTable.rows = musician.albums.map(({ cover, releaseDate, name }) => {
           const formattedImg = imgTag(cover);
           const formattedDate = formatDate(releaseDate, 'longDate', 'en-US', '+0');
 

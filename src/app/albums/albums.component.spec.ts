@@ -60,7 +60,7 @@ describe('AlbumsComponent', () => {
 
   it('should render title', () => {
     const compiled = fixture.nativeElement;
-    expect(compiled.querySelector('h2').textContent).toContain('Álbumes');
+    expect(compiled.querySelector('h1').textContent).toContain('Álbumes');
   });
 
   it('should render Album list data', () => {
@@ -75,24 +75,24 @@ describe('AlbumsComponent', () => {
   it('Album list has image object', () => {
     fixture.detectChanges();
 
-    expect(debug.query(By.css('#table-portada'))).toBeTruthy();
+    expect(debug.query(By.css('#table-portada0'))).toBeTruthy();
   });
 
   it('Album list has name object', () => {
     fixture.detectChanges();
 
-    expect(debug.query(By.css('#table-título'))).toBeTruthy();
+    expect(debug.query(By.css('#table-título0'))).toBeTruthy();
   });
 
   it('Album list has performers object', () => {
     fixture.detectChanges();
 
-    expect(debug.query(By.css('#table-músico'))).toBeTruthy();
+    expect(debug.query(By.css('#table-músico0'))).toBeTruthy();
   });
 
   it('Album list has release date object', () => {
     fixture.detectChanges();
 
-    expect(debug.query(By.css('#table-lanzamiento'))).toBeTruthy();
+    expect(debug.query(By.css('#table-lanzamiento0'))).toBeTruthy();
   });
 });

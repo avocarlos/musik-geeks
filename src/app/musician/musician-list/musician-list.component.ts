@@ -7,6 +7,7 @@ import type { TableRow } from '../../shared/table/table.component';
 interface MusiciansTable {
   headers: string[];
   rows: TableRow[];
+  tableContentName: string;
 }
 @Component({
   selector: 'app-musician-list',
@@ -17,7 +18,8 @@ export class MusicianListComponent implements OnInit {
   musicians: Musician[];
   table: MusiciansTable = {
     headers: ['', 'Nombre'],
-    rows: []
+    rows: [],
+    tableContentName: 'musicos'
   };
   title = 'Músicos';
 
@@ -35,7 +37,7 @@ export class MusicianListComponent implements OnInit {
     this.musicianService.getMusicians()
       .subscribe((musicians) => {
         this.musicians = musicians;
-        this.table.rows = musicians.map(({id, image, name}) => ({
+        this.table.rows = musicians.map(({ id, image, name }) => ({
           columns: [imgTag(image), name],
           viewButtonClick: () => this.router.navigate([`./${id}`], { relativeTo: this.route })
         }));

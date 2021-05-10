@@ -58,12 +58,12 @@ describe('CollectorsComponent', () => {
 
   it('should render title', () => {
     const compiled = fixture.nativeElement;
-    expect(compiled.querySelector('h2').textContent).toContain('Coleccionistas');
+    expect(compiled.querySelector('h1').textContent).toContain('Coleccionistas');
   });
 
   it('should render the header with page name', () => {
     const collectorsList = fixture.debugElement.nativeElement;
-    const title = collectorsList.querySelector('h2');
+    const title = collectorsList.querySelector('h1');
 
     expect(title.textContent).toEqual('Coleccionistas');
   });

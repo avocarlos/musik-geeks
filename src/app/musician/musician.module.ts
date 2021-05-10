@@ -16,6 +16,8 @@ import { MusicianRoutes } from './musician.routing';
     MusicianListComponent,
     MusicianDetailsComponent
   ],
-  exports: [MusicianListComponent]
+  exports: [
+    MusicianListComponent
+  ]
 })
 export class MusicianModule { }
