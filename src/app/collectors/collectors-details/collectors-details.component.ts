@@ -60,7 +60,7 @@ export class CollectorsDetailsComponent implements OnInit {
   ngOnInit(): void {
     this.route.params.subscribe(params => this.getCollector(params.id));
     this.route.params.subscribe(params => this.getCollectorAlbums(params.id));
-    }
+  }
 
   getCollectorAlbums(id: number): void {
     this.collectorsService.getCollectorAlbums(id)

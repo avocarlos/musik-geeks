@@ -7,9 +7,4 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'Musik Geeks';
-  current = 'albums';
-
-  onNavbarClick(value: string): void {
-    this.current = value;
-  }
 }

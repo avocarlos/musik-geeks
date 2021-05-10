@@ -31,14 +31,6 @@ describe('NavbarComponent', () => {
     expect(buttons.length).toEqual(5);
   });
 
-  it('should call buttonClick fn when navbar button is clicked', () => {
-    const button = fixture.debugElement.query(By.css('.nav-link'));
-
-    component.buttonClick.subscribe((value: string) => expect(value).toBe('albums'));
-
-    button.triggerEventHandler('click', null);
-  });
-
   it('should collapse navbar when collapse button is clicked', () => {
     const buttons = fixture.debugElement.queryAll(By.css('.nav-link'));
     const event = { preventDefault: () => true };
