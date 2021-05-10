@@ -1,6 +1,7 @@
 import { Component, OnInit , Output, EventEmitter} from '@angular/core';
 import { Collector } from './collector';
 import { CollectorsService } from './collectors.service';
+import { ActivatedRoute, Router } from '@angular/router';
 import { TableRow } from '../shared/table/table.component';
 interface CollectorsTable {
   headers: string[];
@@ -21,9 +22,14 @@ export class CollectorsComponent implements OnInit {
   };
   title = 'Coleccionistas';
 
-  @Output() buttonClick = new EventEmitter<string>();
+  @Output() Collector: Collector;
 
-  constructor(public collectorService: CollectorsService) { }
+    constructor(
+      private route: ActivatedRoute,
+      private router: Router,
+      public collectorService: CollectorsService
+    ) {
+    }
 
     ngOnInit(): void {
       this.collectorService.getCollectorsList().subscribe((collectors) => {

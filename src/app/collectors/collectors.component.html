@@ -17,7 +17,8 @@
               <td>{{coll.name}}</td>
               <td>{{coll.comments.length}}</td>
               <td>{{coll.collectorAlbums.length}}
-              <td class="text-right"> <button type="button" class="btn" (click)="handleViewButtonClick(coll.id)"> <em class="bem bi-chevron-right"></em> </button> </td>
+              <td class="text-right"> <button type="button" class="btn" routerLink="../collectors/{{coll.id}}"> <em class="bem bi-chevron-right"></em>
+               </button> </td>
             </tr>
           </tbody>
         </table>
