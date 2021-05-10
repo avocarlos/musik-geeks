@@ -87,7 +87,7 @@ export class CollectorsDetailsComponent implements OnInit {
 
         this.featured[0].subtitle = collector.email;
         this.featured[1].subtitle = collector.telephone;
-        this.favoritePerformersTable.rows = collector.favoritePerformers.map(({id, image, name}) => {
+        this.favoritePerformersTable.rows = collector.favoritePerformers.map(({image, name}) => {
           return {
             columns: [imgTag(image), name]
           };
