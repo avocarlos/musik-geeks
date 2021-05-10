@@ -3,11 +3,13 @@ import { CommonModule } from '@angular/common';
 import { AlbumsComponent } from './albums.component';
 import { SharedModule } from '../shared/shared.module';
 import { AlbumDetailsComponent } from './album-details/album-details.component';
+import { AlbumsRoutingModule } from './albums-routing.module';
 
 @NgModule({
   imports: [
     CommonModule,
-    SharedModule
+    SharedModule,
+    AlbumsRoutingModule
   ],
   declarations: [
     AlbumsComponent,

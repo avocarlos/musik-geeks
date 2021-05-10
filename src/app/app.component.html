@@ -1,12 +1,15 @@
 <div class="d-flex min-vh-100">
   <div id="lateralMenu" class="p-0">
-    <app-navbar [current]="current" (buttonClick)="onNavbarClick($event)"></app-navbar>
+    <app-navbar
+      [current]="current"
+      (buttonClick)="onNavbarClick($event)"
+    ></app-navbar>
   </div>
-  <div class="container-fluid vh-100 overflow-scroll">
+  <main class="container-fluid vh-100">
     <div class="row">
-      <div id="mainContent"class="col p-0 min-vh-100">
+      <div id="mainContent" class="col p-0 min-vh-100">
         <router-outlet></router-outlet>
       </div>
     </div>
-  </div>
+  </main>
 </div>

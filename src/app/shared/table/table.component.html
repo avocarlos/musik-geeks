@@ -1,14 +1,21 @@
-<table id="dataTable" summary="lista de datos" class="table table-shadow">
+<table
+  id="dataTable{{ tableContentName }}"
+  summary="lista de datos"
+  class="table table-shadow"
+>
   <thead>
     <tr>
       <th
-        id="tableHeaders"
         class="text-uppercase text-secondary"
         *ngFor="let header of headers"
+        id="tableHeaders{{ header }}"
       >
         <small>{{ header }}</small>
       </th>
-      <th id="table-actions"></th>
+      <th
+        aria-label="Acciones sobre los registros"
+        id="table-actions{{ tableContentName }}"
+      ></th>
     </tr>
   </thead>
   <tbody>
@@ -16,7 +23,9 @@
       <td
         *ngFor="let value of row.columns; index as columnIdx"
         id="{{
-          headers[columnIdx] ? 'table-' + headers[columnIdx].toLowerCase() : ''
+          headers[columnIdx]
+            ? 'table-' + headers[columnIdx].toLowerCase() + idx
+            : ''
         }}"
         class="align-middle"
         [innerHTML]="value"
@@ -27,6 +36,7 @@
           type="button"
           class="btn"
           (click)="row.viewButtonClick()"
+          aria-label="Ver detalle"
         >
           <em class="bem bi-chevron-right"></em>
         </button>

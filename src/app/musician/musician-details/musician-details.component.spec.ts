@@ -52,7 +52,7 @@ describe('MusicianDetailsComponent', () => {
         }
       }]
     })
-    .compileComponents();
+      .compileComponents();
 
     httpTestingController = TestBed.inject(HttpTestingController);
   }));
@@ -87,7 +87,8 @@ describe('MusicianDetailsComponent', () => {
             'Buscando América',
             'August 1, 1984'
           ]
-        }]
+        }],
+        tableContentName: 'albumes'
       });
     });
 
@@ -103,7 +104,7 @@ describe('MusicianDetailsComponent', () => {
     const name = fixture.debugElement.query(By.css('.featured-title'));
     const description = fixture.debugElement.query(By.css('.lead'));
     const thumbnail = fixture.debugElement.query(By.css('.musician-img'));
-    const birthday = fixture.debugElement.query(By.css('.featured-text-item h5'));
+    const birthday = fixture.debugElement.query(By.css('.featured-text-item h4'));
 
     expect(name.nativeElement.textContent).toEqual(MUSICIAN.name);
     expect(description.nativeElement.textContent).toEqual(MUSICIAN.description);
@@ -112,9 +113,9 @@ describe('MusicianDetailsComponent', () => {
   });
 
   it('should render albums table with musician albums', () => {
-    const titulo = fixture.debugElement.query(By.css('#table-título'));
-    const portada = fixture.debugElement.query(By.css('#table-portada img'));
-    const lanzamiento = fixture.debugElement.query(By.css('#table-lanzamiento'));
+    const titulo = fixture.debugElement.query(By.css('#table-título0'));
+    const portada = fixture.debugElement.query(By.css('#table-portada0 img'));
+    const lanzamiento = fixture.debugElement.query(By.css('#table-lanzamiento0'));
 
     const [album] = MUSICIAN.albums;
 

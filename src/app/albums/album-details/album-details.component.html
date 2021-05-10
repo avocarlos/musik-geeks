@@ -17,6 +17,7 @@
       <app-table
         [headers]="cancionesTable.headers"
         [rows]="cancionesTable.rows"
+        [tableContentName]="cancionesTable.tableContentName"
       ></app-table>
     </div>
   </div>
@@ -29,8 +30,14 @@
     <div class="col-2" *ngFor="let comment of album.comments">
       <div class="card">
         <div class="card-body">
-          <p class="card-title padded comment-description">{{ comment.description }}</p>
-          <h5 class="card-text comment-rating">{{ comment.rating }}/5</h5>
+          <p
+            class="card-title padded comment-description"
+            aria-label="Comentario sobre álbum"
+          >{{ comment.description }}</p>
+          <h5
+            class="card-text comment-rating"
+            aria-label="rating dado al álbum"
+          >{{ comment.rating }}/5</h5>
         </div>
       </div>
     </div>
