@@ -17,9 +17,6 @@ export class DetailHeaderComponent implements OnInit {
   @Input() imgSrc?: string;
   @Input() breadcrumbs: string[] = [];
   @Input() featured: FeaturedText[] = [];
-  @Input() featured1: FeaturedText[] = [];
-
-
 
   constructor() { }
 

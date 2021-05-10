@@ -32,7 +32,7 @@ describe('DetailHeaderComponent', () => {
     component.title = 'My title';
     fixture.detectChanges();
 
-    const title = fixture.debugElement.query(By.css('.featured-title'));
+    const title = fixture.debugElement.query(By.css('h1'));
 
     expect(title.nativeElement.textContent).toBe('My title');
   });
