@@ -29,12 +29,7 @@
       </a>
     </li>
     <li class="nav-item">
-      <a
-        [class.active]="current === 'collectors'"
-        class="nav-link"
-        href="#"
-        (click)="onCollectorsClick()"
-      >
+      <a class="nav-link"  href="#"  routerLinkActive="active" routerLink="/coleccionistas">
         <em class="bi bi-bookmark"></em>
         <span [class.d-md-inline]="!collapsed" class="d-none">
           Coleccionistas
