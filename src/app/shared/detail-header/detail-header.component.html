@@ -11,9 +11,7 @@
       </div>
       <div class="col-12 {{ imgSrc ? 'col-md-9' : 'col-md-12' }}">
         <h1 *ngIf="title" class="display-5 featured-title">{{ title }}</h1>
-        <h2 *ngIf="subtitle" class="text-secondary featured-subtitle">
-          {{ subtitle }}
-        </h2>
+        <h2 *ngIf="subtitle" class="text-secondary featured-subtitle">{{ subtitle }}</h2>
         <p *ngIf="description" class="lead">{{ description }}</p>
         <div
           *ngIf="featured.length"

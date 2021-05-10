@@ -158,7 +158,7 @@ describe('AlbumDetailsComponent', () => {
     const performers = fixture.debugElement.query(By.css('.featured-subtitle'));
     const description = fixture.debugElement.query(By.css('.lead'));
     const thumbnail = fixture.debugElement.query(By.css('.musician-img'));
-    const releaseDate = fixture.debugElement.queryAll(By.css('.featured-text-item h5'));
+    const releaseDate = fixture.debugElement.queryAll(By.css('.featured-text-item h4'));
 
     expect(name.nativeElement.textContent).toEqual(ALBUM.name);
     expect(description.nativeElement.textContent).toEqual(ALBUM.description);

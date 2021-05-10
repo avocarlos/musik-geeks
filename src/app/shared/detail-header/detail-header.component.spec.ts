@@ -41,7 +41,7 @@ describe('DetailHeaderComponent', () => {
     component.subtitle = 'My subtitle';
     fixture.detectChanges();
 
-    const subtitle = fixture.debugElement.nativeElement.querySelector('h3');
+    const subtitle = fixture.debugElement.nativeElement.querySelector('h2');
 
     expect(subtitle.textContent).toBe('My subtitle');
   });
