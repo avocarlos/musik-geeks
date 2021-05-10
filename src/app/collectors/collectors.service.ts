@@ -5,7 +5,6 @@ import { Observable } from 'rxjs';
 import { Collector } from './collector';
 import { CollectorAlbums } from './collector-albums/collectoralbums';
 
-import type { Musician } from '../musician/musician';
 
 @Injectable({
   providedIn: 'root'

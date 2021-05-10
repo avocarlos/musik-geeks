@@ -5,7 +5,7 @@ import { CollectorsComponent } from './collectors/collectors.component';
 
 const routes: Routes = [
   { path: 'musicos', component: MusicianListComponent },
-  { path: 'collectors', component: CollectorsComponent },
+  { path: 'coleccionistas', component: CollectorsComponent },
 ];
 
 @NgModule({

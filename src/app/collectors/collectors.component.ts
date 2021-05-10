@@ -17,7 +17,7 @@ export class CollectorsComponent implements OnInit {
   public collapsed = false;
   collectors: Collector[] = new Array<Collector>();
   table: CollectorsTable = {
-    headers: ['Nombre', 'Colecciones', 'Comentarios', ''],
+    headers: ['Nombre', 'Email', 'Teléfono', ''],
     rows: []
   };
   title = 'Coleccionistas';
@@ -32,17 +32,19 @@ export class CollectorsComponent implements OnInit {
     }
 
     ngOnInit(): void {
-      this.collectorService.getCollectorsList().subscribe((collectors) => {
+      this.getCollectorsList();
+    }
+
+    getCollectorsList(): void {
+      this.collectorService.getCollectorsList()
+        .subscribe((collectors) => {
           this.collectors = collectors;
-
-      });
+          this.table.rows = collectors.map(({id, name, email, telephone}) => ({
+            columns: [name, email, telephone],
+            viewButtonClick: () => this.router.navigate([`./${id}`], { relativeTo: this.route })
+          }));
+        });
     }
 
-    handleViewButtonClick(id: number): void {
-      this.selectedCollectors = id;
-    }
-    onCollapseClick(): void {
-      this.collapsed = !this.collapsed;
-    }
 }
 

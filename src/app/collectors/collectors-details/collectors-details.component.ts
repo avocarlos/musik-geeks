@@ -3,8 +3,7 @@ import { Collector } from '../collector';
 import { CollectorsService } from '../collectors.service';
 import { formatDate } from '@angular/common';
 import { CollectorAlbums } from '../collector-albums/collectoralbums';
-import { Album } from '../../albums/album';
-import { map } from 'rxjs/operators';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-collectors-details',
@@ -13,6 +12,7 @@ import { map } from 'rxjs/operators';
 })
 export class CollectorsDetailsComponent implements OnInit {
   @Input() collectorId: number;
+  @Input() collectordel: Collector;
   public collector?: Collector;
   public collectorAlbums?: CollectorAlbums;
   public collapsed = false;
@@ -53,16 +53,18 @@ export class CollectorsDetailsComponent implements OnInit {
 
 
 
-  constructor(private collectorsService: CollectorsService) { }
+  constructor(
+    private route: ActivatedRoute,
+    private collectorsService: CollectorsService
+  ) { }
 
   ngOnInit(): void {
-    this.getCollector();
-    this.getCollectorAlbums();
+    this.route.params.subscribe(params => this.getCollector(params.id));
+    this.route.params.subscribe(params => this.getCollectorAlbums(params.id));
+    }
 
-  }
-
-  getCollectorAlbums(): void {
-    this.collectorsService.getCollectorAlbums(this.collectorId)
+  getCollectorAlbums(id: number): void {
+    this.collectorsService.getCollectorAlbums(id)
       .subscribe((collectorAlbums) => {
         this.collectorAlbums = collectorAlbums[0].album;
         const price = collectorAlbums[0].price;
@@ -77,8 +79,8 @@ export class CollectorsDetailsComponent implements OnInit {
     });
   }
 
-  getCollector(): void {
-    this.collectorsService.getCollector(this.collectorId)
+  getCollector(id: number): void {
+    this.collectorsService.getCollector(id)
       .subscribe((collector) => {
         this.collector = collector;
         this.breadcrumbs.push(collector.name);
