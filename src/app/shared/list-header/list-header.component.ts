@@ -9,7 +9,7 @@ export class ListHeaderComponent implements OnInit {
   @Input() title: string;
   @Input() onClick?: () => void;
 
-  constructor() {}
+  constructor() { }
 
-  ngOnInit(): void {}
+  ngOnInit(): void { }
 }

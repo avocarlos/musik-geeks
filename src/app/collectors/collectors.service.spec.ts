@@ -2,7 +2,7 @@
 import { TestBed, async, inject, getTestBed } from '@angular/core/testing';
 import { CollectorsService } from './collectors.service';
 import { Collector } from './collector';
-import {  HttpTestingController, HttpClientTestingModule, } from '@angular/common/http/testing';
+import { HttpTestingController, HttpClientTestingModule, } from '@angular/common/http/testing';
 import { environment } from '../../environments/environment';
 
 describe('Service: GetCollectors', () => {

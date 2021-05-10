@@ -6,23 +6,36 @@
   </div>
   <ul class="nav flex-column">
     <li class="nav-item">
-      <a class="nav-link"  aria-label="Ir a la lista de Álbumes" href="#" href="#" routerLinkActive="active" routerLink="/albumes">
-        <em class="bi bi-disc" aria-label="Ir a la lista de Álbumes" ></em>
-        <span [class.d-md-inline]="!collapsed" class="d-none">
-          Albumes
-        </span>
+      <a
+        class="nav-link"
+        aria-label="Ir a la lista de Álbumes"
+        href="#"
+        href="#"
+        routerLinkActive="active"
+        routerLink="/albumes"
+      >
+        <em class="bi bi-disc" aria-label="Ir a la lista de Álbumes"></em>
+        <span [class.d-md-inline]="!collapsed" class="d-none"> Albumes </span>
       </a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="#" routerLinkActive="active" routerLink="/musicos">
+      <a
+        class="nav-link"
+        href="#"
+        routerLinkActive="active"
+        routerLink="/musicos"
+      >
         <em class="bi bi-lightning"></em>
-        <span [class.d-md-inline]="!collapsed" class="d-none">
-          Musicos
-        </span>
+        <span [class.d-md-inline]="!collapsed" class="d-none"> Musicos </span>
       </a>
     </li>
     <li class="nav-item">
-      <a [class.active]="current === 'collectors'" class="nav-link" href="#" (click)="onCollectorsClick()">
+      <a
+        [class.active]="current === 'collectors'"
+        class="nav-link"
+        href="#"
+        (click)="onCollectorsClick()"
+      >
         <em class="bi bi-bookmark"></em>
         <span [class.d-md-inline]="!collapsed" class="d-none">
           Coleccionistas
@@ -32,18 +45,17 @@
     <li class="nav-item">
       <a class="nav-link" href="#">
         <em class="bi bi-award"></em>
-        <span [class.d-md-inline]="!collapsed" class="d-none">
-          Premios
-        </span>
+        <span [class.d-md-inline]="!collapsed" class="d-none"> Premios </span>
       </a>
     </li>
   </ul>
   <div class="nav-item border-top d-none d-md-block">
     <a class="nav-link" href="#" (click)="onCollapseClick($event)">
-      <em [class.bi-arrow-right-circle]="collapsed" class="bi bi-arrow-left-circle"></em>
-      <span [class.d-md-inline]="!collapsed" class="d-none">
-        Colapsar
-      </span>
+      <em
+        [class.bi-arrow-right-circle]="collapsed"
+        class="bi bi-arrow-left-circle"
+      ></em>
+      <span [class.d-md-inline]="!collapsed" class="d-none"> Colapsar </span>
     </a>
   </div>
 </nav>

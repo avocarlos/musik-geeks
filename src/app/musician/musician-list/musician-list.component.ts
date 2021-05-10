@@ -37,7 +37,7 @@ export class MusicianListComponent implements OnInit {
     this.musicianService.getMusicians()
       .subscribe((musicians) => {
         this.musicians = musicians;
-        this.table.rows = musicians.map(({id, image, name}) => ({
+        this.table.rows = musicians.map(({ id, image, name }) => ({
           columns: [imgTag(image), name],
           viewButtonClick: () => this.router.navigate([`./${id}`], { relativeTo: this.route })
         }));

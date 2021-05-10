@@ -44,7 +44,7 @@
   font-size: 24px !important;
 }
 
-@media (min-width:768px) {
+@media (min-width: 768px) {
   .left-navbar {
     width: 260px;
   }

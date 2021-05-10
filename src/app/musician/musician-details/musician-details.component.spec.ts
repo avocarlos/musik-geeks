@@ -52,7 +52,7 @@ describe('MusicianDetailsComponent', () => {
         }
       }]
     })
-    .compileComponents();
+      .compileComponents();
 
     httpTestingController = TestBed.inject(HttpTestingController);
   }));

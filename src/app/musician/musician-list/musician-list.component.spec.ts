@@ -32,7 +32,7 @@ describe('MusicianListComponent', () => {
       ],
       declarations: [MusicianListComponent]
     })
-    .compileComponents();
+      .compileComponents();
 
     httpTestingController = TestBed.inject(HttpTestingController);
   }));

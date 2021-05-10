@@ -20,7 +20,7 @@ export class AlbumDetailsComponent implements OnInit {
       'Duración'
     ],
     rows: [],
-    tableContentName:'canciones'
+    tableContentName: 'canciones'
   };
 
   public breadcrumbs = ['Home', 'Álbumes'];
@@ -41,8 +41,8 @@ export class AlbumDetailsComponent implements OnInit {
 
   ngOnInit(): void {
 
-    this.route.params.subscribe(params => {this.albumId = params.id});
-      this.getAlbum();
+    this.route.params.subscribe(params => { this.albumId = params.id });
+    this.getAlbum();
   }
 
   getAlbum(): void {

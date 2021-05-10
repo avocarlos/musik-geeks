@@ -6,26 +6,41 @@
         <table class="table table-striped">
           <thead>
             <tr>
-              <th id="tableHeaders" class="text-uppercase text-secondary"><small>NOMBRE</small></th>
-              <th id="tableHeaders" class="text-uppercase text-secondary"><small>COLECCIONES</small></th>
-              <th id="tableHeaders" class="text-uppercase text-secondary"><small>COMENTARIOS</small></th>
+              <th id="tableHeaders" class="text-uppercase text-secondary">
+                <small>NOMBRE</small>
+              </th>
+              <th id="tableHeaders" class="text-uppercase text-secondary">
+                <small>COLECCIONES</small>
+              </th>
+              <th id="tableHeaders" class="text-uppercase text-secondary">
+                <small>COMENTARIOS</small>
+              </th>
               <th id="table-actions"></th>
             </tr>
           </thead>
           <tbody>
-            <tr *ngFor="let coll of collectors ; let indice=index" >
-              <td>{{coll.name}}</td>
-              <td>{{coll.comments.length}}</td>
-              <td>{{coll.collectorAlbums.length}}
-              <td class="text-right"> <button type="button" class="btn" (click)="handleViewButtonClick(coll.id)"> <em class="bem bi-chevron-right"></em> </button> </td>
+            <tr *ngFor="let coll of collectors; let indice = index">
+              <td>{{ coll.name }}</td>
+              <td>{{ coll.comments.length }}</td>
+              <td>{{ coll.collectorAlbums.length }}</td>
+              <td class="text-right">
+                <button
+                  type="button"
+                  class="btn"
+                  (click)="handleViewButtonClick(coll.id)"
+                >
+                  <em class="bem bi-chevron-right"></em>
+                </button>
+              </td>
             </tr>
           </tbody>
         </table>
-
       </div>
     </div>
   </div>
 </div>
 
-<app-collectors-details *ngIf="selectedCollectors" [collectorId]="selectedCollectors"></app-collectors-details>
-
+<app-collectors-details
+  *ngIf="selectedCollectors"
+  [collectorId]="selectedCollectors"
+></app-collectors-details>

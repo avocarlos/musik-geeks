@@ -1,4 +1,8 @@
-<table id="dataTable{{tableContentName}}" summary="lista de datos" class="table table-shadow">
+<table
+  id="dataTable{{ tableContentName }}"
+  summary="lista de datos"
+  class="table table-shadow"
+>
   <thead>
     <tr>
       <th
@@ -8,7 +12,10 @@
       >
         <small>{{ header }}</small>
       </th>
-      <th aria-label="Acciones sobre los registros" id="table-actions{{tableContentName}}"></th>
+      <th
+        aria-label="Acciones sobre los registros"
+        id="table-actions{{ tableContentName }}"
+      ></th>
     </tr>
   </thead>
   <tbody>
@@ -16,7 +23,9 @@
       <td
         *ngFor="let value of row.columns; index as columnIdx"
         id="{{
-          headers[columnIdx] ? 'table-' + headers[columnIdx].toLowerCase() + idx: ''
+          headers[columnIdx]
+            ? 'table-' + headers[columnIdx].toLowerCase() + idx
+            : ''
         }}"
         class="align-middle"
         [innerHTML]="value"

@@ -12,7 +12,7 @@ export class NavbarComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit(): void {}
+  ngOnInit(): void { }
 
   onCollectorsClick(): void {
     this.buttonClick.emit('collectors');

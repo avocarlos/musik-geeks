@@ -1,4 +1,4 @@
-import { Component, OnInit , Output, EventEmitter} from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { Collector } from './collector';
 import { CollectorsService } from './collectors.service';
 import { TableRow } from '../shared/table/table.component';
@@ -27,18 +27,18 @@ export class CollectorsComponent implements OnInit {
 
   constructor(public collectorService: CollectorsService) { }
 
-    ngOnInit(): void {
-      this.collectorService.getCollectorsList().subscribe((collectors) => {
-          this.collectors = collectors;
+  ngOnInit(): void {
+    this.collectorService.getCollectorsList().subscribe((collectors) => {
+      this.collectors = collectors;
 
-      });
-    }
+    });
+  }
 
-    handleViewButtonClick(id: number): void {
-      this.selectedCollectors = id;
-    }
-    onCollapseClick(): void {
-      this.collapsed = !this.collapsed;
-    }
+  handleViewButtonClick(id: number): void {
+    this.selectedCollectors = id;
+  }
+  onCollapseClick(): void {
+    this.collapsed = !this.collapsed;
+  }
 }
 

@@ -11,10 +11,10 @@ describe('DetailHeaderComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [ SharedModule ],
-      declarations: [ DetailHeaderComponent ]
+      imports: [SharedModule],
+      declarations: [DetailHeaderComponent]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {
