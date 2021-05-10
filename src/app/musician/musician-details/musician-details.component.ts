@@ -19,7 +19,6 @@ export class MusicianDetailsComponent implements OnInit {
     ],
     rows: [],
     tableContentName: 'albumes'
-
   };
   public awardsTable = {
     headers: [
@@ -27,7 +26,8 @@ export class MusicianDetailsComponent implements OnInit {
       'Organización',
       'Año'
     ],
-    rows: []
+    rows: [],
+    tableContentName: 'awards'
   };
   public breadcrumbs = ['Home', 'Músicos'];
   public featured = [{

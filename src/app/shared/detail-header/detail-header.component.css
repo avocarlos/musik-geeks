@@ -17,4 +17,9 @@
 
 .featured-text-item {
   margin-right: 50px;
+  width: auto;
+}
+
+.secondary-table{
+  padding-left: 0px;
 }
