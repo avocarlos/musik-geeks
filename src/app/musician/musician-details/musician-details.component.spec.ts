@@ -104,7 +104,7 @@ describe('MusicianDetailsComponent', () => {
     const name = fixture.debugElement.query(By.css('h1'));
     const description = fixture.debugElement.query(By.css('.lead'));
     const thumbnail = fixture.debugElement.query(By.css('.musician-img'));
-    const birthday = fixture.debugElement.query(By.css('.featured-text-item h4'));
+    const birthday = fixture.debugElement.query(By.css('.featured-text-item dd'));
 
     expect(name.nativeElement.textContent).toEqual(MUSICIAN.name);
     expect(description.nativeElement.textContent).toEqual(MUSICIAN.description);

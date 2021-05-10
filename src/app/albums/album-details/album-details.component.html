@@ -13,7 +13,7 @@
 <div class="container mt-5 mb-5">
   <div class="row mb-5">
     <div class="col">
-      <h4 class="mb-3">Canciones</h4>
+      <h2 class="mb-3 h3">Canciones</h2>
       <app-table
         [headers]="cancionesTable.headers"
         [rows]="cancionesTable.rows"
@@ -23,7 +23,7 @@
   </div>
   <div class="row">
     <div class="col-12">
-      <h4 class="mb-3">Comentarios</h4>
+      <h2 class="mb-3 h3">Comentarios</h2>
     </div>
   </div>
   <div class="row" *ngIf="album">
@@ -34,10 +34,10 @@
             class="card-title padded comment-description"
             aria-label="Comentario sobre álbum"
           >{{ comment.description }}</p>
-          <h5
-            class="card-text comment-rating"
+          <span
+            class="h5 card-text comment-rating"
             aria-label="rating dado al álbum"
-          >{{ comment.rating }}/5</h5>
+          >{{ comment.rating }}/5</span>
         </div>
       </div>
     </div>

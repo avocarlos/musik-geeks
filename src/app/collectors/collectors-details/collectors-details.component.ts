@@ -17,27 +17,22 @@ export class CollectorsDetailsComponent implements OnInit {
   public collectorAlbums?: CollectorAlbums;
   public albumsTable = {
     headers: [
-      '',
+      'Portada',
       'Título',
       'Lanzamiento',
       'Precio'
     ],
-    rows: []
+    rows: [],
+    tableContentName: 'albumes'
   };
 
   public favoritePerformersTable = {
     headers: [
-      '',
+      'Músico',
       'Nombre'
     ],
-    rows: []
-  };
-
-  public commentsTable = {
-    headers: [
-      ' '
-    ],
-    rows: []
+    rows: [],
+    tableContentName: 'musicosFavoritos'
   };
 
   public breadcrumbs = ['Home', 'Coleccionistas'];
@@ -91,13 +86,6 @@ export class CollectorsDetailsComponent implements OnInit {
             columns: [imgTag(image), name]
           };
         });
-
-        this.commentsTable.rows = collector.comments.map(({description, rating}) => {
-          return {
-            columns: [description, rating]
-          };
-        });
-
       });
   }
   handleViewButtonClick(id: number): void { }
