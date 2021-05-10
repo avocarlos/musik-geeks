@@ -73,8 +73,8 @@ describe('CollectorsComponent', () => {
     const table = collectorsList.querySelector('table');
     const headers = table.querySelectorAll('th');
 
-    expect(headers[0].textContent).toEqual('NOMBRE');
-    expect(headers[1].textContent).toEqual('COLECCIONES');
+    expect(headers[0].textContent).toEqual('Nombre');
+    expect(headers[1].textContent).toEqual('Email');
   });
 
   it('should render the table with Collectors name', () => {
