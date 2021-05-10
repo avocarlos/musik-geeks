@@ -6,37 +6,29 @@
       </div>
     </div>
     <div class="row">
-      <div *ngIf="imgSrc" class="col-12 col-md-3">
-        <img class="musician-img" [src]="imgSrc" [alt]="title" />
+      <div *ngIf="imgSrc" class="col-12 col-lg-3">
+        <img class="musician-img mb-5 mb-lg-0" [src]="imgSrc" [alt]="title" />
       </div>
-      <div class="col-12 {{imgSrc ? 'col-md-9' : 'col-md-12'}}">
-        <h1 *ngIf="title" class="display-5 featured-title">{{title}}</h1>
-        <h3 *ngIf="subtitle" class="text-secondary featured-subtitle">{{subtitle}}</h3>
-        <p *ngIf="description" class="lead">{{description}}</p>
-        <div *ngIf="featured.length" class="mt-5 container-fluid">
-          <div class="row">
-            <div *ngFor="let feature of featured" class="featured-text-item pe-3 col-fluid-3">
-              <h6 class="text-uppercase fw-bold">
-                <small>{{feature.title}}</small>
-              </h6>
-              <h5 class="text-secondary">{{feature.subtitle}}</h5>
+      <div class="col-12 {{ imgSrc ? 'col-lg-9' : 'col-lg-12' }}">
+        <h1 *ngIf="title">{{ title }}</h1>
+        <h2 *ngIf="subtitle" class="h4 text-secondary featured-subtitle">{{ subtitle }}</h2>
+        <p *ngIf="description" class="lead">{{ description }}</p>
+        <div
+          *ngIf="featured.length"
+          class="mt-4 container-fluid secondary-table"
+        >
+          <div class="row row-cols-auto">
+            <div
+              *ngFor="let feature of featured"
+              class="featured-text-item col"
+            >
+              <h3 class="h6 text-uppercase fw-bold">
+                <small>{{ feature.title }}</small>
+              </h3>
+              <h4 class="h5 text-secondary">{{ feature.subtitle }}</h4>
             </div>
           </div>
         </div>
-
-        <div *ngIf="featured1.length" class="d-flex mt-5 container-fluid">
-          <div *ngFor="let feature of featured1" class="col-5">
-            <div class="row">
-              <div class="col-6">
-                <h6 class="text-uppercase fw-bold ">
-                {{feature.title}}
-                </h6>
-                <h5 class="text-secondary">{{feature.subtitle}}</h5>
-              </div>
-            </div>
-          </div>
-        </div>
-
       </div>
     </div>
   </div>

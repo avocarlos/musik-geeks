@@ -11,13 +11,20 @@
     <div class="row mb-5">
       <div class="col">
         <h4 class="mb-3">Álbumes</h4>
-        <app-table [headers]="albumsTable.headers" [rows]="albumsTable.rows"></app-table>
+        <app-table
+          [headers]="albumsTable.headers"
+          [rows]="albumsTable.rows"
+          [tableContentName]="albumsTable.tableContentName"
+        ></app-table>
       </div>
     </div>
     <div class="row">
       <div class="col">
         <h4 class="mb-3">Premios</h4>
-        <app-table [headers]="awardsTable.headers" [rows]="awardsTable.rows"></app-table>
+        <app-table
+          [headers]="awardsTable.headers"
+          [rows]="awardsTable.rows"
+        ></app-table>
       </div>
     </div>
   </div>

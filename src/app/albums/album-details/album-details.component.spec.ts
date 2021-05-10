@@ -12,6 +12,7 @@ import { AlbumDetailsComponent } from './album-details.component';
 import * as faker from 'faker';
 import { environment } from 'src/environments/environment';
 import { formatDate } from '@angular/common';
+import { ActivatedRoute } from '@angular/router';
 
 
 
@@ -76,7 +77,15 @@ describe('AlbumDetailsComponent', () => {
         HttpClientTestingModule,
         SharedModule
       ],
-      declarations: [AlbumDetailsComponent]
+      declarations: [AlbumDetailsComponent],
+      providers: [{
+        provide: ActivatedRoute,
+        useValue: {
+          params: {
+            subscribe: (callback) => callback({ id: albumId })
+          }
+        }
+      }]
     })
       .compileComponents();
 
@@ -86,8 +95,6 @@ describe('AlbumDetailsComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(AlbumDetailsComponent);
     component = fixture.componentInstance;
-
-    component.albumId = albumId;
 
     fixture.detectChanges();
 
@@ -125,7 +132,8 @@ describe('AlbumDetailsComponent', () => {
           ALBUM.tracks[0].name,
           ALBUM.tracks[0].duration
         ]
-      }]
+      }],
+      tableContentName: 'canciones'
     });
   });
 
@@ -146,11 +154,11 @@ describe('AlbumDetailsComponent', () => {
 
 
   it('should render album header with information', () => {
-    const name = fixture.debugElement.query(By.css('.featured-title'));
+    const name = fixture.debugElement.query(By.css('h1'));
     const performers = fixture.debugElement.query(By.css('.featured-subtitle'));
     const description = fixture.debugElement.query(By.css('.lead'));
     const thumbnail = fixture.debugElement.query(By.css('.musician-img'));
-    const releaseDate = fixture.debugElement.queryAll(By.css('.featured-text-item h5'));
+    const releaseDate = fixture.debugElement.queryAll(By.css('.featured-text-item h4'));
 
     expect(name.nativeElement.textContent).toEqual(ALBUM.name);
     expect(description.nativeElement.textContent).toEqual(ALBUM.description);
@@ -175,8 +183,8 @@ describe('AlbumDetailsComponent', () => {
 
 
   it('should render tracks table with albums tracks', () => {
-    const titulo = fixture.debugElement.query(By.css('#table-título'));
-    const duracion = fixture.debugElement.query(By.css('#table-duración'));
+    const titulo = fixture.debugElement.query(By.css('#table-título0'));
+    const duracion = fixture.debugElement.query(By.css('#table-duración0'));
 
     const [track] = ALBUM.tracks;
 

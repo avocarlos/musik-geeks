@@ -6,6 +6,7 @@ import { TableComponent } from './table/table.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { BreadcrumbsComponent } from './breadcrumbs/breadcrumbs.component';
 import { LoadingComponent } from './loading/loading.component';
+import { CardComponent } from './card/card.component';
 import { AppRoutingModule } from '../app-routing.module';
 @NgModule({
   imports: [
@@ -18,14 +19,16 @@ import { AppRoutingModule } from '../app-routing.module';
     NavbarComponent,
     DetailHeaderComponent,
     BreadcrumbsComponent,
-    LoadingComponent
+    LoadingComponent,
+    CardComponent
   ],
   exports: [
     ListHeaderComponent,
     TableComponent,
     NavbarComponent,
     DetailHeaderComponent,
-    LoadingComponent
+    LoadingComponent,
+    CardComponent
   ]
 })
 export class SharedModule { }

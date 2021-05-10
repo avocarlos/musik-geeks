@@ -1,4 +1,4 @@
-import { Component, OnInit , Output, EventEmitter} from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { Collector } from './collector';
 import { CollectorsService } from './collectors.service';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -45,6 +45,5 @@ export class CollectorsComponent implements OnInit {
           }));
         });
     }
-
 }
 

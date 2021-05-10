@@ -13,8 +13,9 @@ export interface TableRow {
 export class TableComponent implements OnInit {
   @Input() headers: string[];
   @Input() rows: TableRow[];
+  @Input() tableContentName: TableRow[];
 
-  constructor() {}
+  constructor() { }
 
-  ngOnInit(): void {}
+  ngOnInit(): void { }
 }

@@ -1,24 +1,31 @@
 <nav [class.collapsed]="collapsed" class="left-navbar border-end">
   <div [class.small]="collapsed" class="logo">
-    <a href="#">
-      <em class="bi bi-headphones"></em>
+    <a href="#" aria-label="Página principal" routerLink="/">
+      <em class="bi bi-headphones" aria-label="Página principal"></em>
     </a>
   </div>
   <ul class="nav flex-column">
     <li class="nav-item">
-      <a [class.active]="current === 'albums'" class="nav-link" href="#" (click)="onAlbumsClick()">
-        <em class="bi bi-disc"></em>
-        <span [class.d-md-inline]="!collapsed" class="d-none">
-          Albumes
-        </span>
+      <a
+        class="nav-link"
+        aria-label="Ir a la lista de Álbumes"
+        href="#"
+        routerLinkActive="active"
+        routerLink="/albumes"
+      >
+        <em class="bi bi-disc" aria-label="Ir a la lista de Álbumes"></em>
+        <span [class.d-md-inline]="!collapsed" class="d-none"> Albumes </span>
       </a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="#" routerLinkActive="active" routerLink="/musicos">
+      <a
+        class="nav-link"
+        href="#"
+        routerLinkActive="active"
+        routerLink="/musicos"
+      >
         <em class="bi bi-lightning"></em>
-        <span [class.d-md-inline]="!collapsed" class="d-none">
-          Musicos
-        </span>
+        <span [class.d-md-inline]="!collapsed" class="d-none"> Musicos </span>
       </a>
     </li>
     <li class="nav-item">
@@ -32,18 +39,17 @@
     <li class="nav-item">
       <a class="nav-link" href="#">
         <em class="bi bi-award"></em>
-        <span [class.d-md-inline]="!collapsed" class="d-none">
-          Premios
-        </span>
+        <span [class.d-md-inline]="!collapsed" class="d-none"> Premios </span>
       </a>
     </li>
   </ul>
   <div class="nav-item border-top d-none d-md-block">
     <a class="nav-link" href="#" (click)="onCollapseClick($event)">
-      <em [class.bi-arrow-right-circle]="collapsed" class="bi bi-arrow-left-circle"></em>
-      <span [class.d-md-inline]="!collapsed" class="d-none">
-        Colapsar
-      </span>
+      <em
+        [class.bi-arrow-right-circle]="collapsed"
+        class="bi bi-arrow-left-circle"
+      ></em>
+      <span [class.d-md-inline]="!collapsed" class="d-none"> Colapsar </span>
     </a>
   </div>
 </nav>
