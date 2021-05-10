@@ -6,7 +6,6 @@ import { TableRow } from '../shared/table/table.component';
 interface CollectorsTable {
   headers: string[];
   rows: TableRow[];
-  tableContentName: string;
 }
 @Component({
   selector: 'app-collectors',
