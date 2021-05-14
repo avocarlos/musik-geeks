@@ -43,6 +43,8 @@ export class MusicianListComponent implements OnInit {
         }));
       });
   }
+
+  navigateToCreate = () => this.router.navigate(['./agregar'], { relativeTo: this.route });
 }
 
 
