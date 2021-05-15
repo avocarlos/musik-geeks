@@ -13,10 +13,10 @@ import { TableRow } from '../shared/table/table.component';
 export class AlbumsComponent implements OnInit {
   public albumes?: Album[];
   public selectedAlbum = 0;
-  public title = $localize`:@@AlbumsTitulo:Titulo`;
+  public title = $localize`:@@AlbumsTitulo:Álbumes`;
   public headers = [
     $localize`:@@AlbumsPortada:Portada`,
-    $localize`:@@AlbumsTitulo:Titulo`,
+    $localize`:@@AlbumsTitulo:Álbumes`,
     $localize`:@@AlbumsMusico:Musico`,
     $localize`:@@AlbumsLanzamiento:Lanzamiento`
   ];
@@ -48,7 +48,7 @@ export class AlbumsComponent implements OnInit {
         }
         this.rows = cs.map(({ cover, name, listaPerformers, releaseDate, id }) => {
           const formattedImg = imgTag(cover);
-          const formattedDate = formatDate(releaseDate, 'shortDate', $localize`:@@DateCulture:Culture`);
+          const formattedDate = formatDate(releaseDate, 'shortDate', 'en-US');
 
           return {
             columns: [formattedImg, name, listaPerformers, formattedDate],

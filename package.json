@@ -10,7 +10,8 @@
     "e2e": "ng e2e",
     "sonar": "sonar-scanner",
     "start:es": "ng serve --configuration=es",
-    "start:en": "ng serve --configuration=en"
+    "start:en": "ng serve --configuration=en",
+    "test:es": "ng test --configuration=es"
   },
   "private": true,
   "dependencies": {

@@ -2,12 +2,8 @@
 <xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
   <file source-language="en-US" datatype="plaintext" original="ng2.template">
     <body>
-      <trans-unit id="DateCulture" >
-        <source>Culture</source>
-        <target>es-MX</target>
-      </trans-unit>
       <trans-unit id="AlbumsTitulo" >
-        <source>Titulo</source>
+        <source>Álbumes</source>
         <target>Álbumes</target>
       </trans-unit>
       <trans-unit id="ListaCancionesTítulo" >
@@ -15,7 +11,7 @@
         <target>Título</target>
       </trans-unit>
       <trans-unit id="ListaCancionesDuracion" >
-        <source>Duracion</source>
+        <source>Duración</source>
         <target>Duración</target>
       </trans-unit>
       <trans-unit id="ListaCanciones" >
@@ -27,8 +23,8 @@
         <target>Lanzamiento</target>
       </trans-unit>
       <trans-unit id="AlbumsGenero" >
-        <source>Genero</source>
-        <target>Genero</target>
+        <source>Género</source>
+        <target>Género</target>
       </trans-unit>
       <trans-unit id="AlbumsFirma" >
         <source>Firma</source>

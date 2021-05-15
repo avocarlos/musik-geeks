@@ -17,15 +17,15 @@ export class AlbumDetailsComponent implements OnInit {
   public cancionesTable = {
     headers: [
       '#',
-      $localize`:@@ListaCancionesTítulo:Titulo`,
-      $localize`:@@ListaCancionesDuracion:Duracion`
+      $localize`:@@ListaCancionesTítulo:Título`,
+      $localize`:@@ListaCancionesDuracion:Duración`
     ],
     rows: [],
     tableContentName: 'canciones'
   };
-  public breadcrumbs = ['Home', $localize`:@@AlbumsTitulo:Titulo` ];
+  public breadcrumbs = ['Home', $localize`:@@AlbumsTitulo:Álbumes` ];
   public featured = [{
-    title: $localize`:@@AlbumsGenero:Genero`,
+    title: $localize`:@@AlbumsGenero:Género`,
     subtitle: ''
   },
   {
@@ -67,7 +67,7 @@ export class AlbumDetailsComponent implements OnInit {
 
 
       this.featured[0].subtitle = this.album.genre;
-      this.featured[1].subtitle = formatDate(this.album.releaseDate, 'longDate' , $localize`:@@DateCulture:Culture`, '+0');
+      this.featured[1].subtitle = formatDate(this.album.releaseDate, 'longDate' , 'en-US', '+0');
       this.featured[2].subtitle = this.album.recordLabel;
       let index = 0;
       this.cancionesTable.rows = this.album.tracks.map(({ id, name, duration }) => {
