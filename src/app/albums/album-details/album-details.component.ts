@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { Album } from '../album';
 import { AlbumDetailsService } from './album-details.service';
 import { ActivatedRoute } from '@angular/router';
-import  '@angular/localize/init';
+import '@angular/localize/init';
 
 @Component({
   selector: 'app-album-details',
@@ -23,7 +23,7 @@ export class AlbumDetailsComponent implements OnInit {
     rows: [],
     tableContentName: 'canciones'
   };
-  public breadcrumbs = ['Home', $localize`:@@AlbumsTitulo:Álbumes` ];
+  public breadcrumbs = ['Home', $localize`:@@AlbumsTitulo:Álbumes`];
   public featured = [{
     title: $localize`:@@AlbumsGenero:Género`,
     subtitle: ''
@@ -40,7 +40,7 @@ export class AlbumDetailsComponent implements OnInit {
     private albumDetailsService: AlbumDetailsService,
     private route: ActivatedRoute) {
 
-    }
+  }
 
   ngOnInit(): void {
 
@@ -67,7 +67,7 @@ export class AlbumDetailsComponent implements OnInit {
 
 
       this.featured[0].subtitle = this.album.genre;
-      this.featured[1].subtitle = formatDate(this.album.releaseDate, 'longDate' , 'en-US', '+0');
+      this.featured[1].subtitle = formatDate(this.album.releaseDate, 'longDate', 'en-US', '+0');
       this.featured[2].subtitle = this.album.recordLabel;
       let index = 0;
       this.cancionesTable.rows = this.album.tracks.map(({ id, name, duration }) => {
