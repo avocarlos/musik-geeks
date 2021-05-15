@@ -13,12 +13,12 @@ import { TableRow } from '../shared/table/table.component';
 export class AlbumsComponent implements OnInit {
   public albumes?: Album[];
   public selectedAlbum = 0;
-  public title = 'Álbumes';
+  public title = $localize`:@@AlbumsTitulo:Titulo`;
   public headers = [
-    'Portada',
-    'Título',
-    'Músico',
-    'Lanzamiento'
+    $localize`:@@AlbumsPortada:Portada`,
+    $localize`:@@AlbumsTitulo:Titulo`,
+    $localize`:@@AlbumsMusico:Musico`,
+    $localize`:@@AlbumsLanzamiento:Lanzamiento`
   ];
   public tableContentName = 'albumes';
   public rows: TableRow[] = [];
@@ -48,7 +48,7 @@ export class AlbumsComponent implements OnInit {
         }
         this.rows = cs.map(({ cover, name, listaPerformers, releaseDate, id }) => {
           const formattedImg = imgTag(cover);
-          const formattedDate = formatDate(releaseDate, 'shortDate', 'en-US');
+          const formattedDate = formatDate(releaseDate, 'shortDate', $localize`:@@DateCulture:Culture`);
 
           return {
             columns: [formattedImg, name, listaPerformers, formattedDate],
@@ -64,5 +64,5 @@ export class AlbumsComponent implements OnInit {
 }
 
 function imgTag(src: string): string {
-  return `<img class="table-avatar" src="${src}" alt="Portada de album" />`;
+  return `<img class="table-avatar" src="${src}" alt="${$localize`:@@AlbumsPortada:AlbumsDescripcionPortada`}" />`;
 }

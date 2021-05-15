@@ -23,7 +23,7 @@
   </div>
   <div class="row">
     <div class="col-12">
-      <h2 class="mb-3 h3">Comentarios</h2>
+      <h2 class="mb-3 h3" i18n>Comentarios</h2>
     </div>
   </div>
   <div class="row" *ngIf="album">
@@ -32,11 +32,12 @@
         <div class="card-body">
           <p
             class="card-title padded comment-description"
-            aria-label="Comentario sobre álbum"
+            aria-label="Comentario sobre álbum" i18n-aria-label
           >{{ comment.description }}</p>
           <span
             class="h5 card-text comment-rating"
             aria-label="rating dado al álbum"
+            i18n-aria-label
           >{{ comment.rating }}/5</span>
         </div>
       </div>

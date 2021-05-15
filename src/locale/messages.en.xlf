@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+  <file source-language="en-US" datatype="plaintext" original="ng2.template">
+    <body>
+      <trans-unit id="DateCulture" >
+        <source>Culture</source>
+        <target>en-US</target>
+      </trans-unit>
+      <trans-unit id="AlbumsTitulo" >
+        <source>Titulo</source>
+        <target>Albums</target>
+      </trans-unit>
+      <trans-unit id="ListaCancionesTítulo" >
+        <source>Título</source>
+        <target>Title</target>
+      </trans-unit>
+      <trans-unit id="ListaCancionesDuracion" >
+        <source>Duracion</source>
+        <target>Time</target>
+      </trans-unit>
+      <trans-unit id="ListaCanciones" >
+        <source>Canciones</source>
+        <target>Tracks</target>
+      </trans-unit>
+      <trans-unit id="AlbumsLanzamiento" >
+        <source>Lanzamiento</source>
+        <target>Release Date</target>
+      </trans-unit>
+      <trans-unit id="AlbumsGenero" >
+        <source>Genero</source>
+        <target>Genre</target>
+      </trans-unit>
+      <trans-unit id="AlbumsFirma" >
+        <source>Firma</source>
+        <target>Label</target>
+      </trans-unit>
+      <trans-unit id="AlbumsPortada" >
+        <source>Portada</source>
+        <target>Cover</target>
+      </trans-unit>
+      <trans-unit id="AlbumsMusico" >
+        <source>Músico</source>
+        <target>Musicians</target>
+      </trans-unit>
+      <trans-unit id="AlbumsDescripcionPortada" >
+        <source>DescripcionPortada</source>
+        <target>Album Cover</target>
+      </trans-unit>
+      <trans-unit id="9bea75f59a97f4d38867c24cd4ebc75243eaa406" datatype="html">
+        <source>Comentarios</source>
+        <target>Comments</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/albums/album-details/album-details.component.html</context>
+          <context context-type="linenumber">26</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="66abb23ed9adf4aa03eab3e4b75234d32748e44c" datatype="html">
+        <source><x id="INTERPOLATION" equiv-text="Álbumes"/></source>
+        <target>Albums</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/list-header/list-header.component.html</context>
+          <context context-type="linenumber">5</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="66abb23ed9adf4aa03eab3e4b75234d32748e44c" datatype="html">
+        <source><x id="INTERPOLATION" equiv-text="Músicos"/></source>
+        <target>Musicians</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/list-header/list-header.component.html</context>
+          <context context-type="linenumber">5</context>
+        </context-group>
+      </trans-unit>
+
+      <trans-unit id="d7f00e212ad993ae1c44c3fcaa8f8d50c7a0b7ad" datatype="html">
+        <source>Agregar</source>
+        <target>Add</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/list-header/list-header.component.html</context>
+          <context context-type="linenumber">10</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="f5f23e4c360f4a9fd43cc6f9fb4b6c49c632aa45" datatype="html">
+        <source>Comentario sobre álbum</source>
+        <target>Comment on the album<</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/albums/album-details/album-details.component.html</context>
+          <context context-type="linenumber">35</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="1e9a43c4f48e7d496076c0597c98715c3afd1bf5" datatype="html">
+        <source>rating dado al álbum</source>
+        <target>Rating of the album</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/albums/album-details/album-details.component.html</context>
+          <context context-type="linenumber">39</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="3e06f502a7fae9f32e75ebc5457cd30ada994a99" datatype="html">
+        <source>Ver detalle</source>
+        <target>See details</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/table/table.component.html</context>
+          <context context-type="linenumber">41</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="8dff3ccd2e9c3882cd7a9c4056e72ce6fe843933" datatype="html">
+        <source>lista de datos</source>
+        <target>List of items</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/table/table.component.html</context>
+          <context context-type="linenumber">3</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="4f6e92a32327be0f0f4158090174aee1eb896046" datatype="html">
+        <source>Página principal</source>
+        <target>Main Page</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/navbar/navbar.component.html</context>
+          <context context-type="linenumber">3</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="fc8ff6bb1b7c64eb02077619fe1109f4f0ab7d57" datatype="html">
+        <source>Ir a la lista de Álbumes</source>
+        <target>Go to albums list</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/navbar/navbar.component.html</context>
+          <context context-type="linenumber">17</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/navbar/navbar.component.html</context>
+          <context context-type="linenumber">11</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="66e0e68fe71245766770dcd357e4e14a58d04c82" datatype="html">
+        <source> Albumes </source>
+        <target> Albums </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/navbar/navbar.component.html</context>
+          <context context-type="linenumber">18</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="6fa400b45b8518d2bdc434c365dbf6c62c1b485c" datatype="html">
+        <source> Músicos </source>
+        <target> Musicians </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/navbar/navbar.component.html</context>
+          <context context-type="linenumber">29</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="7b58538b1dd31df6643c09049be1550edbc8641e" datatype="html">
+        <source>Coleccionistas</source>
+        <target>Collectors</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/navbar/navbar.component.html</context>
+          <context context-type="linenumber">35</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="381c29b39f77e249fbdcf748a5145848a661e1fe" datatype="html">
+        <source> Premios </source>
+        <target> Awards </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/navbar/navbar.component.html</context>
+          <context context-type="linenumber">41</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="8884f78ff141f7863e1caa4b2afa10f8d8bf10e2" datatype="html">
+        <source> Colapsar </source>
+        <target> Collapse </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/navbar/navbar.component.html</context>
+          <context context-type="linenumber">51</context>
+        </context-group>
+      </trans-unit><trans-unit id="a54db0c09f44c434a0ab34745693cdda7b7321d0" datatype="html">
+        <source>Acciones sobre los registros</source>
+        <target>Acciones sobre los registros</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/table/table.component.html</context>
+          <context context-type="linenumber">17</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="ce429878d659ba4bf3aacb1114601bcb983ce443" datatype="html">
+        <source>Agregar item</source>
+        <target>Add item</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/list-header/list-header.component.html</context>
+          <context context-type="linenumber">8</context>
+        </context-group>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>
