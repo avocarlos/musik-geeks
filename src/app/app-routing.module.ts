@@ -20,7 +20,7 @@ const routes: Routes = [
 
 @NgModule({
   imports: [RouterModule.forRoot(routes), ToastrModule.forRoot(), BrowserAnimationsModule,
-    BrowserModule, HttpClientModule,],
+    BrowserModule, HttpClientModule],
   exports: [RouterModule],
   providers: [
     {

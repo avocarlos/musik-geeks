@@ -20,7 +20,7 @@ describe('Service: AlbumCreate', () => {
   const apiUrl = environment.baseUrl + 'albums';
 
   beforeEach(() => {
-   TestBed.configureTestingModule({
+    TestBed.configureTestingModule({
       imports: [HttpClientTestingModule, ToastrService],
       providers: [AlbumCreateService]
     });

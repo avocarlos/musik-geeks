@@ -19,6 +19,6 @@ import { ReactiveFormsModule } from '@angular/forms';
     AlbumDetailsComponent,
     AlbumCreateComponent
   ],
-  exports: [AlbumsComponent, AlbumDetailsComponent,AlbumCreateComponent]
+  exports: [AlbumsComponent, AlbumDetailsComponent, AlbumCreateComponent]
 })
 export class AlbumsModule { }

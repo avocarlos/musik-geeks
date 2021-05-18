@@ -4,6 +4,7 @@ import { ActivatedRoute } from "@angular/router";
 import { ToastrService } from 'ngx-toastr';
 import { Album } from '../album';
 import { AlbumCreateService } from './album-create.service';
+import '@angular/localize/init';
 
 @Component({
   selector: 'app-album-create',
@@ -52,12 +53,12 @@ export class AlbumCreateComponent implements OnInit {
   }
 
   changeGenre(e) {
-    this.albumForm.patchValue({'genre':this.genreList[e.target.options.selectedIndex-1]});
+    this.albumForm.patchValue({ 'genre': this.genreList[e.target.options.selectedIndex - 1] });
 
   }
 
   changeRecordLabel(e) {
-    this.albumForm.patchValue({'recordLabel':this.recordingLabelList[e.target.options.selectedIndex-1]});
+    this.albumForm.patchValue({ 'recordLabel': this.recordingLabelList[e.target.options.selectedIndex - 1] });
   }
 
 

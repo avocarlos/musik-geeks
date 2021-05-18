@@ -4,7 +4,7 @@ import { By } from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
 
 import { AlbumCreateComponent } from './album-create.component';
-import { HttpClientTestingModule,HttpTestingController } from '@angular/common/http/testing';
+import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 import { ActivatedRoute } from '@angular/router';
 import { AlbumCreateService } from './album-create.service';
 
@@ -19,9 +19,9 @@ describe('AlbumCreateComponent', () => {
       imports: [
         HttpClientTestingModule
       ],
-      declarations: [ AlbumCreateComponent ]
+      declarations: [AlbumCreateComponent]
     })
-    .compileComponents();
+      .compileComponents();
     httpTestingController = TestBed.inject(HttpTestingController);
     //service = TestBed.get(AlbumCreateService);
     /*service.addCourse({ topicId: 1 })
