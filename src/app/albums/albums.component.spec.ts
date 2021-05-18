@@ -81,13 +81,13 @@ describe('AlbumsComponent', () => {
   it('Album list has name object', () => {
     fixture.detectChanges();
 
-    expect(debug.query(By.css('#table-título0'))).toBeTruthy();
+    expect(debug.query(By.css('#table-álbumes0'))).toBeTruthy();
   });
 
   it('Album list has performers object', () => {
     fixture.detectChanges();
 
-    expect(debug.query(By.css('#table-músico0'))).toBeTruthy();
+    expect(debug.query(By.css('#table-musico0'))).toBeTruthy();
   });
 
   it('Album list has release date object', () => {

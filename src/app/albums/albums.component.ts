@@ -13,12 +13,12 @@ import { TableRow } from '../shared/table/table.component';
 export class AlbumsComponent implements OnInit {
   public albumes?: Album[];
   public selectedAlbum = 0;
-  public title = 'Álbumes';
+  public title = $localize`:@@AlbumsTitulo:Álbumes`;
   public headers = [
-    'Portada',
-    'Título',
-    'Músico',
-    'Lanzamiento'
+    $localize`:@@AlbumsPortada:Portada`,
+    $localize`:@@AlbumsTitulo:Álbumes`,
+    $localize`:@@AlbumsMusico:Musico`,
+    $localize`:@@AlbumsLanzamiento:Lanzamiento`
   ];
   public tableContentName = 'albumes';
   public rows: TableRow[] = [];
@@ -64,5 +64,5 @@ export class AlbumsComponent implements OnInit {
 }
 
 function imgTag(src: string): string {
-  return `<img class="table-avatar" src="${src}" alt="Portada de album" />`;
+  return `<img class="table-avatar" src="${src}" alt="${$localize`:@@AlbumsPortada:AlbumsDescripcionPortada`}" />`;
 }

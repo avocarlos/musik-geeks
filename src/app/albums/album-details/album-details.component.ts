@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { Album } from '../album';
 import { AlbumDetailsService } from './album-details.service';
 import { ActivatedRoute } from '@angular/router';
+import '@angular/localize/init';
 
 @Component({
   selector: 'app-album-details',
@@ -16,31 +17,30 @@ export class AlbumDetailsComponent implements OnInit {
   public cancionesTable = {
     headers: [
       '#',
-      'Título',
-      'Duración'
+      $localize`:@@ListaCancionesTítulo:Título`,
+      $localize`:@@ListaCancionesDuracion:Duración`
     ],
     rows: [],
     tableContentName: 'canciones'
   };
-
-  public breadcrumbs = ['Home', 'Álbumes'];
+  public breadcrumbs = ['Home', $localize`:@@AlbumsTitulo:Álbumes`];
   public featured = [{
-    title: 'Genero',
+    title: $localize`:@@AlbumsGenero:Género`,
     subtitle: ''
   },
   {
-    title: 'Lanzamiento',
+    title: $localize`:@@AlbumsLanzamiento:Lanzamiento`,
     subtitle: ''
   },
   {
-    title: 'Firma',
+    title: $localize`:@@AlbumsFirma:Firma`,
     subtitle: ''
   }];
   constructor(
     private albumDetailsService: AlbumDetailsService,
     private route: ActivatedRoute) {
 
-    }
+  }
 
   ngOnInit(): void {
 

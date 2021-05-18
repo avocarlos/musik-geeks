@@ -118,6 +118,38 @@ describe('AlbumDetailsComponent', () => {
     expect(component.breadcrumbs).toEqual(['Home', 'Álbumes', ALBUM.name]);
   });
 
+
+  it('should render album header with information', () => {
+    const name = fixture.debugElement.query(By.css('h1'));
+    const performers = fixture.debugElement.query(By.css('.featured-subtitle'));
+    const description = fixture.debugElement.query(By.css('.lead'));
+    const thumbnail = fixture.debugElement.query(By.css('.musician-img'));
+    const releaseDate = fixture.debugElement.queryAll(By.css('.featured-text-item dd'));
+
+    expect(name.nativeElement.textContent).toEqual(ALBUM.name);
+    expect(description.nativeElement.textContent).toEqual(ALBUM.description);
+    expect(performers.nativeElement.textContent).toEqual(component.album.listaPerformers);
+    expect(thumbnail.nativeElement.src).toEqual(ALBUM.cover);
+    expect(releaseDate[0].nativeElement.textContent).toEqual(ALBUM.genre);
+    expect(releaseDate[1].nativeElement.textContent).toEqual(formatDate(ALBUM.releaseDate, 'longDate', 'en-MX', '+0'));
+    expect(releaseDate[2].nativeElement.textContent).toEqual(ALBUM.recordLabel);
+  });
+
+  it('should call #getAlbums and format featured', () => {
+    expect(component.featured).toEqual([{
+      title: 'Género',
+      subtitle: ALBUM.genre
+    },
+    {
+      title: 'Lanzamiento',
+      subtitle: formatDate(ALBUM.releaseDate, 'longDate', 'en-MX', '+0')
+    },
+    {
+      title: 'Firma',
+      subtitle: ALBUM.recordLabel
+    }]);
+  });
+
   it('should call #getAlbums and format cancionesTable', () => {
     expect(component.cancionesTable).toEqual({
       headers: ['#',
@@ -134,37 +166,7 @@ describe('AlbumDetailsComponent', () => {
     });
   });
 
-  it('should call #getAlbums and format featured', () => {
-    expect(component.featured).toEqual([{
-      title: 'Genero',
-      subtitle: ALBUM.genre
-    },
-    {
-      title: 'Lanzamiento',
-      subtitle: formatDate(ALBUM.releaseDate, 'longDate', 'en-US', '+0')
-    },
-    {
-      title: 'Firma',
-      subtitle: ALBUM.recordLabel
-    }]);
-  });
 
-
-  it('should render album header with information', () => {
-    const name = fixture.debugElement.query(By.css('h1'));
-    const performers = fixture.debugElement.query(By.css('.featured-subtitle'));
-    const description = fixture.debugElement.query(By.css('.lead'));
-    const thumbnail = fixture.debugElement.query(By.css('.musician-img'));
-    const releaseDate = fixture.debugElement.queryAll(By.css('.featured-text-item dd'));
-
-    expect(name.nativeElement.textContent).toEqual(ALBUM.name);
-    expect(description.nativeElement.textContent).toEqual(ALBUM.description);
-    expect(performers.nativeElement.textContent).toEqual(component.album.listaPerformers);
-    expect(thumbnail.nativeElement.src).toEqual(ALBUM.cover);
-    expect(releaseDate[0].nativeElement.textContent).toEqual(ALBUM.genre);
-    expect(releaseDate[1].nativeElement.textContent).toEqual(formatDate(ALBUM.releaseDate, 'longDate', 'en-US', '+0'));
-    expect(releaseDate[2].nativeElement.textContent).toEqual(ALBUM.recordLabel);
-  });
 
 
   it('should render comments table with albums comments', () => {
@@ -188,6 +190,5 @@ describe('AlbumDetailsComponent', () => {
     expect(titulo.nativeElement.textContent).toEqual(track.name);
     expect(duracion.nativeElement.textContent).toEqual(track.duration);
   });
-
 
 });

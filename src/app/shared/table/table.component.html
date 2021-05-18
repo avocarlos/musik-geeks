@@ -1,6 +1,7 @@
 <table
   id="dataTable{{ tableContentName }}"
   summary="lista de datos"
+  i18n-summary
   class="table table-shadow"
 >
   <thead>
@@ -14,6 +15,7 @@
       </th>
       <th
         aria-label="Acciones sobre los registros"
+        i18n-aria-label
         id="table-actions{{ tableContentName }}"
       ></th>
     </tr>
@@ -37,6 +39,7 @@
           class="btn"
           (click)="row.viewButtonClick()"
           aria-label="Ver detalle"
+          i18n-aria-label
         >
           <em class="bem bi-chevron-right"></em>
         </button>

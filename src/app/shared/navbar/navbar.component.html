@@ -1,6 +1,6 @@
 <nav [class.collapsed]="collapsed" class="left-navbar border-end">
   <div [class.small]="collapsed" class="logo">
-    <a href="#" aria-label="Página principal" routerLink="/">
+    <a href="#" i18n-aria-label aria-label="Página principal" routerLink="/">
       <em class="bi bi-headphones" aria-label="Página principal"></em>
     </a>
   </div>
@@ -9,12 +9,13 @@
       <a
         class="nav-link"
         aria-label="Ir a la lista de Álbumes"
+        i18n-aria-label
         href="#"
         routerLinkActive="active"
         routerLink="/albumes"
       >
-        <em class="bi bi-disc" aria-label="Ir a la lista de Álbumes"></em>
-        <span [class.d-md-inline]="!collapsed" class="d-none"> Albumes </span>
+        <em class="bi bi-disc" i18n-aria-label aria-label="Ir a la lista de Álbumes"></em>
+        <span [class.d-md-inline]="!collapsed" class="d-none" i18n> Albumes </span>
       </a>
     </li>
     <li class="nav-item">
@@ -25,21 +26,19 @@
         routerLink="/musicos"
       >
         <em class="bi bi-lightning"></em>
-        <span [class.d-md-inline]="!collapsed" class="d-none"> Musicos </span>
+        <span [class.d-md-inline]="!collapsed" class="d-none" i18n> Músicos </span>
       </a>
     </li>
     <li class="nav-item">
       <a class="nav-link"  href="#"  routerLinkActive="active" routerLink="/coleccionistas">
         <em class="bi bi-bookmark"></em>
-        <span [class.d-md-inline]="!collapsed" class="d-none">
-          Coleccionistas
-        </span>
+        <span [class.d-md-inline]="!collapsed" class="d-none" i18n>Coleccionistas</span>
       </a>
     </li>
     <li class="nav-item">
       <a class="nav-link" href="#">
         <em class="bi bi-award"></em>
-        <span [class.d-md-inline]="!collapsed" class="d-none"> Premios </span>
+        <span [class.d-md-inline]="!collapsed" class="d-none" i18n> Premios </span>
       </a>
     </li>
   </ul>
@@ -49,7 +48,7 @@
         [class.bi-arrow-right-circle]="collapsed"
         class="bi bi-arrow-left-circle"
       ></em>
-      <span [class.d-md-inline]="!collapsed" class="d-none"> Colapsar </span>
+      <span [class.d-md-inline]="!collapsed" class="d-none" i18n> Colapsar </span>
     </a>
   </div>
 </nav>

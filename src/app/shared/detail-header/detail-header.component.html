@@ -10,9 +10,9 @@
         <img class="musician-img mb-5 mb-lg-0" [src]="imgSrc" [alt]="title" />
       </div>
       <div class="col-12 {{ imgSrc ? 'col-lg-9' : 'col-lg-12' }}">
-        <h1 *ngIf="title" class="featured-title">{{ title }}</h1>
-        <h2 *ngIf="subtitle" class="h4 text-secondary featured-subtitle">{{ subtitle }}</h2>
-        <p *ngIf="description" class="lead">{{ description }}</p>
+        <h1 *ngIf="title" class="featured-title" >{{ title }}</h1>
+        <h2 *ngIf="subtitle" class="h4 text-secondary featured-subtitle" >{{ subtitle }}</h2>
+        <p *ngIf="description" class="lead" >{{ description }}</p>
         <div
           *ngIf="featured.length"
           class="mt-4 container-fluid secondary-table"

@@ -12,6 +12,12 @@
       "root": "",
       "sourceRoot": "src",
       "prefix": "app",
+      "i18n": {
+        "sourceLocale": "es",
+        "locales": {
+          "en": "src/locale/messages.en.xlf"
+        }
+      },
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
@@ -32,7 +38,8 @@
               "node_modules/bootstrap/dist/css/bootstrap-reboot.min.css",
               "node_modules/bootstrap-icons/font/bootstrap-icons.css"
             ],
-            "scripts": []
+            "scripts": [],
+            "localize": ["es"]
           },
           "configurations": {
             "production": {
@@ -62,6 +69,15 @@
                   "maximumError": "10kb"
                 }
               ]
+            },
+            "en": {
+              "localize": ["en"],
+              "aot": true,
+              "outputPath": "dist/front-en/",
+              "i18nFile": "src/locale/messages.en.xlf",
+              "i18nFormat": "xlf",
+              "i18nLocale": "en",
+              "i18nMissingTranslation": "error"
             }
           }
         },
@@ -73,6 +89,9 @@
           "configurations": {
             "production": {
               "browserTarget": "front:build:production"
+            },
+            "en": {
+              "browserTarget": "front:build:en"
             }
           }
         },
@@ -128,6 +147,7 @@
           }
         }
       }
-    }},
+    }
+  },
   "defaultProject": "front"
 }
