@@ -4,14 +4,12 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
+    "start:en": "ng serve --configuration=en",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "sonar": "sonar-scanner",
-    "start:es": "ng serve --configuration=es",
-    "start:en": "ng serve --configuration=en",
-    "test:es": "ng test --configuration=es"
+    "sonar": "sonar-scanner"
   },
   "private": true,
   "dependencies": {
