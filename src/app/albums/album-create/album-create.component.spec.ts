@@ -12,7 +12,7 @@ describe('AlbumCreateComponent', () => {
   let component: AlbumCreateComponent;
   let fixture: ComponentFixture<AlbumCreateComponent>;
   let httpTestingController: HttpTestingController;
-  let service: AlbumCreateService;
+  // let service: AlbumCreateService;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
@@ -23,8 +23,8 @@ describe('AlbumCreateComponent', () => {
     })
       .compileComponents();
     httpTestingController = TestBed.inject(HttpTestingController);
-    //service = TestBed.get(AlbumCreateService);
-    /*service.addCourse({ topicId: 1 })
+    // service = TestBed.get(AlbumCreateService);
+    /* service.addCourse({ topicId: 1 })
       .subscribe(courseData => {
         expect(courseData.name).toEqual('Chessable');
       });
@@ -33,7 +33,7 @@ describe('AlbumCreateComponent', () => {
 
     expect(req.request.method).toEqual('POST');
 
-    //req.flush(mockCourse);
+    // req.flush(mockCourse);
   }));
 
   beforeEach(() => {
