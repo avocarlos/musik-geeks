@@ -4,8 +4,8 @@
       <div class="col">
         <h1>{{ title }}</h1>
       </div>
-      <div class="col text-end">
-        <button type="button" i18n-aria-label aria-label="Agregar item" class="btn" >
+      <div *ngIf="!!onClick" class="col text-end">
+        <button (click)="onClick()" type="button" i18n-aria-label aria-label="Agregar item" class="btn" >
           <em class="bi bi-plus"></em>
           <span id="addButton" i18n>Agregar</span>
         </button>

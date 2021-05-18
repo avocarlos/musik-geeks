@@ -14,6 +14,7 @@ export class AlbumDetailsComponent implements OnInit {
 
   public albumId?: number;
   public album?: Album;
+  public dateCulture: string = $localize`:@@AlbumsCulture:Culture`;
   public cancionesTable = {
     headers: [
       '#',

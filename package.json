@@ -10,8 +10,7 @@
     "e2e": "ng e2e",
     "sonar": "sonar-scanner",
     "start:es": "ng serve --configuration=es",
-    "start:en": "ng serve --configuration=en",
-    "test:es": "ng test --configuration=es"
+    "start:en": "ng serve --configuration=en"
   },
   "private": true,
   "dependencies": {
@@ -28,7 +27,9 @@
     "bootstrap-icons": "^1.4.1",
     "exec-sh": "^0.3.4",
     "faker": "^5.5.3",
+    "ngx-toastr": "^13.2.1",
     "rxjs": "~6.5.5",
+    "toastr": "^2.1.4",
     "tslib": "^2.0.0",
     "zone.js": "~0.10.3"
   },
