@@ -20,7 +20,7 @@ describe('Service: CollectorsCreate', () => {
     });
     injector = getTestBed();
     service = injector.inject(CollectorsCreateService);
-    httpMock = injector.inject(HttpTestingController)
+    httpMock = injector.inject(HttpTestingController);
   });
 
   afterEach(() => {
