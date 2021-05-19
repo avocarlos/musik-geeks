@@ -5,20 +5,25 @@ import { CollectorsDetailsComponent } from './collectors-details/collectors-deta
 import { CollectorsService } from './collectors.service';
 import { SharedModule } from '../shared/shared.module';
 import { CollectorRoutes } from './collector.routing';
+import { CollectorsCreateComponent } from './collectors-create/collectors-create.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   providers: [CollectorsService],
   imports: [
     CommonModule,
     CollectorRoutes,
-    SharedModule
+    SharedModule,
+    ReactiveFormsModule
   ],
   declarations: [
     CollectorsComponent,
-    CollectorsDetailsComponent
+    CollectorsDetailsComponent,
+    CollectorsCreateComponent
   ],
   exports: [
-    CollectorsComponent
+    CollectorsComponent,
+    CollectorsCreateComponent
   ]
 })
 export class CollectorsModule { }

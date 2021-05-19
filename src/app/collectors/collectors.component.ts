@@ -43,5 +43,12 @@ export class CollectorsComponent implements OnInit {
           }));
         });
     }
+
+    deleteCollector(id: number): void {
+      this.collectorService.deleteCollector(id).subscribe(collector => {  });
+    }
+
+
+    navigateToCreate = () => this.router.navigate(['./agregar'], { relativeTo: this.route });
 }
 
