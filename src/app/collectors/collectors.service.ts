@@ -29,5 +29,9 @@ export class CollectorsService {
     return this.http.get<CollectorAlbums>(`${this.apiUrl}/${id}/albums/`);
   }
 
+  deleteCollector(id: number): Observable<Collector> {
+    return this.http.delete<Collector>(`${this.apiUrl}/${id}`);
+  }
+
 }
 

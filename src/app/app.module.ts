@@ -10,6 +10,9 @@ import { AlbumsModule } from './albums/albums.module';
 import { HomeModule } from './home/home.module';
 import { SharedModule } from './shared/shared.module';
 
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ToastrModule } from 'ngx-toastr';
+
 @NgModule({
   declarations: [
     AppComponent
@@ -22,7 +25,9 @@ import { SharedModule } from './shared/shared.module';
     CollectorsModule,
     MusicianModule,
     SharedModule,
-    HomeModule
+    HomeModule,
+    BrowserAnimationsModule, // required animations module
+    ToastrModule.forRoot(), // ToastrModule added
   ],
   providers: [],
   bootstrap: [AppComponent]
