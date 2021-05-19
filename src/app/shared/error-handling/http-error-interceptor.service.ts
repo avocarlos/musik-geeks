@@ -11,7 +11,10 @@ import { Injectable } from '@angular/core';
 
 @Injectable()
 export class HttpErrorInterceptor extends HttpErrorResponse {
-  constructor(private toastrService: ToastrService) { super(toastrService); }
+  constructor(private toastrService: ToastrService) {
+    super(toastrService);
+  }
+
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     return next.handle(request)
       .pipe(

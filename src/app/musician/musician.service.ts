@@ -3,7 +3,11 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { environment } from '../../environments/environment';
 
-import type { Musician } from './musician';
+import type { Musician, MusicianCreateKeys } from './musician';
+
+interface CreateMusicianResponse extends MusicianCreateKeys {
+  id: number;
+}
 
 @Injectable({
   providedIn: 'root'
@@ -19,5 +23,9 @@ export class MusicianService {
 
   getMusician(id: number): Observable<Musician> {
     return this.http.get<Musician>(`${this.apiUrl}/${id}`);
+  }
+
+  createMusician(musician: MusicianCreateKeys): Observable<CreateMusicianResponse> {
+    return this.http.post<CreateMusicianResponse>(this.apiUrl, musician);
   }
 }
