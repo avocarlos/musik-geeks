@@ -33,8 +33,8 @@ describe('Service: AlbumCreate', () => {
     httpMock.verify();
   });
 
-  it('should create service...', inject([AlbumCreateService], (service: AlbumCreateService) => {
-    expect(service).toBeTruthy();
+  it('should create service...', inject([AlbumCreateService], (albumCreateService: AlbumCreateService) => {
+    expect(albumCreateService).toBeTruthy();
   }));
 
   it('getAlbumDetails() should return the album searched', () => {
