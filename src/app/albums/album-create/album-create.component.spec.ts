@@ -70,7 +70,7 @@ describe('AlbumCreateComponent', () => {
     fixture.detectChanges();
 
     // Intercept and mock outgoing request
-     httpTestingController.expectNone(environment.baseUrl + 'albums/');
+    httpTestingController.expectNone(environment.baseUrl + 'albums/');
 
 
     fixture.detectChanges();
@@ -198,7 +198,7 @@ describe('AlbumCreateComponent', () => {
 
     expect(form.valid).toBeTrue();
 
-    component.createNewAlbum(new Album(ALBUM.name,ALBUM.cover,ALBUM.releaseDate,ALBUM.description,ALBUM.genre,ALBUM.recordLabel,[],[],[]));
+    component.createNewAlbum(new Album(ALBUM.name, ALBUM.cover, ALBUM.releaseDate, ALBUM.description, ALBUM.genre, ALBUM.recordLabel, [], [], []));
     fixture.detectChanges();
 
     const req = httpTestingController.expectOne(environment.baseUrl + 'albums');

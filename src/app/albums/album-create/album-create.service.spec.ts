@@ -59,7 +59,7 @@ describe('Service: AlbumCreate', () => {
       expect(album).toEqual(nuevoAlbum);
     });
 
-    const req = httpMock.expectOne(apiUrl );
+    const req = httpMock.expectOne(apiUrl);
     req.flush(nuevoAlbum);
     expect(req.request.method).toBe('POST');
   });
