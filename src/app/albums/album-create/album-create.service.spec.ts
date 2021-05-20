@@ -54,8 +54,6 @@ describe('Service: AlbumCreate', () => {
       id
     );
 
-
-
     service.createAlbum(nuevoAlbum).subscribe((album) => {
       nuevoAlbum.id = album.id;
       expect(album).toEqual(nuevoAlbum);
