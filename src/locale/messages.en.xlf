@@ -3,6 +3,10 @@
   xmlns="urn:oasis:names:tc:xliff:document:1.2">
   <file source-language="es" datatype="plaintext" original="ng2.template">
     <body>
+    <trans-unit id="AlbumsCulture">
+        <source>Culture</source>
+        <target>en-US</target>
+      </trans-unit>
       <trans-unit id="AlbumsTitulo">
         <source>Álbumes</source>
         <target>Albums</target>
@@ -188,6 +192,226 @@
             <context context-type="linenumber">8</context>
           </context-group>
         </trans-unit>
+      <trans-unit id="a29acadd1e0cffaa38c29e3e7bdf845f689333f6" datatype="html">
+        <source> Título </source>
+        <target> Title </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/albums/album-create/album-create.component.html</context>
+          <context context-type="linenumber">9</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="be8866c0475c01494e13703ddf648ff0abfa05f3" datatype="html">
+        <source>Título del album</source>
+        <target>Album title</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/albums/album-create/album-create.component.html</context>
+          <context context-type="linenumber">16</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="fbfda80ac4091104d05624df55b7f92ec3027b73" datatype="html">
+        <source>
+            Título es requerido
+          </source>
+        <target>
+          Title is required
+        </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/albums/album-create/album-create.component.html</context>
+          <context context-type="linenumber">28</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="9aff1f532c9b4b7b54da2f7221cdb8a406b600da" datatype="html">
+        <source>Crear</source>
+        <target>Create</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/albums/album-create/album-create.component.html</context>
+          <context context-type="linenumber">34</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="e8d22cdef9f5780e31395340125d873f9df518c3" datatype="html">
+        <source>Cancelar</source>
+        <target>Cancel</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/albums/album-create/album-create.component.html</context>
+          <context context-type="linenumber">40</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="8def1e89da9652c989082610846b2874afa5866a" datatype="html">
+        <source> Portada </source>
+        <target> Cover </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/albums/album-create/album-create.component.html</context>
+          <context context-type="linenumber">33</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="715a89f0a139697a2012a0d4341562ef84dfe513" datatype="html">
+        <source>URL de la portada del album</source>
+        <target> URL for the album cover</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/albums/album-create/album-create.component.html</context>
+          <context context-type="linenumber">42</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="145b70add562319dd4625d6d15b8ff6c95ad3e1a" datatype="html">
+        <source>
+            URL del cover es requerido
+          </source>
+        <target>
+            URL for the cover image is required
+          </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/albums/album-create/album-create.component.html</context>
+          <context context-type="linenumber">52</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="28b0031715bc07655944d280a5bd3211f1474aee" datatype="html">
+        <source>
+            Texto ingresado no tiene formato de URL
+          </source>
+        <target>
+            Text entered is not a URL
+          </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/albums/album-create/album-create.component.html</context>
+          <context context-type="linenumber">62</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="11a1938a576de1676f1cc1036bbbd22e5f3fc6f0" datatype="html">
+        <source> Lanzamiento </source>
+        <target> Release date </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/albums/album-create/album-create.component.html</context>
+          <context context-type="linenumber">67</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="9aa042acb5c887b812cdf5690fff5713f6386766" datatype="html">
+        <source>dd/mm/yyyy</source>
+        <target>mm/dd/yyyy</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/albums/album-create/album-create.component.html</context>
+          <context context-type="linenumber">76</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="43a3052fe7026cb654e0d9bed1ec826d9e6e53e7" datatype="html">
+        <source>
+            Fecha de lanzamiento es requerida
+          </source>
+        <target>
+            Release date is required
+          </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/albums/album-create/album-create.component.html</context>
+          <context context-type="linenumber">86</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="23e56fc556a82034471dce9ca6e13a1e84ba8465" datatype="html">
+        <source>
+            Fecha de lanzamiento no tiene el largo requerido
+          </source>
+        <target>
+            Release date doesn´t have the required length (10 characters)
+          </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/albums/album-create/album-create.component.html</context>
+          <context context-type="linenumber">96</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="d046cb78f53374c4b0b3acb713ffddafeae7ff99" datatype="html">
+        <source> Género </source>
+        <target> Genre </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/albums/album-create/album-create.component.html</context>
+          <context context-type="linenumber">101</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="cdbc4d598974d86586f6e28394531537c7f1e3db" datatype="html">
+        <source>Género del album</source>
+        <target>Album´s genre</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/albums/album-create/album-create.component.html</context>
+          <context context-type="linenumber">109</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="a4ea195a70ec584c57b40503066f810739efda89" datatype="html">
+        <source>
+            Género es requerido
+          </source>
+        <target>
+            Genre is required
+         </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/albums/album-create/album-create.component.html</context>
+          <context context-type="linenumber">119</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="04233c2769b9736e28781c3257b21449b9262904" datatype="html">
+        <source> Firma Discográfica </source>
+        <target> Record Label </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/albums/album-create/album-create.component.html</context>
+          <context context-type="linenumber">124</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="d2930eabb1f4286962539c53e3110126a6ff0465" datatype="html">
+        <source>Firma discográfica de lanzamiento</source>
+        <target>Record label releasing the album</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/albums/album-create/album-create.component.html</context>
+          <context context-type="linenumber">132</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="744854412300a23bda9af8e6c6f408e874277d40" datatype="html">
+        <source>
+            Firma es requerida
+          </source>
+        <target>
+            Record label is required
+          </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/albums/album-create/album-create.component.html</context>
+          <context context-type="linenumber">142</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="d48b3c2f5ed9ec32b951b909f5fb68828074380e" datatype="html">
+        <source> Descripción </source>
+        <target> Description </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/albums/album-create/album-create.component.html</context>
+          <context context-type="linenumber">147</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="aea5b037ed65f4fe254e7d70f008019d400c936e" datatype="html">
+        <source>Descripción del album</source>
+        <target>Album description</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/albums/album-create/album-create.component.html</context>
+          <context context-type="linenumber">156</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="cc6d339f88b9b006034be03788a567204f5ceb76" datatype="html">
+        <source>
+            Descripción es requerida
+          </source>
+        <target>
+            Description is required
+          </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/albums/album-create/album-create.component.html</context>
+          <context context-type="linenumber">166</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="5401d201185f0785db42a71036cbdcf22424fc86" datatype="html">
+        <source>
+            Tamaño máximo de la descripción son 500 caracterés
+          </source>
+        <target>
+            Max lenght of the description is 500 characters
+          </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/albums/album-create/album-create.component.html</context>
+          <context context-type="linenumber">176</context>
+        </context-group>
+      </trans-unit>
       </body>
     </file>
   </xliff>

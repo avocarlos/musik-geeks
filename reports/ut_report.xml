@@ -1,4 +1,10 @@
 <testExecutions version="1">
+  <file path="src/app/app.component.spec.ts">
+    <testCase name="AppComponent Component has menu container" duration="89"/>
+    <testCase name="AppComponent should have as title 'Musik Geeks'" duration="9"/>
+    <testCase name="AppComponent Component has main content container" duration="9"/>
+    <testCase name="AppComponent should create the app" duration="6"/>
+  </file>
   <file path="src/app/albums/albums.service.spec.ts">
     <testCase name="Service: GetAlbums should create service..." duration="96"/>
     <testCase name="Service: GetAlbums getAlbums() should return 10 records" duration="6"/>
