@@ -61,6 +61,8 @@ export class AlbumsComponent implements OnInit {
   ngOnInit(): void {
     this.getAlbumsList();
   }
+  navigateToCreate = () => this.router.navigate(['./agregar'], { relativeTo: this.route });
+
 }
 
 function imgTag(src: string): string {
