@@ -4,7 +4,7 @@ import { async, ComponentFixture, TestBed, tick } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
-
+import { ToastrService } from 'ngx-toastr';
 import { SharedModule } from '../../shared/shared.module';
 import { Album } from '../album';
 import { AlbumCreateComponent } from './album-create.component';
@@ -40,6 +40,8 @@ describe('AlbumCreateComponent', () => {
   let component: AlbumCreateComponent;
   let fixture: ComponentFixture<AlbumCreateComponent>;
   let httpTestingController: HttpTestingController;
+  const routerSpy = jasmine.createSpyObj('Router', ['navigate']);
+  const toastrSpy = jasmine.createSpyObj('ToastrService', ['success']);
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
@@ -55,6 +57,9 @@ describe('AlbumCreateComponent', () => {
             subscribe: (callback) => callback()
           }
         }
+      }, {
+        provide: ToastrService,
+        useValue: toastrSpy
       }]
     })
       .compileComponents();
