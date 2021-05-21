@@ -4,18 +4,7 @@ import { TestBed, inject } from '@angular/core/testing';
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 import { HttpClient } from '@angular/common/http';
 import { MusicianService } from './musician.service';
-
-const MUSICIAN = {
-  id: 1,
-  name: 'Rubén Blades Bellido de Luna',
-  image:
-    'https://upload.wikimedia.org/wikipedia/commons/thumb/b/bb/Ruben_Blades_by_Gage_Skidmore.jpg/800px-Ruben_Blades_by_Gage_Skidmore.jpg',
-  description:
-    'Es un cantante, compositor, músico, actor, abogado, político y activista panameño. Ha desarrollado gran parte de su carrera artística en la ciudad de Nueva York.',
-  birthDate: '1948-07-16T05:00:00.000Z',
-  albums: [],
-  performerPrizes: [],
-};
+import * as MusicianFixture from './fixtures';
 
 describe('Service: MusicianService', () => {
   let httpClient: HttpClient;
@@ -39,26 +28,46 @@ describe('Service: MusicianService', () => {
     it('should call the API and return musicians', inject([MusicianService], (service: MusicianService) => {
       service.getMusicians().subscribe((musicians) => {
         expect(musicians.length).toEqual(1);
-        expect(musicians).toEqual([MUSICIAN]);
+        expect(musicians).toEqual(MusicianFixture.getMusiciansResponse);
       });
 
       const req = httpTestingController.expectOne(service.apiUrl);
       expect(req.request.method).toEqual('GET');
 
-      req.flush([MUSICIAN]);
+      req.flush(MusicianFixture.getMusiciansResponse);
     }));
   });
 
   describe('#getMusician', () => {
     it('should call the API and return musician', inject([MusicianService], (service: MusicianService) => {
       service.getMusician(100).subscribe((musician) => {
-        expect(musician).toEqual(MUSICIAN);
+        expect(musician).toEqual(MusicianFixture.getMusicianResponse);
       });
 
       const req = httpTestingController.expectOne(service.apiUrl + '/100');
       expect(req.request.method).toEqual('GET');
 
-      req.flush(MUSICIAN);
+      req.flush(MusicianFixture.getMusicianResponse);
+    }));
+  });
+
+  describe('#createMusician', () => {
+    it('should call the API and return new musician', inject([MusicianService], (service: MusicianService) => {
+      const payload = {
+        name: MusicianFixture.createMusicianResponse.name,
+        birthDate: MusicianFixture.createMusicianResponse.birthDate,
+        description: MusicianFixture.createMusicianResponse.description,
+        image: MusicianFixture.createMusicianResponse.image
+      };
+
+      service.createMusician(payload).subscribe((musician) => {
+        expect(musician).toEqual(MusicianFixture.createMusicianResponse);
+      });
+
+      const req = httpTestingController.expectOne(service.apiUrl);
+      expect(req.request.method).toEqual('POST');
+
+      req.flush(MusicianFixture.createMusicianResponse);
     }));
   });
 });
