@@ -4,7 +4,7 @@
     <div class="col-12 col-md-6">
       <form
         [formGroup]="albumForm"
-        (ngSubmit)="!albumForm.invalid && createClient(albumForm.value)"
+        (ngSubmit)="!albumForm.invalid && createNewAlbum(albumForm.value)"
       >
         <div class="mb-4" [formGroup]="albumForm">
           <label for="name" class="form-label" i18n> Título </label>
@@ -99,7 +99,7 @@
           required
           (change)="changeGenre($event)">
             <option value="" disabled>Seleccione el género</option>
-            <option *ngFor="let genre of genreList" [ngValue]="genre">{{genre}}</option>
+            <option *ngFor="let genre of genreList" id="genre{{genre}}" [ngValue]="genre">{{genre}}</option>
          </select>
           <div
             class="alert alert-danger alert-dismissible fade show"
@@ -190,13 +190,13 @@
             Tamaño mínimo de la descripción son 10 caracterés
           </div>
         </div>
-        <button
+        <button id="createButton"
           type="submit"
           class="btn btn-primary"
           [disabled]="!albumForm.valid"
           i18n
         >Crear</button>
-        <button
+        <button id="cancelButton"
           type="button"
           class="btn btn-danger ml-3"
           (click)="cancelCreation()"
