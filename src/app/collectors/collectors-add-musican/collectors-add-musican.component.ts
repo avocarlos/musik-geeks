@@ -80,6 +80,10 @@ export class CollectorsAddMusicanComponent implements OnInit {
           this.toastr.success('Guardado con éxito');
         });
       }
+
+      detailsCollertor(id: number): void {
+        this.router.navigate([`../../coleccionistas/${id}`], { relativeTo: this.route });
+      }
 }
 
 
