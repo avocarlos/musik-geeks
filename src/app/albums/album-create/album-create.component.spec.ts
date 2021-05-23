@@ -2,7 +2,6 @@
 /* tslint:disable:no-unused-variable */
 import { async, ComponentFixture, TestBed, tick } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
-import { DebugElement } from '@angular/core';
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 import { ToastrService } from 'ngx-toastr';
 import { SharedModule } from '../../shared/shared.module';
@@ -10,7 +9,6 @@ import { Album } from '../album';
 import { AlbumCreateComponent } from './album-create.component';
 import * as faker from 'faker';
 import { environment } from 'src/environments/environment';
-import { formatDate } from '@angular/common';
 import { ActivatedRoute } from '@angular/router';
 
 const albumName: string = faker.lorem.sentence();
@@ -40,7 +38,6 @@ describe('AlbumCreateComponent', () => {
   let component: AlbumCreateComponent;
   let fixture: ComponentFixture<AlbumCreateComponent>;
   let httpTestingController: HttpTestingController;
-  const routerSpy = jasmine.createSpyObj('Router', ['navigate']);
   const toastrSpy = jasmine.createSpyObj('ToastrService', ['success']);
 
   beforeEach(async(() => {
@@ -204,14 +201,14 @@ describe('AlbumCreateComponent', () => {
     expect(form.valid).toBeTrue();
 
     component.createNewAlbum(
-                new Album(
-                          ALBUM.name,
-                          ALBUM.cover,
-                          ALBUM.releaseDate,
-                          ALBUM.description,
-                          ALBUM.genre,
-                          ALBUM.recordLabel,
-                          [], [], []));
+      new Album(
+        ALBUM.name,
+        ALBUM.cover,
+        ALBUM.releaseDate,
+        ALBUM.description,
+        ALBUM.genre,
+        ALBUM.recordLabel,
+        [], [], []));
     fixture.detectChanges();
 
     const req = httpTestingController.expectOne(environment.baseUrl + 'albums');
@@ -219,15 +216,5 @@ describe('AlbumCreateComponent', () => {
     req.flush(ALBUM);
     fixture.detectChanges();
   });
-
-  /*it('should test input errors', () => {
-    const nameInput = component.form.controls.name;
-    expect(nameInput.errors.required).toBeTruthy();
-
-    nameInput.setValue('John Peter');
-    expect(nameInput.errors).toBeNull();
-});
-
-  */
 
 });

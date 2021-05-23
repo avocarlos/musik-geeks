@@ -2,7 +2,7 @@ import { formatDate } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { Album } from '../album';
 import { AlbumDetailsService } from './album-details.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import '@angular/localize/init';
 
 @Component({
@@ -39,7 +39,8 @@ export class AlbumDetailsComponent implements OnInit {
   }];
   constructor(
     private albumDetailsService: AlbumDetailsService,
-    private route: ActivatedRoute) {
+    private route: ActivatedRoute,
+    private router: Router) {
 
   }
 
@@ -79,5 +80,10 @@ export class AlbumDetailsComponent implements OnInit {
 
       });
     });
+  }
+
+  onClickCancion(): void {
+    console.log(this.route);
+    this.router.navigate(['./canciones/agregar'], { relativeTo: this.route })
   }
 }

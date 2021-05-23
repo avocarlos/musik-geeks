@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+<xliff version="1.2"
+  xmlns="urn:oasis:names:tc:xliff:document:1.2">
   <file source-language="es" datatype="plaintext" original="ng2.template">
     <body>
       <trans-unit id="AlbumsCulture">
@@ -9,6 +10,10 @@
       <trans-unit id="AlbumsTitulo">
         <source>Álbumes</source>
         <target>Albums</target>
+      </trans-unit>
+      <trans-unit id="AgregarAlbumTitulo">
+        <source>Agregar nuevo álbum</source>
+        <target>Add new album</target>
       </trans-unit>
       <trans-unit id="ListaCancionesTítulo">
         <source>Título</source>
@@ -49,14 +54,20 @@
       <trans-unit id="9bea75f59a97f4d38867c24cd4ebc75243eaa406" datatype="html">
         <source>Comentarios</source>
         <target>Comments</target>
+
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/albums/album-details/album-details.component.html</context>
-          <context context-type="linenumber">26</context>
+          <context context-type="linenumber">42</context>
         </context-group>
       </trans-unit>
       <trans-unit id="d7f00e212ad993ae1c44c3fcaa8f8d50c7a0b7ad" datatype="html">
         <source>Agregar</source>
         <target>Add</target>
+
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/albums/album-details/album-details.component.html</context>
+          <context context-type="linenumber">27</context>
+        </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/list-header/list-header.component.html</context>
           <context context-type="linenumber">10</context>
@@ -65,17 +76,19 @@
       <trans-unit id="f5f23e4c360f4a9fd43cc6f9fb4b6c49c632aa45" datatype="html">
         <source>Comentario sobre álbum</source>
         <target>Comment on the album</target>
+
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/albums/album-details/album-details.component.html</context>
-          <context context-type="linenumber">35</context>
+          <context context-type="linenumber">51</context>
         </context-group>
       </trans-unit>
       <trans-unit id="1e9a43c4f48e7d496076c0597c98715c3afd1bf5" datatype="html">
         <source>rating dado al álbum</source>
         <target>Rating of the album</target>
+
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/albums/album-details/album-details.component.html</context>
-          <context context-type="linenumber">39</context>
+          <context context-type="linenumber">58</context>
         </context-group>
       </trans-unit>
       <trans-unit id="3e06f502a7fae9f32e75ebc5457cd30ada994a99" datatype="html">
@@ -92,6 +105,19 @@
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/table/table.component.html</context>
           <context context-type="linenumber">3</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="fd1b5822c4da5f42ba5dc574128c51361123d97d" datatype="html">
+        <source>Canciones</source>
+        <target state="new">Tracks</target>
+
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/albums/album-details/album-details.component.html</context>
+          <context context-type="linenumber">16</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/albums/tracks/tracks-create.component.html</context>
+          <context context-type="linenumber">95</context>
         </context-group>
       </trans-unit>
       <trans-unit id="4f6e92a32327be0f0f4158090174aee1eb896046" datatype="html">
@@ -153,8 +179,10 @@
           <context context-type="sourcefile">src/app/shared/navbar/navbar.component.html</context>
           <context context-type="linenumber">51</context>
         </context-group>
-      </trans-unit><trans-unit id="2cc812f8063c52bebb2b9fae9308428ee6c00e17" datatype="html">
-        <source>Álbumes</source><target state="new">Albums</target>
+      </trans-unit>
+      <trans-unit id="2cc812f8063c52bebb2b9fae9308428ee6c00e17" datatype="html">
+        <source>Álbumes</source>
+        <target state="new">Albums</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/musician/musician-details/musician-details.component.html</context>
           <context context-type="linenumber">13</context>
@@ -242,10 +270,12 @@
       </trans-unit>
       <trans-unit id="e95c9682270846717cd80e395cc6210d8de141e3" datatype="html">
         <source>
-          La descripción no puede ser mayor a <x id="INTERPOLATION" equiv-text="{{maxDescriptionLength}}"/> caracteres.
+              La descripción no puede ser mayor a <x id="INTERPOLATION" equiv-text="{{maxDescriptionLength}}"/>
+ caracteres.
         </source>
         <target state="new">
-          Description cannot be greater than <x id="INTERPOLATION" equiv-text="{{maxDescriptionLength}}"/> characters.
+          Description cannot be greater than <x id="INTERPOLATION" equiv-text="{{maxDescriptionLength}}"/>
+ characters.
         </target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/musician/musician-create/musician-create.component.html</context>
@@ -271,6 +301,13 @@
         <target state="new">
           Cancel
         </target>
+
+
+
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/albums/tracks/tracks-create.component.html</context>
+          <context context-type="linenumber">87</context>
+        </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/musician/musician-create/musician-create.component.html</context>
           <context context-type="linenumber">122</context>
@@ -278,7 +315,7 @@
       </trans-unit>
       <trans-unit id="a54db0c09f44c434a0ab34745693cdda7b7321d0" datatype="html">
         <source>Acciones sobre los registros</source>
-        <target>Acciones sobre los registros</target>
+        <target>Item actions</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/table/table.component.html</context>
           <context context-type="linenumber">17</context>
@@ -287,6 +324,11 @@
       <trans-unit id="ce429878d659ba4bf3aacb1114601bcb983ce443" datatype="html">
         <source>Agregar item</source>
         <target>Add item</target>
+
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/albums/album-details/album-details.component.html</context>
+          <context context-type="linenumber">23</context>
+        </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/list-header/list-header.component.html</context>
           <context context-type="linenumber">8</context>
@@ -296,9 +338,15 @@
         <source> Título </source>
         <target> Title </target>
 
+
+
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/albums/album-create/album-create.component.html</context>
           <context context-type="linenumber">10</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/albums/tracks/tracks-create.component.html</context>
+          <context context-type="linenumber">17</context>
         </context-group>
       </trans-unit>
       <trans-unit id="be8866c0475c01494e13703ddf648ff0abfa05f3" datatype="html">
@@ -317,14 +365,22 @@
         <target>
           Title is required
         </target>
+
+
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/albums/album-create/album-create.component.html</context>
           <context context-type="linenumber">28</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/albums/tracks/tracks-create.component.html</context>
+          <context context-type="linenumber">35</context>
         </context-group>
       </trans-unit>
       <trans-unit id="9aff1f532c9b4b7b54da2f7221cdb8a406b600da" datatype="html">
         <source>Crear</source>
         <target>Create</target>
+
+
 
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/albums/album-create/album-create.component.html</context>
@@ -334,6 +390,9 @@
       <trans-unit id="e8d22cdef9f5780e31395340125d873f9df518c3" datatype="html">
         <source>Cancelar</source>
         <target>Cancel</target>
+
+
+
 
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/albums/album-create/album-create.component.html</context>
@@ -502,6 +561,71 @@
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/albums/album-create/album-create.component.html</context>
           <context context-type="linenumber">179</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="8bca930675ecacdcea9a24717363e090d7f00df1" datatype="html">
+        <source>Título de la canción</source>
+        <target>Track title</target>
+
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/albums/tracks/tracks-create.component.html</context>
+          <context context-type="linenumber">25</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="bdf285631e43b56b1ad4dee925c63c1bf0236b10" datatype="html">
+        <source> Duración </source>
+        <target> Duration </target>
+
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/albums/tracks/tracks-create.component.html</context>
+          <context context-type="linenumber">40</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="1c2a35ec974bb6c34652b5b717492e0e050e2e59" datatype="html">
+        <source>Duración de la canción</source>
+        <target>Track duration</target>
+
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/albums/tracks/tracks-create.component.html</context>
+          <context context-type="linenumber">48</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="eef5b12561bf7c5a97d81b97b6dfeb63ffc92666" datatype="html">
+        <source>
+            La duración es requerida
+        </source>
+        <target>
+            Duration is required
+        </target>
+
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/albums/tracks/tracks-create.component.html</context>
+          <context context-type="linenumber">58</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="c46e74aa9ebbcd71c24e6e3e672cd3ea7adb78d0" datatype="html">
+        <source>
+            La duración debe tener este formato: ##:##, por ejemplo 15:05 o 3:54
+        </source>
+        <target>
+            Duration must have this format: ##:##, for example: 15:05 or 3:54
+        </target>
+
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/albums/tracks/tracks-create.component.html</context>
+          <context context-type="linenumber">68</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="ea4d5f0f67e83ae4a0173d11f3cee14ee82c3dae" datatype="html">
+        <source>
+          Crear
+        </source>
+        <target state="new">
+          Crear
+        </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/albums/tracks/tracks-create.component.html</context>
+          <context context-type="linenumber">78</context>
         </context-group>
       </trans-unit>
     </body>

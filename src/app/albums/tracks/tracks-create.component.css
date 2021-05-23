@@ -1,0 +1,13 @@
+.featured-musician-img {
+  height: 200px;
+  width: 71%;
+}
+
+.trackHeader {
+  margin-top: 35px;
+}
+
+.btn{
+  margin-right: 25px;
+  min-width: 100px;
+}

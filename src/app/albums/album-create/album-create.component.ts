@@ -17,7 +17,7 @@ export class AlbumCreateComponent implements OnInit {
   genreList: any = ['Classical', 'Salsa', 'Rock', 'Folk'];
   recordingLabelList: any = ['Sony Music', 'EMI', 'Discos Fuentes', 'Elektra', 'Fania Records'];
 
-  public title = $localize`:@@AlbumsTitulo:Álbumes`;
+  public title = $localize`:@@AgregarAlbumTitulo:Agregar nuevo álbum`;
   constructor(private createAlbumService: AlbumCreateService, private route: ActivatedRoute, private toastrService: ToastrService) {
 
   }

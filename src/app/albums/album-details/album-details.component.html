@@ -12,8 +12,24 @@
 
 <div class="container mt-5 mb-5">
   <div class="row mb-5">
+    <div class="col-10">
+      <h2 class="mb-3 h3" i18n>Canciones</h2>
+    </div>
+    <div class="col-2 text-end">
+      <button
+        (click)="onClickCancion()"
+        i18n-aria-label
+        type="button"
+        aria-label="Agregar item"
+        class="btn"
+      >
+        <em class="bi bi-plus"></em>
+        <span id="addButton" i18n>Agregar</span>
+      </button>
+    </div>
+  </div>
+  <div class="row mb-5">
     <div class="col">
-      <h2 class="mb-3 h3">Canciones</h2>
       <app-table
         [headers]="cancionesTable.headers"
         [rows]="cancionesTable.rows"
@@ -32,13 +48,17 @@
         <div class="card-body">
           <p
             class="card-title padded comment-description"
-            aria-label="Comentario sobre álbum" i18n-aria-label
-          >{{ comment.description }}</p>
+            aria-label="Comentario sobre álbum"
+            i18n-aria-label
+          >
+            {{ comment.description }}
+          </p>
           <span
             class="h5 card-text comment-rating"
             aria-label="rating dado al álbum"
             i18n-aria-label
-          >{{ comment.rating }}/5</span>
+            >{{ comment.rating }}/5</span
+          >
         </div>
       </div>
     </div>

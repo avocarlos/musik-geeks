@@ -6,6 +6,7 @@ import { AlbumDetailsComponent } from './album-details/album-details.component';
 import { AlbumCreateComponent } from './album-create/album-create.component';
 import { AlbumsRoutingModule } from './albums-routing.module';
 import { ReactiveFormsModule } from '@angular/forms';
+import { TracksCreateComponent } from './tracks/tracks-create.component';
 
 @NgModule({
   imports: [
@@ -17,8 +18,9 @@ import { ReactiveFormsModule } from '@angular/forms';
   declarations: [
     AlbumsComponent,
     AlbumDetailsComponent,
-    AlbumCreateComponent
+    AlbumCreateComponent,
+    TracksCreateComponent
   ],
-  exports: [AlbumsComponent, AlbumDetailsComponent, AlbumCreateComponent]
+  exports: [AlbumsComponent, AlbumDetailsComponent, AlbumCreateComponent, TracksCreateComponent]
 })
 export class AlbumsModule { }

@@ -176,8 +176,8 @@ describe('AlbumDetailsComponent', () => {
     const [comment] = ALBUM.comments;
     expect(description).toBeTruthy();
     expect(rating).toBeTruthy();
-    expect(description.nativeElement.textContent).toEqual(comment.description);
-    expect(rating.nativeElement.textContent).toEqual(comment.rating + '/5');
+    expect(description.nativeElement.textContent).toContain(comment.description);
+    expect(rating.nativeElement.textContent).toContain(comment.rating + '/5');
   });
 
 
