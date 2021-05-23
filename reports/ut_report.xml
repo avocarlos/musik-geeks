@@ -103,12 +103,54 @@
     <testCase name="MusicianListComponent should render the header with page name" duration="10"/>
     <testCase name="MusicianListComponent should render the table with default headers" duration="15"/>
     <testCase name="MusicianListComponent should render the table with musicians picture" duration="8"/>
-  </file>
-  <file path="src/app/collectors/collectors.service.spec.ts">
-    <testCase name="Service: GetCollectors getCollectors() should return 10 records" duration="2"/>
-  </file>
   <file path="src/app/musician/musician.service.spec.ts">
     <testCase name="Service: MusicianService #getMusician should call the API and return musician" duration="1"/>
     <testCase name="Service: MusicianService #getMusicians should call the API and return musicians" duration="1"/>
+  </file>
+
+  <file path="src/app/shared/navbar/navbar.component.spec.ts">
+    <testCase name="NavbarComponent should render navbar buttons" duration="13"/>
+    <testCase name="NavbarComponent should render component" duration="5"/>
+    <testCase name="NavbarComponent should collapse navbar when collapse button is clicked" duration="21"/>
+  </file>
+  <file path="src/app/albums/album-details/album-details.component.spec.ts">
+    <testCase name="AlbumDetailsComponent should call #getAlbum and format breadcrumbs" duration="26"/>
+    <testCase name="AlbumDetailsComponent should create album details component" duration="16"/>
+    <testCase name="AlbumDetailsComponent should render tracks table with albums tracks" duration="23"/>
+    <testCase name="AlbumDetailsComponent should call #getAlbums and format featured" duration="21"/>
+    <testCase name="AlbumDetailsComponent should render album header with information" duration="31"/>
+    <testCase name="AlbumDetailsComponent should render comments table with albums comments" duration="16"/>
+    <testCase name="AlbumDetailsComponent should call #getAlbums and format cancionesTable" duration="19"/>
+  </file>
+  <file path="src/app/shared/loading/loading.component.spec.ts">
+    <testCase name="LoadingComponent should render component" duration="11"/>
+  </file>
+  <file path="src/app/shared/table/table.component.spec.ts">
+    <testCase name="TableComponent should render view button when a fn is provided" duration="17"/>
+    <testCase name="TableComponent should render row with provided data" duration="17"/>
+    <testCase name="TableComponent should render a table with provided rows" duration="14"/>
+    <testCase name="TableComponent should render a table with provided headers" duration="13"/>
+    <testCase name="TableComponent should call fn view button is clicked" duration="19"/>
+    <testCase name="TableComponent should render table" duration="13"/>
+  </file>
+  <file path="src/app/albums/albums.service.spec.ts">
+    <testCase name="Service: GetAlbums should create service..." duration="12"/>
+    <testCase name="Service: GetAlbums getAlbums() should return 10 records" duration="5"/>
+  </file>
+  <file path="src/app/app.component.spec.ts">
+    <testCase name="AppComponent should create the app" duration="31"/>
+    <testCase name="AppComponent Component has main content container" duration="22"/>
+    <testCase name="AppComponent Component has menu container" duration="29"/>
+    <testCase name="AppComponent should have as title 'Musik Geeks'" duration="22"/>
+  </file>
+  <file path="src/app/albums/album-create/album-create.component.spec.ts">
+    <testCase name="AlbumCreateComponent should create component" duration="32"/>
+    <testCase name="AlbumCreateComponent should check name validations" duration="21"/>
+    <testCase name="AlbumCreateComponent should render components" duration="37"/>
+    <testCase name="AlbumCreateComponent should show disabled create button" duration="37"/>
+    <testCase name="AlbumCreateComponent should render title" duration="23"/>
+    <testCase name="AlbumCreateComponent should check form is valid" duration="33"/>
+    <testCase name="AlbumCreateComponent should save" duration="38"/>
+    <testCase name="AlbumCreateComponent should check cover validations" duration="20"/>
   </file>
 </testExecutions>

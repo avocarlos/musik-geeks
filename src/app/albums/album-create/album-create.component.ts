@@ -35,7 +35,7 @@ export class AlbumCreateComponent implements OnInit {
     });
   }
 
-  createClient(newAlbum: Album): void {
+  createNewAlbum(newAlbum: Album): void {
     // Process checkout data here
 
     if (this.albumForm.valid) {
