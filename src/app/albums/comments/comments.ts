@@ -5,3 +5,11 @@ export class Comment {
     public id?: number
   ) { }
 }
+
+export interface CreateCommentPayload {
+  description: string;
+  rating: number;
+  collector: {
+    id: number;
+  };
+}

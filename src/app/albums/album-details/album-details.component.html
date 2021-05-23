@@ -36,10 +36,21 @@
         [tableContentName]="cancionesTable.tableContentName"
       ></app-table>
     </div>
-  </div>
-  <div class="row">
-    <div class="col-12">
-      <h2 class="mb-3 h3" i18n>Comentarios</h2>
+    <div class="row mb-3">
+      <div class="col-6">
+        <h2 class="h3" i18n>Comentarios</h2>
+      </div>
+      <div class="col text-end">
+        <button
+          type="button"
+          aria-label="Agregar comentario"
+          class="btn btn-primary"
+          routerLink="./comentarios/agregar"
+        >
+          <em class="bi bi-plus"></em>
+          <span id="addButton" i18n>Agregar</span>
+        </button>
+      </div>
     </div>
   </div>
   <div class="row" *ngIf="album">
@@ -53,14 +64,16 @@
           >
             {{ comment.description }}
           </p>
-          <span
-            class="h5 card-text comment-rating"
+          <div
+            class="card-footer fw-bold text-uppercase mb-0 text-muted comment-rating"
             aria-label="rating dado al álbum"
             i18n-aria-label
-            >{{ comment.rating }}/5</span
           >
+            Calificación {{ comment.rating }}/5
+          </div>
         </div>
       </div>
     </div>
   </div>
 </div>
+

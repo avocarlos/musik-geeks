@@ -167,8 +167,6 @@ describe('AlbumDetailsComponent', () => {
   });
 
 
-
-
   it('should render comments table with albums comments', () => {
     const description = fixture.debugElement.query(By.css('.comment-description'));
     const rating = fixture.debugElement.query(By.css('.comment-rating'));
