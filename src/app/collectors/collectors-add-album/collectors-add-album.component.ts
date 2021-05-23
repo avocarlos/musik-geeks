@@ -93,7 +93,7 @@ export class CollectorsAddAlbumComponent implements OnInit {
       }
 
       detailsCollertor(id: number): void {
-        this.router.navigate([`../../coleccionistas/${id}`], { relativeTo: this.route })
+        this.router.navigate([`../../coleccionistas/${id}`], { relativeTo: this.route });
       }
 
 
