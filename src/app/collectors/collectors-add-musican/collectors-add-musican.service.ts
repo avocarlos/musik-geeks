@@ -11,12 +11,10 @@ import { Musician } from '../../musician/musician';
 })
 export class CollectorsAddMusicanService {
 
-  //private apiUrl = environment.baseUrl + 'collectors';
-
   constructor(private http: HttpClient) { }
   addCollerMusican(idc: number, idm: number): Observable<Collector> {
-    const apiUrl = environment.baseUrl + 'collectors/'+idc+'/musicians/' + idm;
-    const musiadd = environment.baseUrl + 'musicians/' + idm;
-    return this.http.post<Collector>(apiUrl,musiadd);
+    const apiUrl = environment.baseUrl + 'collectors/' + idc + '/musicians/' + idm;
+    const musiadd = '';
+    return this.http.post<Collector>(apiUrl, musiadd);
   }
 }
