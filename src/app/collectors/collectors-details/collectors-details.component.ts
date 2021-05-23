@@ -102,6 +102,12 @@ export class CollectorsDetailsComponent implements OnInit {
     this.router.navigate([`../../agregar-musicos-coleccionista/${id}`], { relativeTo: this.route });
   }
 
+  listCollertor(): void {
+    this.router.navigate([`../../coleccionistas`], { relativeTo: this.route });
+  }
+
+
+
 }
 
 
