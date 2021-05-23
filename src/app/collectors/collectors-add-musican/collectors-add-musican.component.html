@@ -1,0 +1,21 @@
+<app-loading *ngIf="!collector"></app-loading>
+<div *ngIf="collector">
+  <app-detail-header
+    [title]="collector.name"
+    [breadcrumbs]="breadcrumbs"
+    [featured]="featured"
+  ></app-detail-header>
+  <div class="container mt-5 mb-5">
+    <div class="row">
+      <h5 class="mb-3 h4" >Asociar músico favoritos al coleccionista</h5>
+
+      <div class="alert alert-success" role="alert">
+        Si desea asociar un músico como favorico, debe dar clic en el boton  +
+      </div>
+      <div class="col">
+        <app-table [headers]="table.headers" [rows]="table.rows"></app-table>
+      </div>
+    </div>
+  </div>
+</div>
+
