@@ -49,14 +49,20 @@
       <trans-unit id="9bea75f59a97f4d38867c24cd4ebc75243eaa406" datatype="html">
         <source>Comentarios</source>
         <target>Comments</target>
+
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/albums/album-details/album-details.component.html</context>
-          <context context-type="linenumber">26</context>
+          <context context-type="linenumber">24</context>
         </context-group>
       </trans-unit>
       <trans-unit id="d7f00e212ad993ae1c44c3fcaa8f8d50c7a0b7ad" datatype="html">
         <source>Agregar</source>
         <target>Add</target>
+
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/albums/album-details/album-details.component.html</context>
+          <context context-type="linenumber">34</context>
+        </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/list-header/list-header.component.html</context>
           <context context-type="linenumber">10</context>
@@ -65,17 +71,19 @@
       <trans-unit id="f5f23e4c360f4a9fd43cc6f9fb4b6c49c632aa45" datatype="html">
         <source>Comentario sobre álbum</source>
         <target>Comment on the album</target>
+
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/albums/album-details/album-details.component.html</context>
-          <context context-type="linenumber">35</context>
+          <context context-type="linenumber">45</context>
         </context-group>
       </trans-unit>
       <trans-unit id="1e9a43c4f48e7d496076c0597c98715c3afd1bf5" datatype="html">
         <source>rating dado al álbum</source>
         <target>Rating of the album</target>
+
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/albums/album-details/album-details.component.html</context>
-          <context context-type="linenumber">39</context>
+          <context context-type="linenumber">53</context>
         </context-group>
       </trans-unit>
       <trans-unit id="3e06f502a7fae9f32e75ebc5457cd30ada994a99" datatype="html">
@@ -153,8 +161,105 @@
           <context context-type="sourcefile">src/app/shared/navbar/navbar.component.html</context>
           <context context-type="linenumber">51</context>
         </context-group>
-      </trans-unit><trans-unit id="2cc812f8063c52bebb2b9fae9308428ee6c00e17" datatype="html">
-        <source>Álbumes</source><target state="new">Albums</target>
+      </trans-unit>
+      <trans-unit id="4a616b7082e8d4a579fa9538564d1cff8a19a5d3" datatype="html">
+        <source>
+              Selecciona un coleccionista*
+        </source>
+        <target state="new">
+              Select a collector*
+        </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/albums/comment-create/comment-create.component.html</context>
+          <context context-type="linenumber">12</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="cf5caf529d9297057c66b3cca6d3e35106e350b1" datatype="html">
+        <source>
+                El coleccionista no puede estar vacio.
+        </source>
+        <target state="new">
+                Collector cannot be empty.
+        </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/albums/comment-create/comment-create.component.html</context>
+          <context context-type="linenumber">34</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="ee00007fcf845887d2f80ac5a255aa021a765128" datatype="html">
+        <source>
+              Comentario*
+        </source>
+        <target state="new">
+              Comment*
+        </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/albums/comment-create/comment-create.component.html</context>
+          <context context-type="linenumber">40</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="30ec7b416d7256d85cff78ee21996603819492e0" datatype="html">
+        <source>
+                La descripción no puede estar vacia.
+        </source>
+        <target state="new">
+                Description cannot be empty.
+        </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/albums/comment-create/comment-create.component.html</context>
+          <context context-type="linenumber">60</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="303389c8c739ba2b67088235361cd64f2d775ee4" datatype="html">
+        <source>
+                La descripción no puede ser mayor a <x id="INTERPOLATION" equiv-text="{{maxDescriptionLength}}"/> caracteres.
+              </source>
+        <target state="new">
+                Description cannot be greater than <x id="INTERPOLATION" equiv-text="{{maxDescriptionLength}}"/>
+ characters.
+        </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/albums/comment-create/comment-create.component.html</context>
+          <context context-type="linenumber">67</context>
+        </context-group>
+      </trans-unit><trans-unit id="c98fe1fc80c3db731672662900b0e97cf0b4ed11" datatype="html">
+        <source>
+              Calificación*
+            </source><target state="new">
+              Rating*
+            </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/albums/comment-create/comment-create.component.html</context>
+          <context context-type="linenumber">73</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="880f6494b32c79a3a45c6e35753890ef04251346" datatype="html">
+        <source>
+            Agregar comentario
+        </source>
+        <target state="new">
+            Add comment
+        </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/albums/comment-create/comment-create.component.html</context>
+          <context context-type="linenumber">106</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="09d26955a5defdb8e7654e2b2f2116a00b88e273" datatype="html">
+        <source>
+            Cancelar
+        </source>
+        <target state="new">
+            Cancel
+        </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/albums/comment-create/comment-create.component.html</context>
+          <context context-type="linenumber">114</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="2cc812f8063c52bebb2b9fae9308428ee6c00e17" datatype="html">
+        <source>Álbumes</source>
+        <target state="new">Albums</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/musician/musician-details/musician-details.component.html</context>
           <context context-type="linenumber">13</context>
@@ -242,10 +347,11 @@
       </trans-unit>
       <trans-unit id="e95c9682270846717cd80e395cc6210d8de141e3" datatype="html">
         <source>
-          La descripción no puede ser mayor a <x id="INTERPOLATION" equiv-text="{{maxDescriptionLength}}"/> caracteres.
-        </source>
+              La descripción no puede ser mayor a <x id="INTERPOLATION" equiv-text="{{maxDescriptionLength}}"/> caracteres.
+            </source>
         <target state="new">
-          Description cannot be greater than <x id="INTERPOLATION" equiv-text="{{maxDescriptionLength}}"/> characters.
+          Description cannot be greater than <x id="INTERPOLATION" equiv-text="{{maxDescriptionLength}}"/>
+ characters.
         </target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/musician/musician-create/musician-create.component.html</context>
