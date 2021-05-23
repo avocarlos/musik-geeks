@@ -40,7 +40,9 @@
               "node_modules/bootstrap-icons/font/bootstrap-icons.css"
             ],
             "scripts": [],
-            "localize": ["es"]
+            "localize": [
+              "es"
+            ]
           },
           "configurations": {
             "production": {
@@ -74,11 +76,10 @@
             "en": {
               "localize": ["en"],
               "aot": true,
-              "outputPath": "dist/front-en/",
+              "outputPath": "dist/front-en",
               "i18nFile": "src/locale/messages.en.xlf",
               "i18nFormat": "xlf",
-              "i18nLocale": "en",
-              "i18nMissingTranslation": "error"
+              "i18nLocale": "en"
             }
           }
         },
@@ -145,6 +146,22 @@
           "configurations": {
             "production": {
               "devServerTarget": "front:serve:production"
+            }
+          }
+        },
+        "xliffmerge": {
+          "builder": "@ngx-i18nsupport/tooling:xliffmerge",
+          "options": {
+            "xliffmergeOptions": {
+              "removeUnusedIds": false,
+              "i18nFormat": "xlf",
+              "srcDir": "src/locale",
+              "genDir": "src/locale",
+              "defaultLanguage": "es",
+              "languages": [
+                "es",
+                "en"
+              ]
             }
           }
         }

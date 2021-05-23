@@ -1,10 +1,14 @@
 import { Album } from '../albums/album';
-export interface Musician {
-  id: number;
+
+export interface MusicianCreateKeys {
   name: string;
   image: string;
   description: string;
   birthDate: string;
+}
+
+export interface Musician extends MusicianCreateKeys {
+  id: number;
   albums: Album[];
   performerPrizes: unknown[];
 }
