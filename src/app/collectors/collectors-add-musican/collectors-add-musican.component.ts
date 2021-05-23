@@ -62,7 +62,7 @@ export class CollectorsAddMusicanComponent implements OnInit {
             this.musicians = musicians;
             this.table.rows = musicians.map(({ id, image, name }) => ({
               columns: [imgTag(image), name],
-              viewButtonClickadd: () => this.router.navigate([], { relativeTo: this.route })
+              viewButtonClickadd: () =>  this.route.params.subscribe(params => this.addCollerMusican(params.id, id))
             }));
           });
       }
@@ -77,7 +77,8 @@ export class CollectorsAddMusicanComponent implements OnInit {
 
       addCollerMusican(idc: number, idm: number): void {
         this.collectorsaddMusicanService.addCollerMusican(idc, idm).subscribe(collector => {
-          this.toastr.success('Guardado con éxito');
+          this.toastr.success('Músico como favorico, asociado al coleccionista, agreagdo con éxito');
+          this.router.navigate([`../../coleccionistas/${idc}`], { relativeTo: this.route });
         });
       }
 
