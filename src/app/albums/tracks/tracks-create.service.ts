@@ -18,8 +18,4 @@ export class TracksCreateService {
     return this.http.post<Track>(this.apiUrl + '/' + albumId + '/tracks', newTrack);
   }
 
-  getTracks(albumId: number) {
-    return this.http.get<Track[]>(this.apiUrl + '/' + albumId + '/tracks');
-  }
-
 }

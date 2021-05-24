@@ -59,23 +59,4 @@ describe('Service: TracksCreate', () => {
     expect(req.request.method).toBe('POST');
   });
 
-  it('get tracks() should return the tracks from album searched', () => {
-
-    const id = faker.datatype.number();
-
-    const nuevoTrack = new Track(
-      faker.lorem.sentence(),
-      faker.datatype.number(59) + ':' + faker.datatype.number(59),
-      id
-    );
-
-    service.getTracks(albumId).subscribe((track) => {
-      expect(track[0]).toEqual(nuevoTrack);
-    });
-
-    const req = httpMock.expectOne(apiUrl);
-    req.flush([nuevoTrack]);
-    expect(req.request.method).toBe('GET');
-  });
-
 });

@@ -25,6 +25,16 @@ const TRACK = {
   id: id
 };
 
+const ALBUM = {
+  name: faker.name.firstName(),
+  cover: faker.image.imageUrl(),
+  releaseDate: faker.date.recent().toString(),
+  description: faker.lorem.sentence(),
+  genre: 'Salsa',
+  recordLabel: 'EMI',
+  id: albumId
+};
+
 const TRACKWRONDATA = {
   name: '',
   duration: faker.datatype.number(),
@@ -82,17 +92,24 @@ describe('TracksCreateComponent', () => {
   });
 
   afterEach(() => {
+
+    const req = httpTestingController.expectOne(environment.baseUrl + 'albums/' + albumId);
+    expect(req.request.method).toBe('GET');
+    req.flush(ALBUM);
+    fixture.detectChanges();
+
     httpTestingController.verify();
   });
 
   it('should create component', () => {
     expect(component).toBeTruthy();
+
   });
 
   it('should render title', () => {
     const title = fixture.debugElement.query(By.css('h1'));
     expect(title).toBeTruthy();
-    expect(title.nativeElement.textContent).toEqual('Canciones');
+    expect(title.nativeElement.textContent).toEqual('Agregar nueva canción');
   });
 
   it('should render components', () => {

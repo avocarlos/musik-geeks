@@ -90,7 +90,7 @@ describe('AlbumCreateComponent', () => {
   it('should render title', () => {
     const title = fixture.debugElement.query(By.css('h1'));
     expect(title).toBeTruthy();
-    expect(title.nativeElement.textContent).toEqual('Álbumes');
+    expect(title.nativeElement.textContent).toEqual('Agregar nuevo álbum');
   });
 
   it('should render components', () => {
