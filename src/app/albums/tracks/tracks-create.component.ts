@@ -20,8 +20,8 @@ export class TracksCreateComponent implements OnInit {
   public breadcrumbs = ['Home', $localize`:@@AlbumsTitulo:Álbumes`];
 
   public title: string = $localize`:@@AgregarTrackTitulo:Agregar nueva canción`;
-  public subtitle: string = 'TBD';
-  public imageSrc: string = '';
+  public subtitle = 'TBD';
+  public imageSrc = '';
 
   public albumId?: number;
   constructor(private createTrackService: TracksCreateService,
@@ -32,23 +32,22 @@ export class TracksCreateComponent implements OnInit {
 
   }
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.route.params.subscribe(params => { this.albumId = params.id; });
     this.formBuilder = new FormBuilder();
     this.trackForm = this.formBuilder.group({
       name: ['', [Validators.required]],
       duration: ['', [Validators.required,
       Validators.pattern('^[0-5]?[0-9]:[0-5][0-9]$')]]
-    })
+    });
     this.getAlbum();
   }
 
-  getAlbum() {
+  getAlbum(): void {
     this.getAlbumDetailsService.getAlbumDetails(this.albumId).subscribe((album) => {
-      this.breadcrumbs.push( album.name);
+      this.breadcrumbs.push(album.name);
       this.breadcrumbs.push(this.title);
-      this.subtitle = $localize`:@@AlbumTitulo:Álbum` + ': '+ album.name;
-      //this.imageSrc = album.cover;
+      this.subtitle = $localize`:@@AlbumTitulo:Álbum` + ': ' + album.name;
     });
   }
 

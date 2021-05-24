@@ -1,7 +1,7 @@
 import { Routes, RouterModule } from '@angular/router';
 import { AlbumDetailsComponent } from './album-details/album-details.component';
 import { AlbumCreateComponent } from './album-create/album-create.component';
-import { TracksCreateComponent } from './tracks/tracks-create.component'
+import { TracksCreateComponent } from './tracks/tracks-create.component';
 import { CommentCreateComponent } from './comments/comment-create/comment-create.component';
 
 const routes: Routes = [{

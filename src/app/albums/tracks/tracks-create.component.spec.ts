@@ -22,7 +22,7 @@ const minutes = faker.datatype.number(59);
 const TRACK = {
   name: faker.lorem.sentence(),
   duration: minutes + ':' + seconds,
-  id: id
+  id: '{id}'
 };
 
 const ALBUM = {
@@ -38,7 +38,7 @@ const ALBUM = {
 const TRACKWRONDATA = {
   name: '',
   duration: faker.datatype.number(),
-  id: id
+  id: '{id}'
 };
 
 
@@ -51,7 +51,7 @@ describe('TracksCreateComponent', () => {
   let apiURL: string;
 
   beforeEach(async(() => {
-    if (seconds.length == 1) {
+    if (seconds.length === 1) {
       seconds = '0' + seconds;
       TRACK.duration = minutes + ':' + seconds;
     }
