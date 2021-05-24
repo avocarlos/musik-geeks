@@ -25,10 +25,10 @@ export class TracksCreateComponent implements OnInit {
 
   public albumId?: number;
   constructor(private createTrackService: TracksCreateService,
-    private getAlbumDetailsService: AlbumDetailsService,
-    private route: ActivatedRoute,
-    private toastrService: ToastrService,
-    private router: Router) {
+              private getAlbumDetailsService: AlbumDetailsService,
+              private route: ActivatedRoute,
+              private toastrService: ToastrService,
+              private router: Router) {
 
   }
 
