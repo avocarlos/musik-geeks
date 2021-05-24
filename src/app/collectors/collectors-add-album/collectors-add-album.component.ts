@@ -80,7 +80,7 @@ export class CollectorsAddAlbumComponent implements OnInit {
 
               return {
                 columns: [formattedImg, name, listaPerformers, formattedDate],
-                viewButtonClickadd: () => this.router.navigate([], { relativeTo: this.route })
+                viewButtonClickadd: () =>  this.route.params.subscribe(params => this.addCollerAlbum(params.id, id))
               };
             });
           });
@@ -88,7 +88,8 @@ export class CollectorsAddAlbumComponent implements OnInit {
 
       addCollerAlbum(idc: number, ida: number): void {
         this.collectorsaddAlbumService.addCollerAlbum(idc, ida).subscribe(collector => {
-          this.toastr.success('Guardado con éxito');
+          this.toastr.success('Album, asociado al coleccionista, agreagdo con éxito');
+          this.router.navigate([`../../coleccionistas/${idc}`], { relativeTo: this.route });
         });
       }
 

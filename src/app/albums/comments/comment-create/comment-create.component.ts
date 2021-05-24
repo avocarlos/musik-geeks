@@ -8,14 +8,14 @@ import {
 import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { CollectorsService } from 'src/app/collectors/collectors.service';
-import { AlbumsService } from '../../albums/albums.service';
+import { AlbumsService } from '../../albums.service';
 
 @Component({
-  selector: 'app-collectors-add-musican',
-  templateUrl: './collectors-add-musican.component.html',
-  styleUrls: ['./collectors-add-musican.component.scss']
+  selector: 'app-comment-create',
+  templateUrl: './comment-create.component.html',
+  styleUrls: ['./comment-create.component.css']
 })
-export class CollectorsAddMusicanComponent implements OnInit {
+export class CommentCreateComponent implements OnInit {
   public title = 'Agregar comentario';
   public commentForm: FormGroup;
   public maxDescriptionLength = 500;
@@ -79,13 +79,13 @@ export class CollectorsAddMusicanComponent implements OnInit {
       }
     };
 
-   /* this.albumsService.createAlbumComment(this.albumId, payload).subscribe(() => {
+    this.albumsService.createAlbumComment(this.albumId, payload).subscribe(() => {
       this.toastrService.success(
         'El comentario ha sido creado exitosamente.',
         'Comentario creado'
       );
       this.router.navigate(['albumes', this.albumId]);
-    });*/
+    });
   }
 
   navigateBack(): void {

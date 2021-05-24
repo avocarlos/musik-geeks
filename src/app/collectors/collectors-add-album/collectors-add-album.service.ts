@@ -13,7 +13,8 @@ export class CollectorsAddAlbumService {
 
   constructor(private http: HttpClient) { }
   addCollerAlbum(idc: number, ida: number): Observable<Collector> {
-    return this.http.get<Collector>(`${this.apiUrl}/${idc}/albums/${ida}`);
+    const apiUrl = environment.baseUrl + 'collectors/' + idc + '/albums/' + ida;
+    const albumadd = '';
+    return this.http.post<Collector>(apiUrl, albumadd);
   }
-
 }
