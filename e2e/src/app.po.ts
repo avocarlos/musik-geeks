@@ -1,4 +1,4 @@
-import { browser, by, element } from 'protractor';
+import { browser, by, element, ExpectedConditions } from 'protractor';
 
 export class AppPage {
   navigateTo(): Promise<unknown> {
@@ -6,6 +6,12 @@ export class AppPage {
   }
 
   getTitleText(): Promise<string> {
-    return element(by.css('app-root .content span')).getText() as Promise<string>;
+    return element(by.css('#welcomeMessage')).getText() as Promise<string>;
+  }
+
+  wait(): void{
+    var until = ExpectedConditions;
+    browser.wait(until.presenceOf(element(by.css('#welcomeMessage'))), 5000, 'Element taking too long to appear in the DOM');
+
   }
 }

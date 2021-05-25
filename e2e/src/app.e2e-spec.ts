@@ -1,7 +1,7 @@
 import { AppPage } from './app.po';
 import { browser, logging } from 'protractor';
 
-describe('workspace-project App', () => {
+describe('Landing Page', () => {
   let page: AppPage;
 
   beforeEach(() => {
@@ -10,8 +10,8 @@ describe('workspace-project App', () => {
 
   it('should display welcome message', () => {
     page.navigateTo();
-    expect(page.getTitleText()).toEqual('front app is running!');
-  });
+    expect(page.getTitleText()).toEqual('Bienvenido a Music Geeks');
+  });/*
 
   afterEach(async () => {
     // Assert that there are no errors emitted from the browser
@@ -19,5 +19,5 @@ describe('workspace-project App', () => {
     expect(logs).not.toContain(jasmine.objectContaining({
       level: logging.Level.SEVERE,
     } as logging.Entry));
-  });
+  });*/
 });
