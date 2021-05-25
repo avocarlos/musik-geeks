@@ -59,7 +59,6 @@ export class TracksCreateComponent implements OnInit {
 
       this.createTrackService.addTrack(newTrack, this.albumId).subscribe((item) => {
         this.toastrService.success('Guardado con éxito');
-        this.trackForm.reset();
         this.router.navigate(['albumes', this.albumId]);
 
       });
@@ -67,8 +66,12 @@ export class TracksCreateComponent implements OnInit {
 
   }
 
-  cancelCreation(): void {
+  cleanFields(): void {
     this.trackForm.reset();
+  }
+
+  cancelCreation(): void {
+    this.router.navigate(['albumes', this.albumId]);
   }
 
 }

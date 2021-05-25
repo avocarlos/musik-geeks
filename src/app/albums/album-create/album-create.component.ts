@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { Album } from '../album';
 import { AlbumCreateService } from './album-create.service';
@@ -18,7 +18,7 @@ export class AlbumCreateComponent implements OnInit {
   recordingLabelList: any = ['Sony Music', 'EMI', 'Discos Fuentes', 'Elektra', 'Fania Records'];
 
   public title = $localize`:@@AgregarAlbumTitulo:Agregar nuevo álbum`;
-  constructor(private createAlbumService: AlbumCreateService, private route: ActivatedRoute, private toastrService: ToastrService) {
+  constructor(private createAlbumService: AlbumCreateService, private route: ActivatedRoute, private toastrService: ToastrService,private router: Router) {
 
   }
 
@@ -49,6 +49,10 @@ export class AlbumCreateComponent implements OnInit {
   }
 
   cancelCreation(): void {
+    this.router.navigate(['albumes']);
+  }
+
+  cleanFields(): void {
     this.albumForm.reset();
   }
 

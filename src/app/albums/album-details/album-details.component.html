@@ -8,72 +8,77 @@
     [breadcrumbs]="breadcrumbs"
     [featured]="featured"
   ></app-detail-header>
-</div>
-
-<div class="container mt-5 mb-5">
-  <div class="row mb-5">
-    <div class="col-10">
-      <h2 class="mb-3 h3" i18n>Canciones</h2>
-    </div>
-    <div class="col-2 text-end">
-      <button
-        (click)="onClickCancion()"
-        i18n-aria-label
-        type="button"
-        aria-label="Agregar item"
-        class="btn"
-      >
-        <em class="bi bi-plus"></em>
-        <span id="addButton" i18n>Agregar</span>
-      </button>
-    </div>
-  </div>
-  <div class="row mb-5">
-    <div class="col">
-      <app-table
-        [headers]="cancionesTable.headers"
-        [rows]="cancionesTable.rows"
-        [tableContentName]="cancionesTable.tableContentName"
-      ></app-table>
-    </div>
-    <div class="row mb-3 comments-container">
-      <div class="col-6">
-        <h2 class="h3" i18n>Comentarios</h2>
+  <div class="container mt-5 mb-5">
+    <div class="row mb-5">
+      <div class="col-10">
+        <h2 class="mb-3 h3" i18n>Canciones</h2>
       </div>
-      <div class="col text-end">
+      <div class="col-2 text-end">
         <button
+          (click)="onClickCancion()"
+          i18n-aria-label
           type="button"
-          aria-label="Agregar comentario"
-          class="btn btn-primary"
-          routerLink="./comentarios/agregar"
+          aria-label="Agregar item"
+          class="btn"
         >
           <em class="bi bi-plus"></em>
           <span id="addButton" i18n>Agregar</span>
         </button>
       </div>
     </div>
-  </div>
-  <div class="row" *ngIf="album">
-    <div class="col-12 col-sm-4" *ngFor="let comment of album.comments">
-      <div class="card">
-        <div class="card-body">
-          <p
-            class="card-title padded comment-description"
-            aria-label="Comentario sobre álbum"
-            i18n-aria-label
+    <div class="row mb-5">
+      <div class="col">
+        <app-table
+          [headers]="cancionesTable.headers"
+          [rows]="cancionesTable.rows"
+          [tableContentName]="cancionesTable.tableContentName"
+        ></app-table>
+      </div>
+      <div class="row mb-3 comments-container">
+        <div class="col-6">
+          <h2 class="h3" i18n>Comentarios</h2>
+        </div>
+        <div class="col text-end">
+          <button
+            type="button"
+            aria-label="Agregar comentario"
+            class="btn btn-primary"
+            routerLink="./comentarios/agregar"
           >
-            {{ comment.description }}
-          </p>
-          <div
-            class="card-footer fw-bold text-uppercase mb-0 text-muted comment-rating"
-            aria-label="rating dado al álbum"
-            i18n-aria-label
-          >
-            Calificación {{ comment.rating }}/5
+            <em class="bi bi-plus"></em>
+            <span id="addButton" i18n>Agregar</span>
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="row" *ngIf="album">
+      <div class="col-12 col-sm-4" *ngFor="let comment of album.comments">
+        <div class="card">
+          <div class="card-body">
+            <p
+              class="card-title padded comment-description"
+              aria-label="Comentario sobre álbum"
+              i18n-aria-label
+            >
+              {{ comment.description }}
+            </p>
+            <div
+              class="
+                card-footer
+                fw-bold
+                text-uppercase
+                mb-0
+                text-muted
+                comment-rating
+              "
+              aria-label="rating dado al álbum"
+              i18n-aria-label
+            >
+              Calificación {{ comment.rating }}/5
+            </div>
           </div>
         </div>
       </div>
     </div>
   </div>
 </div>
-

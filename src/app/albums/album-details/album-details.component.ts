@@ -83,7 +83,7 @@ export class AlbumDetailsComponent implements OnInit {
   }
 
   onClickCancion(): void {
-    console.log(this.route);
+
     this.router.navigate(['./canciones/agregar'], { relativeTo: this.route });
   }
 }
