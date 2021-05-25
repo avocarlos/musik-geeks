@@ -148,6 +148,7 @@ describe('AlbumCreateComponent', () => {
 
     expect(form.valid).toBeFalsy();
     expect(coverInput.errors).toBeNull();
+
   });
 
   it('should check form is valid', () => {
@@ -171,7 +172,7 @@ describe('AlbumCreateComponent', () => {
     fixture.detectChanges();
 
     expect(form.valid).toBeTrue();
-    component.cancelCreation();
+    component.cleanFields();
     fixture.detectChanges();
     expect(form.valid).toBeFalse();
 
