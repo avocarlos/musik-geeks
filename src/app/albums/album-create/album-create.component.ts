@@ -18,7 +18,10 @@ export class AlbumCreateComponent implements OnInit {
   recordingLabelList: any = ['Sony Music', 'EMI', 'Discos Fuentes', 'Elektra', 'Fania Records'];
 
   public title = $localize`:@@AgregarAlbumTitulo:Agregar nuevo álbum`;
-  constructor(private createAlbumService: AlbumCreateService, private route: ActivatedRoute, private toastrService: ToastrService,private router: Router) {
+  constructor(private createAlbumService: AlbumCreateService,
+              private route: ActivatedRoute,
+              private toastrService: ToastrService,
+              private router: Router) {
 
   }
 
