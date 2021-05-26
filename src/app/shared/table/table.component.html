@@ -29,7 +29,11 @@
             ? 'table-' + headers[columnIdx].toLowerCase() + idx
             : ''
         }}"
-        class="align-middle"
+        class="align-middle {{
+          headers[columnIdx]
+            ? 'field-' + headers[columnIdx].toLowerCase()
+            : ''
+        }}"
         [innerHTML]="value"
       ></td>
       <td>

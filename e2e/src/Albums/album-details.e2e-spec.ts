@@ -1,7 +1,7 @@
 import { AppPage } from '../app.po';
 import { AlbumsPage } from './albums.po';
 import { browser, logging } from 'protractor';
-import { AlbumDetailsPage } from './albums-details.po';
+import { AlbumDetailsPage } from './album-details.po';
 
 describe('Albums details', () => {
   let page: AppPage;
@@ -27,7 +27,7 @@ describe('Albums details', () => {
     title = album.getFirstAlbumTitle();
     performers = album.getFirstAlbumPerformers();
     releaseDate = album.getFirstAlbumReleaseDate();
-    album.navagateToFirstAlbum();
+    album.navigateToFirstAlbum();
     albumDetails.wait();
     expect(albumDetails.getBreadcrumbsCount()).toEqual(3);
     expect(albumDetails.getBreadcrumb(0)).toEqual('home');

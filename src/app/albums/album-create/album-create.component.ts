@@ -45,7 +45,7 @@ export class AlbumCreateComponent implements OnInit {
 
       this.createAlbumService.createAlbum(newAlbum).subscribe((item) => {
         this.toastrService.success('Guardado con éxito');
-        this.albumForm.reset();
+        this.router.navigate(['albumes']);
       });
     }
 
@@ -57,6 +57,7 @@ export class AlbumCreateComponent implements OnInit {
 
   cleanFields(): void {
     this.albumForm.reset();
+    this.albumForm.reset({ genre: '', recordLabel: '' });
   }
 
   changeGenre(e): void {
