@@ -11,7 +11,7 @@
   <div class="container mt-5 mb-5">
     <div class="row mb-5">
       <div class="col-10">
-        <h2 class="mb-3 h3" i18n>Canciones</h2>
+        <h2 class="mb-3 h3" id="tracksTitle" i18n>Canciones</h2>
       </div>
       <div class="col-2 text-end">
         <button
@@ -20,6 +20,7 @@
           type="button"
           aria-label="Agregar item"
           class="btn"
+          id="addTrackButton"
         >
           <em class="bi bi-plus"></em>
           <span id="addButton" i18n>Agregar</span>
@@ -36,7 +37,7 @@
       </div>
       <div class="row mb-3 comments-container">
         <div class="col-6">
-          <h2 class="h3" i18n>Comentarios</h2>
+          <h2 class="h3" id="commentsTitle" i18n>Comentarios</h2>
         </div>
         <div class="col text-end">
           <button
@@ -44,6 +45,7 @@
             aria-label="Agregar comentario"
             class="btn btn-primary"
             routerLink="./comentarios/agregar"
+            id="addCommentButton"
           >
             <em class="bi bi-plus"></em>
             <span id="addButton" i18n>Agregar</span>
