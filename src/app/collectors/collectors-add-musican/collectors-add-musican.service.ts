@@ -4,17 +4,18 @@ import { environment } from '../../../environments/environment';
 import { Observable } from 'rxjs';
 import { Collector } from '../collector';
 import { Musician } from '../../musician/musician';
+import { CreateMusicianPayload, CollectorsAddMusican } from './collectors-add-musician';
 
 
 @Injectable({
   providedIn: 'root'
 })
 export class CollectorsAddMusicanService {
-
+  private apiUrl = environment.baseUrl + 'collectors';
   constructor(private http: HttpClient) { }
-  addCollerMusican(idc: number, idm: number): Observable<Collector> {
-    const apiUrl = environment.baseUrl + 'collectors/' + idc + '/musicians/' + idm;
-    const musiadd = '';
-    return this.http.post<Collector>(apiUrl, musiadd);
+  addCollerMusican(idc: number, idm: CreateMusicianPayload): Observable<CollectorsAddMusican> {
+
+    return this.http.post<CollectorsAddMusican>(`${this.apiUrl}/${idc}/musicians/${idm}`, idm);
+
   }
 }

@@ -1,19 +1,17 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { Router, ActivatedRoute } from '@angular/router';
-import { MusicianService } from '../../musician/musician.service';
-import type { Musician } from '../../musician/musician';
-import type { TableRow } from '../../shared/table/table.component';
-import { Collector } from '../collector';
-import { CollectorsService } from '../collectors.service';
+import { Component, OnInit } from '@angular/core';
+import {
+  AbstractControl,
+  FormBuilder,
+  FormGroup,
+  Validators,
+} from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
-import { CollectorsAddMusicanService } from '../collectors-add-musican/collectors-add-musican.service';
-
-
-interface MusiciansTable {
-  headers: string[];
-  rows: TableRow[];
-  tableContentName: string;
-}
+import { CollectorsService } from 'src/app/collectors/collectors.service';
+import type { Musician } from 'src/app/musician/musician';
+import { MusicianService } from 'src/app/musician/musician.service';
+import { CollectorsAddMusicanService } from 'src/app/collectors/collectors-add-musican/collectors-add-musican.service';
+import { Collector } from '../collector';
 
 @Component({
   selector: 'app-collectors-add-musican',
@@ -21,73 +19,75 @@ interface MusiciansTable {
   styleUrls: ['./collectors-add-musican.component.scss']
 })
 export class CollectorsAddMusicanComponent implements OnInit {
-  @Input() collectorId: number;
-  @Input() collectordel: Collector;
+  public title = 'Agregar músicos favoritos';
+  public commentForm: FormGroup;
+  public maxDescriptionLength = 500;
+  public musicanOptions: Array<{ label: string, value: number }> = [];
+  public collectorId: number;
   public collector?: Collector;
-
+  public isLoading = true;
   musicians: Musician[];
-  table: MusiciansTable = {
-    headers: ['Músico', 'Nombre'],
-    rows: [],
-    tableContentName: 'musicos'
-  };
-  title = 'Músicos';
+  public breadcrumbs = ['Home', 'Coleccionistas'];
 
-  public breadcrumbs = ['Home', 'Coleccionistas', 'Asociar un músico'];
-  public featured = [{
-        title: 'Correo Electronico',
-        subtitle: ''
-      },
-      {
-        title: 'Teléfono',
-        subtitle: ''
-      }];
-      constructor(
-        private musicianService: MusicianService,
-        private route: ActivatedRoute,
-        private router: Router,
-        private collectorsService: CollectorsService,
-        private collectorsaddMusicanService: CollectorsAddMusicanService,
-        private toastr: ToastrService,
-      ) { }
+  constructor(
+    private formBuilder: FormBuilder,
+    private musiciansService: CollectorsAddMusicanService,
+    private collectorsService: CollectorsService,
+    private musicianService: MusicianService,
+    private toastrService: ToastrService,
+    private router: Router,
+    private route: ActivatedRoute
+  ) {}
 
-      ngOnInit(): void {
-        this.route.params.subscribe(params => this.getCollector(params.id));
-        this.getMusicians();
-      }
+  ngOnInit(): void {
+    this.route.params.subscribe((params) => {
+      this.collectorId = params.id;
+    });
 
-      getMusicians(): void {
-        this.musicianService.getMusicians()
-          .subscribe((musicians) => {
-            this.musicians = musicians;
-            this.table.rows = musicians.map(({ id, image, name }) => ({
-              columns: [imgTag(image), name],
-              viewButtonClickadd: () =>  this.route.params.subscribe(params => this.addCollerMusican(params.id, id))
-            }));
-          });
-      }
+    this.commentForm = this.formBuilder.group({
+      musicianId: ['', Validators.required]
+    });
 
-      getCollector(id: number): void {
-        this.collectorsService.getCollector(id)
-          .subscribe((collector) => {
-            this.collector = collector;
-            this.breadcrumbs.push(collector.name);
-          });
-      }
+    this.route.params.subscribe(params => this.getCollector(params.id));
+    this.getMusicians();
+  }
 
-      addCollerMusican(idc: number, idm: number): void {
-        this.collectorsaddMusicanService.addCollerMusican(idc, idm).subscribe(collector => {
-          this.toastr.success('Músico como favorico, asociado al coleccionista, agreagdo con éxito');
-          this.router.navigate([`../../coleccionistas/${idc}`], { relativeTo: this.route });
-        });
-      }
+  get musicianId(): AbstractControl {
+    return this.commentForm.get('musicianId');
+  }
 
-      detailsCollertor(id: number): void {
-        this.router.navigate([`../../coleccionistas/${id}`], { relativeTo: this.route });
-      }
-}
+  getCollector(id: number): void {
+    this.collectorsService.getCollector(id)
+      .subscribe((collector) => {
+        this.collector = collector;
+        this.breadcrumbs.push(collector.name);
+      });
+  }
+
+  getMusicians(): void {
+    this.musicianService.getMusicians()
+      .subscribe((musicians) => {
+        this.isLoading = false; this.musicanOptions = musicians.map((musician) =>
+          ({label: musician.name, value: musician.id})
+        );
+      });
+  }
 
 
-function imgTag(src: string): string {
-  return `<img class="table-avatar" src="${src}" alt="Imagen de músico" />`;
+  addMusican(): void {
+    const id =  this.commentForm.value.musicianId;
+
+
+    this.musiciansService.addCollerMusican(this.collectorId, id).subscribe(() => {
+      this.toastrService.success(
+        'El músico ha sido creado exitosamente.',
+        'Músico creado'
+      );
+      this.router.navigate(['coleccionistas', this.collectorId]);
+    });
+  }
+
+  navigateBack(): void {
+    this.router.navigate(['coleccionistas', this.collectorId]);
+  }
 }

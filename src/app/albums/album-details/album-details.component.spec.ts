@@ -167,8 +167,6 @@ describe('AlbumDetailsComponent', () => {
   });
 
 
-
-
   it('should render comments table with albums comments', () => {
     const description = fixture.debugElement.query(By.css('.comment-description'));
     const rating = fixture.debugElement.query(By.css('.comment-rating'));
@@ -176,8 +174,8 @@ describe('AlbumDetailsComponent', () => {
     const [comment] = ALBUM.comments;
     expect(description).toBeTruthy();
     expect(rating).toBeTruthy();
-    expect(description.nativeElement.textContent).toEqual(comment.description);
-    expect(rating.nativeElement.textContent).toEqual(comment.rating + '/5');
+    expect(description.nativeElement.textContent).toContain(comment.description);
+    expect(rating.nativeElement.textContent).toContain(comment.rating + '/5');
   });
 
 

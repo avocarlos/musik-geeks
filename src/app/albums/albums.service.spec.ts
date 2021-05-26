@@ -65,4 +65,24 @@ describe('Service: GetAlbums', () => {
     expect(req.request.method).toBe('GET');
     req.flush(mockPosts);
   });
+
+  describe('#createComment', () => {
+    it('should call create comment endpoint', () => {
+      const payload = {
+        rating: faker.datatype.number(5),
+        description: faker.lorem.paragraph(),
+        collector: {
+          id: faker.datatype.number()
+        }
+      };
+
+      service.createAlbumComment(100, payload).subscribe((comment) => {
+        expect(comment).toBeDefined();
+      });
+
+      const req = httpMock.expectOne(`${apiUrl}/${100}/comments`);
+      expect(req.request.method).toBe('POST');
+      req.flush({});
+    });
+  });
 });
