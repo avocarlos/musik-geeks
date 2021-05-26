@@ -13,7 +13,7 @@
         <source>Ver detalle</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/table/table.component.html</context>
-          <context context-type="linenumber">41</context>
+          <context context-type="linenumber">44</context>
         </context-group>
       </trans-unit>
       <trans-unit id="8dff3ccd2e9c3882cd7a9c4056e72ce6fe843933" datatype="html">
@@ -34,11 +34,11 @@
         <source>Agregar</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/albums/album-details/album-details.component.html</context>
-          <context context-type="linenumber">25</context>
+          <context context-type="linenumber">26</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/albums/album-details/album-details.component.html</context>
-          <context context-type="linenumber">49</context>
+          <context context-type="linenumber">52</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/list-header/list-header.component.html</context>
@@ -60,21 +60,21 @@
         <source>Comentarios</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/albums/album-details/album-details.component.html</context>
-          <context context-type="linenumber">39</context>
+          <context context-type="linenumber">41</context>
         </context-group>
       </trans-unit>
       <trans-unit id="f5f23e4c360f4a9fd43cc6f9fb4b6c49c632aa45" datatype="html">
         <source>Comentario sobre álbum</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/albums/album-details/album-details.component.html</context>
-          <context context-type="linenumber">60</context>
+          <context context-type="linenumber">63</context>
         </context-group>
       </trans-unit>
       <trans-unit id="1e9a43c4f48e7d496076c0597c98715c3afd1bf5" datatype="html">
         <source>rating dado al álbum</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/albums/album-details/album-details.component.html</context>
-          <context context-type="linenumber">74</context>
+          <context context-type="linenumber">71</context>
         </context-group>
       </trans-unit>
       <trans-unit id="a29acadd1e0cffaa38c29e3e7bdf845f689333f6" datatype="html">
@@ -326,7 +326,7 @@
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/musician/musician-create/musician-create.component.html</context>
-          <context context-type="linenumber">122</context>
+          <context context-type="linenumber">123</context>
         </context-group>
       </trans-unit>
       <trans-unit id="4a616b7082e8d4a579fa9538564d1cff8a19a5d3" datatype="html">
@@ -344,7 +344,7 @@
               </source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/albums/comments/comment-create/comment-create.component.html</context>
-          <context context-type="linenumber">34</context>
+          <context context-type="linenumber">35</context>
         </context-group>
       </trans-unit>
       <trans-unit id="ee00007fcf845887d2f80ac5a255aa021a765128" datatype="html">
@@ -353,25 +353,25 @@
             </source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/albums/comments/comment-create/comment-create.component.html</context>
-          <context context-type="linenumber">40</context>
+          <context context-type="linenumber">41</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="30ec7b416d7256d85cff78ee21996603819492e0" datatype="html">
+      <trans-unit id="9fce5933e925f18d5c3c407d8fba68300de908db" datatype="html">
         <source>
-                La descripción no puede estar vacia.
+                El comentario no puede estar vacio.
               </source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/albums/comments/comment-create/comment-create.component.html</context>
-          <context context-type="linenumber">60</context>
+          <context context-type="linenumber">61</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="303389c8c739ba2b67088235361cd64f2d775ee4" datatype="html">
+      <trans-unit id="cfab968a1697c29adfa2c8158cb6cc4308e6f225" datatype="html">
         <source>
-                La descripción no puede ser mayor a <x id="INTERPOLATION" equiv-text="{{maxDescriptionLength}}"/> caracteres.
+                El comentario no puede ser mayor a <x id="INTERPOLATION" equiv-text="{{maxDescriptionLength}}"/> caracteres.
               </source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/albums/comments/comment-create/comment-create.component.html</context>
-          <context context-type="linenumber">67</context>
+          <context context-type="linenumber">68</context>
         </context-group>
       </trans-unit>
       <trans-unit id="c98fe1fc80c3db731672662900b0e97cf0b4ed11" datatype="html">
@@ -380,7 +380,7 @@
             </source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/albums/comments/comment-create/comment-create.component.html</context>
-          <context context-type="linenumber">73</context>
+          <context context-type="linenumber">74</context>
         </context-group>
       </trans-unit>
       <trans-unit id="880f6494b32c79a3a45c6e35753890ef04251346" datatype="html">
@@ -389,7 +389,7 @@
           </source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/albums/comments/comment-create/comment-create.component.html</context>
-          <context context-type="linenumber">106</context>
+          <context context-type="linenumber">108</context>
         </context-group>
       </trans-unit>
       <trans-unit id="09d26955a5defdb8e7654e2b2f2116a00b88e273" datatype="html">
@@ -398,7 +398,7 @@
           </source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/albums/comments/comment-create/comment-create.component.html</context>
-          <context context-type="linenumber">114</context>
+          <context context-type="linenumber">116</context>
         </context-group>
       </trans-unit>
       <trans-unit id="4f6e92a32327be0f0f4158090174aee1eb896046" datatype="html">
@@ -479,20 +479,13 @@
           <context context-type="linenumber">34</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="e5cb2191b54f41c72d67d98b93a79ed95bab6628" datatype="html">
-        <source>Formatos válidos: jpg, jpeg, gif, png</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/musician/musician-create/musician-create.component.html</context>
-          <context context-type="linenumber">50</context>
-        </context-group>
-      </trans-unit>
       <trans-unit id="bb8dd737f8c4220c2e3448ec48057960ab4b0a87" datatype="html">
         <source>
               Por favor introduce una dirección válida. Ej. https://example.com/example.jpg
             </source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/musician/musician-create/musician-create.component.html</context>
-          <context context-type="linenumber">55</context>
+          <context context-type="linenumber">54</context>
         </context-group>
       </trans-unit>
       <trans-unit id="5b8f7b60303c9eda81c7a519333aa00bbd888622" datatype="html">
@@ -501,7 +494,7 @@
           </source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/musician/musician-create/musician-create.component.html</context>
-          <context context-type="linenumber">61</context>
+          <context context-type="linenumber">60</context>
         </context-group>
       </trans-unit>
       <trans-unit id="ff5a03b7218ee206c3c56cc0384a8415b3274036" datatype="html">
@@ -510,7 +503,7 @@
           </source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/musician/musician-create/musician-create.component.html</context>
-          <context context-type="linenumber">78</context>
+          <context context-type="linenumber">77</context>
         </context-group>
       </trans-unit>
       <trans-unit id="b0c8c7a5f3ce7bdfc926426f3f0da36131cb34f6" datatype="html">
@@ -519,7 +512,7 @@
             </source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/musician/musician-create/musician-create.component.html</context>
-          <context context-type="linenumber">97</context>
+          <context context-type="linenumber">96</context>
         </context-group>
       </trans-unit>
       <trans-unit id="e95c9682270846717cd80e395cc6210d8de141e3" datatype="html">
@@ -528,7 +521,7 @@
             </source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/musician/musician-create/musician-create.component.html</context>
-          <context context-type="linenumber">104</context>
+          <context context-type="linenumber">103</context>
         </context-group>
       </trans-unit>
       <trans-unit id="55bc6901ac7a6af8836bb5ef4d6fa8772dfdb5d0" datatype="html">
@@ -537,7 +530,7 @@
         </source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/musician/musician-create/musician-create.component.html</context>
-          <context context-type="linenumber">114</context>
+          <context context-type="linenumber">115</context>
         </context-group>
       </trans-unit>
     </body>

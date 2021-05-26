@@ -173,12 +173,12 @@ describe('MusicianCreateComponent', () => {
     it('should return invalid form control value when value is not a valid URI', () => {
       const input = fixture.debugElement.query(By.css('input[name="image"]')).nativeElement;
 
-      input.value = 'https://www.example.com/example';
+      input.value = 'https://';
       input.dispatchEvent(new Event('input'));
 
       fixture.detectChanges();
 
-      expect(component.image.value).toEqual('https://www.example.com/example');
+      expect(component.image.value).toEqual('https://');
       expect(component.image.invalid).toBeTrue();
     });
   });
