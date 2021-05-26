@@ -9,3 +9,17 @@
   min-height: 200px;
   border: none;
 }
+
+.btn {
+  background: rgba(103, 81, 242, 1);
+  color: white;
+  margin-right: 25px;
+}
+.btn:hover,
+.btn:focus {
+  background: rgb(73, 58, 170);
+}
+
+.comments-container{
+  margin-top: 35px;
+}
