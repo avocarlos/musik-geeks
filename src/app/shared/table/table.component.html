@@ -1,7 +1,7 @@
 <table
   id="dataTable{{ tableContentName }}"
-  summary="lista de datos"
-  i18n-summary
+  caption="lista de datos"
+  i18n-caption
   class="table table-shadow"
 >
   <thead>
@@ -21,7 +21,7 @@
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let row of rows; index as idx">
+    <tr class="dataRow{{ tableContentName }}" *ngFor="let row of rows; index as idx">
       <td
         *ngFor="let value of row.columns; index as columnIdx"
         id="{{
@@ -35,6 +35,9 @@
       <td align="right">
         <button
           *ngIf="row.viewButtonClick"
+          id="{{
+               'viewDetailsButton-' + idx
+          }}"
           type="button"
           class="btn btn-primary"
           (click)="row.viewButtonClick()"

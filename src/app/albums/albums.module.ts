@@ -7,6 +7,7 @@ import { CommentCreateComponent } from './comments/comment-create/comment-create
 import { AlbumCreateComponent } from './album-create/album-create.component';
 import { AlbumsRoutingModule } from './albums-routing.module';
 import { ReactiveFormsModule } from '@angular/forms';
+import { TracksCreateComponent } from './tracks/tracks-create.component';
 
 @NgModule({
   imports: [
@@ -19,8 +20,9 @@ import { ReactiveFormsModule } from '@angular/forms';
     AlbumsComponent,
     AlbumDetailsComponent,
     AlbumCreateComponent,
+    TracksCreateComponent,
     CommentCreateComponent
   ],
-  exports: [AlbumsComponent, AlbumDetailsComponent, AlbumCreateComponent]
+  exports: [AlbumsComponent, AlbumDetailsComponent, AlbumCreateComponent, TracksCreateComponent, CommentCreateComponent]
 })
 export class AlbumsModule { }
