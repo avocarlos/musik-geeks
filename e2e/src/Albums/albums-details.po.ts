@@ -9,7 +9,7 @@ export class AlbumDetailsPage {
   }
 
   getAlbumTitle(): Promise<string> {
-    return element(by.css('.featured-title')).getText().then((text) => { return text.toLowerCase(); }) as Promise<string>;
+    return element(by.css('.featured-title')).getText().then((text) =>  text.toLowerCase() ) as Promise<string>;
   }
 
   getBreadcrumbsCount(): Promise<number> {
@@ -20,7 +20,7 @@ export class AlbumDetailsPage {
     return element.all(by.css('li.breadcrumb-item>strong'))
                   .get(index)
                   .getText()
-                  .then((text) => { return text.toLowerCase(); }) as Promise<string>;
+                  .then((text) =>  text.toLowerCase() ) as Promise<string>;
   }
 
   getAlbumCoverURL(): Promise<string> {
