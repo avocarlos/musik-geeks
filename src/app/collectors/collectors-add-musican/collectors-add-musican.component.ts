@@ -8,7 +8,10 @@ import {
 import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { CollectorsService } from 'src/app/collectors/collectors.service';
-import { AlbumsService } from '../../albums/albums.service';
+import type { Musician } from 'src/app/musician/musician';
+import { MusicianService } from 'src/app/musician/musician.service';
+import { CollectorsAddMusicanService } from 'src/app/collectors/collectors-add-musican/collectors-add-musican.service';
+import { Collector } from '../collector';
 
 @Component({
   selector: 'app-collectors-add-musican',
@@ -16,17 +19,21 @@ import { AlbumsService } from '../../albums/albums.service';
   styleUrls: ['./collectors-add-musican.component.scss']
 })
 export class CollectorsAddMusicanComponent implements OnInit {
-  public title = 'Agregar comentario';
+  public title = 'Agregar músicos favoritos';
   public commentForm: FormGroup;
   public maxDescriptionLength = 500;
-  public collectorOptions: Array<{ label: string, value: number }> = [];
-  public albumId: number;
+  public musicanOptions: Array<{ label: string, value: number }> = [];
+  public collectorId: number;
+  public collector?: Collector;
   public isLoading = true;
+  musicians: Musician[];
+  public breadcrumbs = ['Home', 'Coleccionistas'];
 
   constructor(
     private formBuilder: FormBuilder,
-    private albumsService: AlbumsService,
+    private musiciansService: CollectorsAddMusicanService,
     private collectorsService: CollectorsService,
+    private musicianService: MusicianService,
     private toastrService: ToastrService,
     private router: Router,
     private route: ActivatedRoute
@@ -34,61 +41,53 @@ export class CollectorsAddMusicanComponent implements OnInit {
 
   ngOnInit(): void {
     this.route.params.subscribe((params) => {
-      this.albumId = params.id;
+      this.collectorId = params.id;
     });
 
     this.commentForm = this.formBuilder.group({
-      collectorId: ['', Validators.required],
-      description: [
-        '',
-        [Validators.required, Validators.maxLength(this.maxDescriptionLength)],
-      ],
-      rating: ['', Validators.required]
+      musicianId: ['', Validators.required]
     });
 
-    this.getCollectors();
+    this.route.params.subscribe(params => this.getCollector(params.id));
+    this.getMusicians();
   }
 
-  get collectorId(): AbstractControl {
-    return this.commentForm.get('collectorId');
+  get musicianId(): AbstractControl {
+    return this.commentForm.get('musicianId');
   }
 
-  get description(): AbstractControl {
-    return this.commentForm.get('description');
+  getCollector(id: number): void {
+    this.collectorsService.getCollector(id)
+      .subscribe((collector) => {
+        this.collector = collector;
+        this.breadcrumbs.push(collector.name);
+      });
   }
 
-  get rating(): AbstractControl {
-    return this.commentForm.get('rating');
+  getMusicians(): void {
+    this.musicianService.getMusicians()
+      .subscribe((musicians) => {
+        this.isLoading = false; this.musicanOptions = musicians.map((musician) =>
+          ({label: musician.name, value: musician.id})
+        );
+      });
   }
 
-  getCollectors(): void {
-    this.collectorsService.getCollectorsList().subscribe((collectors) => {
-      this.isLoading = false;
-      this.collectorOptions = collectors.map((collector) =>
-        ({label: collector.name, value: collector.id})
-      );
-    });
-  }
 
-  createComment(): void {
-    const payload = {
-      description: this.commentForm.value.description,
-      rating: this.commentForm.value.rating,
-      collector: {
-        id: this.commentForm.value.collectorId
-      }
-    };
+  addMusican(): void {
+    const id =  this.commentForm.value.musicianId;
 
-   /* this.albumsService.createAlbumComment(this.albumId, payload).subscribe(() => {
+
+    this.musiciansService.addCollerMusican(this.collectorId, id).subscribe(() => {
       this.toastrService.success(
-        'El comentario ha sido creado exitosamente.',
-        'Comentario creado'
+        'El músico ha sido creado exitosamente.',
+        'Músico creado'
       );
-      this.router.navigate(['albumes', this.albumId]);
-    });*/
+      this.router.navigate(['coleccionistas', this.collectorId]);
+    });
   }
 
   navigateBack(): void {
-    this.router.navigate(['albumes', this.albumId]);
+    this.router.navigate(['coleccionistas', this.collectorId]);
   }
 }
