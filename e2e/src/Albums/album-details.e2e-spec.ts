@@ -30,17 +30,17 @@ describe('Albums details', () => {
     album.navagateToFirstAlbum();
     albumDetails.wait();
     expect(albumDetails.getBreadcrumbsCount()).toEqual(3);
-    expect(albumDetails.getfirstBreadcrumb()).toEqual('HOME');
-    expect(albumDetails.getSecondBreadcrumb()).toEqual('ÁLBUMES');
-    expect(albumDetails.getThirdBreadcrumb()).toEqual(title);
+    expect(albumDetails.getBreadcrumb(0)).toEqual('home');
+    expect(albumDetails.getBreadcrumb(1)).toEqual('álbumes');
+    expect(albumDetails.getBreadcrumb(2)).toEqual(title);
   });
 
   it('should display page titles', () => {
-    expect(albumDetails.getAlbumReleaseDateTitle()).toEqual("LANZAMIENTO");
-    expect(albumDetails.getAlbumLabelTitle()).toEqual("FIRMA");
-    expect(albumDetails.getAlbumGenreTitle()).toEqual("GÉNERO");
-    expect(albumDetails.getTracksTitle()).toEqual("Canciones");
-    expect(albumDetails.getCommentsTitle()).toEqual("Comentarios");
+    expect(albumDetails.getAlbumReleaseDateTitle()).toEqual('LANZAMIENTO');
+    expect(albumDetails.getAlbumLabelTitle()).toEqual('FIRMA');
+    expect(albumDetails.getAlbumGenreTitle()).toEqual('GÉNERO');
+    expect(albumDetails.getTracksTitle()).toEqual('Canciones');
+    expect(albumDetails.getCommentsTitle()).toEqual('Comentarios');
   });
 
   it('should display album information', () => {
@@ -58,7 +58,7 @@ describe('Albums details', () => {
   });
 
   it('should display comments', () => {
-    let commentsCount = albumDetails.getCommentsCount();
+    const commentsCount = albumDetails.getCommentsCount();
     expect(commentsCount).toBeGreaterThan(0);
     expect(albumDetails.getCommentsTitlesCount()).toEqual(commentsCount);
     expect(albumDetails.getCommentsRatingsCount()).toEqual(commentsCount);

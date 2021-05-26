@@ -10,7 +10,7 @@ export class AppPage {
   }
 
   wait(): void{
-    var until = ExpectedConditions;
+    const until = ExpectedConditions;
     browser.wait(until.presenceOf(element(by.css('#welcomeMessage'))), 5000, 'Element taking too long to appear in the DOM');
 
   }

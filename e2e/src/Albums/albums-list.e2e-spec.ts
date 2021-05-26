@@ -4,7 +4,7 @@ import { browser, logging } from 'protractor';
 
 describe('Albums list', () => {
   let page: AppPage;
-  let album: AlbumsPage ;
+  let album: AlbumsPage;
   beforeAll(() => {
     page = new AppPage();
     album = new AlbumsPage();
@@ -29,7 +29,7 @@ describe('Albums list', () => {
   });
 
   it('should display view details buttons', () => {
-    const rowCount =album.getRowCount();
+    const rowCount = album.getRowCount();
     expect(album.getDetailButtonCount()).toEqual(rowCount);
 
   });
