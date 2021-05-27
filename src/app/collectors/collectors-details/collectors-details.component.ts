@@ -42,7 +42,7 @@ export class CollectorsDetailsComponent implements OnInit {
         subtitle: ''
       },
       {
-        title: $localize`:@@TelefonoColeccionista:Telephone`,
+        title: $localize`:@@TelefonoColeccionista:Teléfono`,
         subtitle: ''
       }];
 
