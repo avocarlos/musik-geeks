@@ -11,10 +11,6 @@ describe('Albums create', () => {
   let album: AlbumsPage;
   let trackCreate: TrackCreatePage;
   let albumDetails: AlbumDetailsPage;
-  let coverURL: Promise<string>;
-  let title: Promise<string>;
-  let performers: Promise<string>;
-  let releaseDate: Promise<string>;
   let seconds: string = faker.datatype.number(59).toString();
   const minutes = faker.datatype.number(59);
 

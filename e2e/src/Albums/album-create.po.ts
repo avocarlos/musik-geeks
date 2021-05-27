@@ -20,7 +20,7 @@ export class AlbumCreatePage {
     return element(by.css('#name')).getText() as Promise<string>;
   }
 
-  setName(text:string): Promise<unknown> {
+  setName(text: string): Promise<unknown> {
     return element(by.css('#name')).sendKeys(text) as Promise<unknown>;
   }
 
@@ -36,7 +36,7 @@ export class AlbumCreatePage {
     return element(by.css('#cover')).getText() as Promise<string>;
   }
 
-  setCover(text:string): Promise<unknown> {
+  setCover(text: string): Promise<unknown> {
     return element(by.css('#cover')).sendKeys(text) as Promise<unknown>;
   }
 
@@ -52,7 +52,7 @@ export class AlbumCreatePage {
     return element(by.css('#releaseDate')).getText() as Promise<string>;
   }
 
-  setReleaseDate(text:string): Promise<unknown> {
+  setReleaseDate(text: string): Promise<unknown> {
     return element(by.css('#releaseDate')).sendKeys(text) as Promise<unknown>;
   }
 
@@ -68,9 +68,9 @@ export class AlbumCreatePage {
     return element(by.css('#genre')).getAttribute('value') as Promise<string>;
   }
 
-  setGenre(text:string): Promise<unknown> {
+  setGenre(text: string): Promise<unknown> {
     element(by.css('#genre')).click()
-    return element(by.css('#genre'+text)).click()as Promise<unknown>;
+    return element(by.css('#genre' + text)).click() as Promise<unknown>;
   }
 
   activateGenre(): Promise<unknown> {
@@ -86,9 +86,9 @@ export class AlbumCreatePage {
     return element(by.css('#recordLabel')).getAttribute('value') as Promise<string>;
   }
 
-  setRecordLabel(text:string): Promise<unknown> {
+  setRecordLabel(text: string): Promise<unknown> {
     element(by.css('#recordLabel')).click()
-    return element(by.css('#recordLabel'+text)).click()as Promise<unknown>;
+    return element(by.css('#recordLabel' + text)).click() as Promise<unknown>;
   }
 
   activateRecordLabel(): Promise<unknown> {
@@ -103,7 +103,7 @@ export class AlbumCreatePage {
     return element(by.css('#description')).getText() as Promise<string>;
   }
 
-  setDescription(text:string): Promise<unknown> {
+  setDescription(text: string): Promise<unknown> {
     return element(by.css('#description')).sendKeys(text) as Promise<unknown>;
   }
 
