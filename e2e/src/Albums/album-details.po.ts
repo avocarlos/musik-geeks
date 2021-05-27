@@ -9,18 +9,7 @@ export class AlbumDetailsPage {
   }
 
   getAlbumTitle(): Promise<string> {
-    return element(by.css('.featured-title')).getText().then((text) =>  text.toLowerCase() ) as Promise<string>;
-  }
-
-  getBreadcrumbsCount(): Promise<number> {
-    return element.all(by.css('li.breadcrumb-item')).count() as Promise<number>;
-  }
-
-  getBreadcrumb(index: number): Promise<string> {
-    return element.all(by.css('li.breadcrumb-item>strong'))
-                  .get(index)
-                  .getText()
-                  .then((text) =>  text.toLowerCase() ) as Promise<string>;
+    return element(by.css('.featured-title')).getText().then((text) => text.toLowerCase()) as Promise<string>;
   }
 
   getAlbumCoverURL(): Promise<string> {
@@ -81,6 +70,24 @@ export class AlbumDetailsPage {
 
   getCommentsRatingsCount(): Promise<number> {
     return element.all(by.css('.card-footer')).count() as Promise<number>;
+  }
+  navigateToAddTrack(): Promise<unknown> {
+    return element(by.css('#addTrackButton')).click() as Promise<unknown>;
+
+  }
+
+  getLastTrackName(): Promise<string> {
+    return element.all(by.css('.dataRowcanciones'))
+      .last()
+      .element(by.css('.field-título'))
+      .getText() as Promise<string>;
+  }
+
+  getLastTrackDuration(): Promise<string> {
+    return element.all(by.css('.dataRowcanciones'))
+      .last()
+      .element(by.css('.field-duración'))
+      .getText() as Promise<string>;
   }
 
 

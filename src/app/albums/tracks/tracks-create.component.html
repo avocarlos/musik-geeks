@@ -13,7 +13,7 @@
         [formGroup]="trackForm"
         (ngSubmit)="!trackForm.invalid && addNewTrack(trackForm.value)"
       >
-        <div class="mb-4" [formGroup]="trackForm">
+        <div id="nameLabel" class="mb-4" [formGroup]="trackForm">
           <label for="name" class="form-label" i18n> Título </label>
           <input
             novalidate
@@ -26,6 +26,7 @@
             required
           />
           <div
+            id="nameRequiredError"
             class="alert alert-danger alert-dismissible fade show"
             *ngIf="
               trackForm.get('name').hasError('required') &&
@@ -36,7 +37,7 @@
             Título es requerido
           </div>
         </div>
-        <div class="mb-4" [formGroup]="trackForm">
+        <div id="durationLabel" class="mb-4" [formGroup]="trackForm">
           <label for="duration" class="form-label" i18n> Duración </label>
           <input
             novalidate
@@ -49,6 +50,7 @@
             required
           />
           <div
+            id="durationRequiredError"
             class="alert alert-danger alert-dismissible fade show"
             *ngIf="
               trackForm.get('duration').hasError('required') &&
@@ -59,6 +61,7 @@
             La duración es requerida
           </div>
           <div
+            id="durationPatternError"
             class="alert alert-danger alert-dismissible fade show"
             *ngIf="
               trackForm.get('duration').hasError('pattern') &&
