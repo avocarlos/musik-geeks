@@ -30,6 +30,7 @@
               </select>
               <div
                 i18n
+                id="emptyCollectorIdMessage"
                 *ngIf="collectorId.errors?.required"
                 class="invalid-feedback"
               >
@@ -56,6 +57,7 @@
               <small class="mt-2 text-secondary">{{description.value.length}}/{{maxDescriptionLength}}</small>
               <div
                 i18n
+                id="emptyDescriptionMessage"
                 *ngIf="description.errors?.required"
                 class="invalid-feedback"
               >
@@ -63,6 +65,7 @@
               </div>
               <div
                 i18n
+                id="maxLengthMessage"
                 *ngIf="description.errors?.maxlength"
                 class="invalid-feedback"
               >
