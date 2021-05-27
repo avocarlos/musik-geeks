@@ -15,7 +15,7 @@ interface CollectorsTable {
 export class CollectorsComponent implements OnInit {
   collectors?: Collector[];
   table: CollectorsTable = {
-    headers: ['Nombre', 'Email', 'Teléfono', ''],
+    headers: ['Nombre', 'Email', 'Teléfono'],
     rows: []
   };
   title = 'Coleccionistas';
