@@ -10,10 +10,10 @@
   ></app-detail-header>
   <div class="container mt-5 mb-5">
     <div class="row mb-5">
-      <div class="col-10">
+      <div class="col-6">
         <h2 class="mb-3 h3" id="tracksTitle" i18n>Canciones</h2>
       </div>
-      <div class="col-2 text-end">
+      <div class="col text-end">
         <button
           (click)="onClickCancion()"
           i18n-aria-label
@@ -35,28 +35,29 @@
           [tableContentName]="cancionesTable.tableContentName"
         ></app-table>
       </div>
-      <div class="row mb-3 comments-container">
-        <div class="col-6">
-          <h2 class="h3" id="commentsTitle" i18n>Comentarios</h2>
-        </div>
-        <div class="col text-end">
-          <button
-            type="button"
-            aria-label="Agregar comentario"
-            class="btn btn-primary"
-            routerLink="./comentarios/agregar"
-            id="addCommentButton"
-          >
-            <em class="bi bi-plus"></em>
-            <span id="addButton" i18n>Agregar</span>
-          </button>
-        </div>
+    </div>
+    <div class="row mb-3">
+      <div class="col-6">
+        <h2 class="h3" id="commentsTitle" i18n>Comentarios</h2>
+      </div>
+      <div class="col text-end">
+        <button
+          type="button"
+          aria-label="Agregar comentario"
+          class="btn btn-primary"
+          routerLink="./comentarios/agregar"
+          id="addCommentButton"
+        >
+          <em class="bi bi-plus"></em>
+          <span id="addButton" i18n>Agregar</span>
+        </button>
       </div>
     </div>
-    <div class="row" *ngIf="album">
-      <div class="col-12 col-sm-4" *ngFor="let comment of album.comments">
-        <div class="card">
+    <div class="row row-cols-12 row-cols-sm-2 row-cols-lg-4">
+      <div class="col mb-5" *ngFor="let comment of album.comments">
+        <div class="card card-shadow">
           <div class="card-body">
+            <em class="comment-icon bi bi-chat-square-quote"></em>
             <p
               class="card-title padded comment-description"
               aria-label="Comentario sobre álbum"
@@ -64,20 +65,13 @@
             >
               {{ comment.description }}
             </p>
-            <div
-              class="
-                card-footer
-                fw-bold
-                text-uppercase
-                mb-0
-                text-muted
-                comment-rating
-              "
-              aria-label="rating dado al álbum"
-              i18n-aria-label
-            >
-              Calificación {{ comment.rating }}/5
-            </div>
+          </div>
+          <div
+            class="card-footer fw-bold text-uppercase mb-0 text-muted comment-rating"
+            aria-label="rating dado al álbum"
+            i18n-aria-label
+          >
+            Calificación {{ comment.rating }}/5
           </div>
         </div>
       </div>
