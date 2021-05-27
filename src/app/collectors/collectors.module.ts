@@ -6,6 +6,9 @@ import { CollectorsService } from './collectors.service';
 import { SharedModule } from '../shared/shared.module';
 import { CollectorRoutes } from './collector.routing';
 import { CollectorsCreateComponent } from './collectors-create/collectors-create.component';
+import { CollectorsAddMusicanComponent } from './collectors-add-musican/collectors-add-musican.component';
+import { CollectorsAddAlbumComponent } from './collectors-add-album/collectors-add-album.component';
+
 import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
@@ -19,11 +22,16 @@ import { ReactiveFormsModule } from '@angular/forms';
   declarations: [
     CollectorsComponent,
     CollectorsDetailsComponent,
-    CollectorsCreateComponent
+    CollectorsCreateComponent,
+    CollectorsAddMusicanComponent,
+    CollectorsAddAlbumComponent
   ],
   exports: [
     CollectorsComponent,
-    CollectorsCreateComponent
+    CollectorsCreateComponent,
+    CollectorsDetailsComponent,
+    CollectorsAddMusicanComponent,
+    CollectorsAddAlbumComponent
   ]
 })
 export class CollectorsModule { }

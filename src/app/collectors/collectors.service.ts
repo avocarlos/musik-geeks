@@ -24,7 +24,9 @@ export class CollectorsService {
   getCollector(id: number): Observable<Collector> {
     return this.http.get<Collector>(`${this.apiUrl}/${id}`);
   }
-
+  getAddMusican(id: number): Observable<Collector> {
+    return this.http.get<Collector>(`${this.apiUrl}/${id}`);
+  }
   getCollectorAlbums(id: number): Observable<CollectorAlbums> {
     return this.http.get<CollectorAlbums>(`${this.apiUrl}/${id}/albums/`);
   }
