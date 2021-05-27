@@ -69,7 +69,7 @@ export class AlbumCreatePage {
   }
 
   setGenre(text: string): Promise<unknown> {
-    element(by.css('#genre')).click()
+    element(by.css('#genre')).click();
     return element(by.css('#genre' + text)).click() as Promise<unknown>;
   }
 
@@ -87,7 +87,7 @@ export class AlbumCreatePage {
   }
 
   setRecordLabel(text: string): Promise<unknown> {
-    element(by.css('#recordLabel')).click()
+    element(by.css('#recordLabel')).click();
     return element(by.css('#recordLabel' + text)).click() as Promise<unknown>;
   }
 
