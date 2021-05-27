@@ -11,15 +11,23 @@ export class CommentCreate {
     return element(by.css('app-list-header h1')).getText() as Promise<string>;
   }
 
-  getDescriptionInvalidFeedbackText(): Promise<string> {
-    return element(by.css('#description-input .invalid-feedback')).getText() as Promise<string>;
+  getDescriptionRequiredText(): Promise<string> {
+    browser.sleep(100);
+    return element(by.css('#emptyDescriptionMessage')).getText() as Promise<string>;
+  }
+
+  getDescriptionMaxLengthText(): Promise<string> {
+    browser.sleep(100);
+    return element(by.css('#maxLengthMessage')).getText() as Promise<string>;
   }
 
   getCollectorInvalidFeedbackText(): Promise<string> {
-    return element(by.css('#collector-input .invalid-feedback')).getText() as Promise<string>;
+    browser.sleep(100);
+    return element(by.css('#emptyCollectorIdMessage')).getText() as Promise<string>;
   }
 
   isCollectorValid(): Promise<boolean> {
+    browser.sleep(100);
     return element(by.name('collectorId')).getAttribute('class').then((className) => className.includes('is-valid')) as Promise<boolean>;
   }
 
@@ -30,6 +38,7 @@ export class CommentCreate {
   }
 
   isDescriptionValid(): Promise<boolean> {
+    browser.sleep(100);
     return element(by.name('description')).getAttribute('class').then((className) => className.includes('is-valid')) as Promise<boolean>;
   }
 
