@@ -36,7 +36,7 @@
         }}"
         [innerHTML]="value"
       ></td>
-      <td>
+      <td align="right">
         <button
           *ngIf="row.viewButtonClick"
           id="{{
@@ -50,6 +50,19 @@
         >
           <em class="bem bi-chevron-right"></em>
         </button>
+
+        <button
+          *ngIf="row.viewButtonClickadd"
+          type="button"
+          class="btn btn-primary"
+          (click)="row.viewButtonClickadd()"
+          aria-label="Adicional"
+          i18n-aria-label
+        >
+         +
+        </button>
+
+
       </td>
     </tr>
   </tbody>
