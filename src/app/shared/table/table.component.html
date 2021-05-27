@@ -19,7 +19,9 @@
         id="table-actions{{ tableContentName }}"
         i18n
         class="text-uppercase text-secondary"
-      >Detalle</th>
+      >
+        <small>Detalle</small>
+      </th>
     </tr>
   </thead>
   <tbody>
@@ -38,7 +40,7 @@
         }}"
         [innerHTML]="value"
       ></td>
-      <td align="right">
+      <td>
         <button
           *ngIf="row.viewButtonClick"
           id="{{

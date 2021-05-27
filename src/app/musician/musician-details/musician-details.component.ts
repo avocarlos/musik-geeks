@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, LOCALE_ID, Inject } from '@angular/core';
 import { formatDate } from '@angular/common';
 import { Musician } from '../musician';
 import { MusicianService } from '../musician.service';
@@ -37,7 +37,8 @@ export class MusicianDetailsComponent implements OnInit {
 
   constructor(
     private musicianService: MusicianService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    @Inject(LOCALE_ID) public locale: string
   ) { }
 
   ngOnInit(): void {
@@ -50,10 +51,10 @@ export class MusicianDetailsComponent implements OnInit {
         this.musician = musician;
         this.breadcrumbs.push(musician.name);
 
-        this.featured[0].subtitle = formatDate(musician.birthDate, 'longDate', 'es-MX', '+0');
+        this.featured[0].subtitle = formatDate(musician.birthDate, 'longDate', this.locale, '+0');
         this.albumsTable.rows = musician.albums.map(({ cover, releaseDate, name }) => {
           const formattedImg = imgTag(cover);
-          const formattedDate = formatDate(releaseDate, 'longDate', 'es-MX', '+0');
+          const formattedDate = formatDate(releaseDate, 'longDate', this.locale, '+0');
 
           return {
             columns: [formattedImg, name, formattedDate]
