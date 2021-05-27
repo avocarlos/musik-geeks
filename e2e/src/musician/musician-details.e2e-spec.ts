@@ -35,7 +35,7 @@ describe('Musician details', () => {
   });
 
   it('should display musician albums', () => {
-    expect(page.getTableHeaders()).toEqual(['PORTADA', 'TÍTULO', 'LANZAMIENTO', '']);
+    expect(page.getTableHeaders()).toEqual(['PORTADA', 'TÍTULO', 'LANZAMIENTO', 'DETALLE']);
     expect(page.getTableRowSize()).toBeGreaterThan(0);
   });
 

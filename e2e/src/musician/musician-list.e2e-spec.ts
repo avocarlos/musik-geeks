@@ -15,7 +15,7 @@ describe('Musician list', () => {
 
   it('should load musician tables', () => {
     page.navigateTo();
-    expect(page.getTableHeaders()).toEqual(['MÚSICO', 'NOMBRE', '']);
+    expect(page.getTableHeaders()).toEqual(['MÚSICO', 'NOMBRE', 'DETALLE']);
     expect(page.getTableRowSize()).toBeGreaterThan(0);
   });
 
