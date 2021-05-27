@@ -15,10 +15,10 @@ interface CollectorsTable {
 export class CollectorsComponent implements OnInit {
   collectors?: Collector[];
   table: CollectorsTable = {
-    headers: ['Nombre', 'Email', 'Teléfono'],
+    headers: [$localize`:@@NombreMusico:Nombre`, 'Email', $localize`:@@TelefonoColeccionista:Telephone`],
     rows: []
   };
-  title = 'Coleccionistas';
+  title = $localize`:@@7b58538b1dd31df6643c09049be1550edbc8641e:Coleccionistas`;
 
   @Output() Collector: Collector;
 

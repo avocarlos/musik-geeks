@@ -16,7 +16,7 @@ import { MusicianService } from '../musician.service';
   styleUrls: ['./musician-create.component.css'],
 })
 export class MusicianCreateComponent implements OnInit {
-  public title = 'Agregar nuevo músico';
+  public title = $localize`:@@AgregarNuevoMusico:Agregar nuevo músico`;
   public musicianForm: FormGroup;
   public maxDescriptionLength = 500;
 

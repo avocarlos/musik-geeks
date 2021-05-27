@@ -23,7 +23,7 @@
                 [class.is-invalid]="collectorId.invalid && collectorId.touched"
                 required
               >
-                <option selected disabled value="">Seleccionar...</option>
+                <option selected disabled value="" i18n>Seleccionar...</option>
                 <option *ngFor="let option of collectorOptions" [value]="option.value">
                   {{option.label}}
                 </option>

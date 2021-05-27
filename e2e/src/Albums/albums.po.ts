@@ -42,7 +42,7 @@ export class AlbumsPage {
 
   }
   navigateToFirstAlbum(): Promise<unknown> {
-    return element(by.css('#viewDetailsButton-0')).click() as Promise<unknown>;
+    return element(by.css('#viewDetailsalbumesButton-0')).click() as Promise<unknown>;
   }
 
   getFirstAlbumCoverURL(): Promise<string> {

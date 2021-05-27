@@ -53,7 +53,7 @@ describe('CollectorsDetailsComponent', () => {
   });
   it('should call #getCollectors and format featured', () => {
     expect(component.featured).toEqual([{
-      title: 'Correo Electronico',
+      title: 'Email',
       subtitle: ''
     },
     {
