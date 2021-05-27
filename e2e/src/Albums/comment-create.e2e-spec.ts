@@ -44,14 +44,14 @@ describe('Comment create', () => {
       page.fillDescription('');
 
       expect(page.isDescriptionValid()).toEqual(false);
-      expect(page.getDescriptionInvalidFeedbackText()).toEqual('El comentario no puede estar vacio.');
+      expect(page.getDescriptionRequiredText()).toEqual('El comentario no puede estar vacio.');
     });
 
     it('should display an error state when value is greater than 500', () => {
       page.fillDescription(faker.lorem.paragraphs(4));
 
       expect(page.isDescriptionValid()).toEqual(false);
-      expect(page.getDescriptionInvalidFeedbackText()).toEqual('El comentario no puede ser mayor a 500 caracteres.');
+      expect(page.getDescriptionMaxLengthText()).toEqual('El comentario no puede ser mayor a 500 caracteres.');
     });
   });
 
