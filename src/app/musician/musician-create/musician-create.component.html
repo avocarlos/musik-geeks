@@ -47,7 +47,6 @@
               [class.is-invalid]="image.invalid && image.touched"
               class="form-control w-100"
             >
-            <small i18n class="mt-2 text-secondary">Formatos válidos: jpg, jpeg, gif, png</small>
             <div
               i18n
               *ngIf="image.errors?.imageURI"
@@ -99,7 +98,7 @@
             </div>
             <div
               i18n
-              *ngIf="description.errors?.maxLength"
+              *ngIf="description.errors?.maxlength"
               class="invalid-feedback"
             >
               La descripción no puede ser mayor a {{maxDescriptionLength}} caracteres.
@@ -108,15 +107,17 @@
         </div>
         <button
           i18n
+          id="submitBtn"
           type="submit"
           class="btn btn-primary me-4"
-          [class.disabled]="!musicianForm.valid"
+          [class.disabled]="musicianForm.invalid"
+          [disabled]="musicianForm.invalid"
         >
           Agregar músico
         </button>
         <button
           i18n
-          type="submit"
+          id="cancelBtn"
           class="btn btn-outline-danger"
           (click)="navigateBack()"
         >
