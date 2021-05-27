@@ -12,7 +12,9 @@
             novalidate
             id="name"
             name="name"
-            class="form-control"
+            class="form-control w-100"
+            [class.is-valid]="name.valid && name.touched"
+            [class.is-invalid]="name.invalid && name.touched"
             formControlName="name"
             i18n-placeholder
             placeholder="Título del album"
@@ -20,7 +22,7 @@
           />
           <div
             id="nameRequiredError"
-            class="alert alert-danger alert-dismissible fade show"
+            class="invalid-feedback"
             *ngIf="
               albumForm.get('name').hasError('required') &&
               albumForm.get('name').touched
@@ -37,7 +39,9 @@
             novalidate
             id="cover"
             name="cover"
-            class="form-control"
+            class="form-control w-100"
+            [class.is-valid]="cover.valid && cover.touched"
+            [class.is-invalid]="cover.invalid && cover.touched"
             formControlName="cover"
             i18n-placeholder
             placeholder="URL de la portada del album"
@@ -45,7 +49,7 @@
           />
           <div
             id="coverRequiredError"
-            class="alert alert-danger alert-dismissible fade show"
+            class="invalid-feedback"
             *ngIf="
               albumForm.get('cover').hasError('required') &&
               albumForm.get('name').touched
@@ -56,7 +60,7 @@
           </div>
           <div
             id="coverPatternError"
-            class="alert alert-danger alert-dismissible fade show"
+            class="invalid-feedback"
             *ngIf="
               albumForm.get('cover').hasError('pattern') &&
               albumForm.get('name').touched
@@ -73,7 +77,9 @@
             novalidate
             id="releaseDate"
             name="releaseDate"
-            class="form-control"
+            class="form-control w-100"
+            [class.is-valid]="releaseDate.valid && releaseDate.touched"
+            [class.is-invalid]="releaseDate.invalid && releaseDate.touched"
             formControlName="releaseDate"
             i18n-placeholder
             placeholder="dd/mm/yyyy"
@@ -81,7 +87,7 @@
           />
           <div
             id="releaseDateRequiredError"
-            class="alert alert-danger alert-dismissible fade show"
+            class="invalid-feedback"
             *ngIf="
               albumForm.get('releaseDate').hasError('required') &&
               albumForm.get('releaseDate').touched
@@ -96,7 +102,9 @@
           <select novalidate
           id="genre"
           name="genre"
-          class="form-control"
+          class="form-control w-100"
+          [class.is-valid]="genre.valid && genre.touched"
+          [class.is-invalid]="genre.invalid && genre.touched"
           formControlName="genre"
           i18n-placeholder
           placeholder="Género del album"
@@ -107,7 +115,7 @@
          </select>
           <div
             id="genreRequiredError"
-            class="alert alert-danger alert-dismissible fade show"
+            class="invalid-feedback"
             *ngIf="
               albumForm.get('genre').hasError('required') &&
               albumForm.get('genre').touched
@@ -122,7 +130,9 @@
           <select novalidate
           id="recordLabel"
           name="recordLabel"
-          class="form-control"
+          class="form-control w-100"
+          [class.is-valid]="recordLabel.valid && recordLabel.touched"
+          [class.is-invalid]="recordLabel.invalid && recordLabel.touched"
           formControlName="recordLabel"
           i18n-placeholder
           placeholder="Firma discográfica de lanzamiento"
@@ -133,7 +143,7 @@
          </select>
           <div
             id="recordLabelRequiredError"
-            class="alert alert-danger alert-dismissible fade show"
+            class="invalid-feedback"
             *ngIf="
               albumForm.get('recordLabel').hasError('required') &&
               albumForm.get('recordLabel').touched
@@ -144,7 +154,7 @@
           </div>
           <div
             id="recordLabelMaxLengthError"
-            class="alert alert-danger alert-dismissible fade show"
+            class="invalid-feedback"
             *ngIf="
               albumForm.get('recordLabel').hasError('maxlength') &&
               albumForm.get('recordLabel').touched
@@ -160,7 +170,9 @@
             novalidate
             id="description"
             name="description"
-            class="form-control"
+            class="form-control w-100"
+            [class.is-valid]="description.valid && description.touched"
+            [class.is-invalid]="description.invalid && description.touched"
             formControlName="description"
             i18n-placeholder
             placeholder="Descripción del album"
@@ -168,7 +180,7 @@
           ></textarea>
           <div
             id="descriptionRequiredError"
-            class="alert alert-danger alert-dismissible fade show"
+            class="invalid-feedback"
             *ngIf="
               albumForm.get('description').hasError('required') &&
               albumForm.get('description').touched
@@ -179,7 +191,7 @@
           </div>
           <div
             id="descriptionMaxLengthError"
-            class="alert alert-danger alert-dismissible fade show"
+            class="invalid-feedback"
             *ngIf="
               albumForm.get('description').hasError('maxlength') &&
               albumForm.get('description').touched
@@ -190,7 +202,7 @@
           </div>
           <div
             id="descriptionMinLengthError"
-            class="alert alert-danger alert-dismissible fade show"
+            class="invalid-feedback"
             *ngIf="
               albumForm.get('description').hasError('minlength') &&
               albumForm.get('description').touched

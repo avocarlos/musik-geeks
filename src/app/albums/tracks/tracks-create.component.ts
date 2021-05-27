@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import '@angular/localize/init';
@@ -41,6 +41,14 @@ export class TracksCreateComponent implements OnInit {
       Validators.pattern('^[0-5]?[0-9]:[0-5][0-9]$')]]
     });
     this.getAlbum();
+  }
+
+  get name(): AbstractControl {
+    return this.trackForm.get('name');
+  }
+
+  get duration(): AbstractControl {
+    return this.trackForm.get('duration');
   }
 
   getAlbum(): void {

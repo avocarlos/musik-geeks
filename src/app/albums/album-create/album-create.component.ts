@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { Album } from '../album';
@@ -36,6 +36,30 @@ export class AlbumCreateComponent implements OnInit {
       genre: ['', Validators.required],
       recordLabel: ['', [Validators.required, Validators.maxLength(100)]],
     });
+  }
+
+  get name(): AbstractControl {
+    return this.albumForm.get('name');
+  }
+
+  get cover(): AbstractControl {
+    return this.albumForm.get('cover');
+  }
+
+  get releaseDate(): AbstractControl {
+    return this.albumForm.get('releaseDate');
+  }
+
+  get description(): AbstractControl {
+    return this.albumForm.get('description');
+  }
+
+  get genre(): AbstractControl {
+    return this.albumForm.get('genre');
+  }
+
+  get recordLabel(): AbstractControl {
+    return this.albumForm.get('recordLabel');
   }
 
   createNewAlbum(newAlbum: Album): void {

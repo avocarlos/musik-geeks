@@ -19,7 +19,9 @@
             novalidate
             id="name"
             name="name"
-            class="form-control"
+            class="form-control w-100"
+            [class.is-valid]="name.valid && name.touched"
+            [class.is-invalid]="name.invalid && name.touched"
             formControlName="name"
             i18n-placeholder
             placeholder="Título de la canción"
@@ -27,7 +29,7 @@
           />
           <div
             id="nameRequiredError"
-            class="alert alert-danger alert-dismissible fade show"
+            class="invalid-feedback"
             *ngIf="
               trackForm.get('name').hasError('required') &&
               trackForm.get('name').touched
@@ -43,7 +45,9 @@
             novalidate
             id="duration"
             name="duration"
-            class="form-control"
+            class="form-control w-100"
+            [class.is-valid]="duration.valid && duration.touched"
+            [class.is-invalid]="duration.invalid && duration.touched"
             formControlName="duration"
             i18n-placeholder
             placeholder="Duración de la canción"
@@ -51,7 +55,7 @@
           />
           <div
             id="durationRequiredError"
-            class="alert alert-danger alert-dismissible fade show"
+            class="invalid-feedback"
             *ngIf="
               trackForm.get('duration').hasError('required') &&
               trackForm.get('duration').touched
@@ -62,7 +66,7 @@
           </div>
           <div
             id="durationPatternError"
-            class="alert alert-danger alert-dismissible fade show"
+            class="invalid-feedback"
             *ngIf="
               trackForm.get('duration').hasError('pattern') &&
               trackForm.get('duration').touched
