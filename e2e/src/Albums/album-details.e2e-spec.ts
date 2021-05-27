@@ -29,10 +29,10 @@ describe('Albums details', () => {
     releaseDate = album.getFirstAlbumReleaseDate();
     album.navigateToFirstAlbum();
     albumDetails.wait();
-    expect(albumDetails.getBreadcrumbsCount()).toEqual(3);
-    expect(albumDetails.getBreadcrumb(0)).toEqual('home');
-    expect(albumDetails.getBreadcrumb(1)).toEqual('álbumes');
-    expect(albumDetails.getBreadcrumb(2)).toEqual(title);
+    expect(page.getBreadcrumbsCount()).toEqual(3);
+    expect(page.getBreadcrumb(0)).toEqual('home');
+    expect(page.getBreadcrumb(1)).toEqual('álbumes');
+    expect(page.getBreadcrumb(2)).toEqual(title);
   });
 
   it('should display page titles', () => {

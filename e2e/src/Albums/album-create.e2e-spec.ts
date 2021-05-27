@@ -9,10 +9,7 @@ describe('Albums create', () => {
   let page: AppPage;
   let album: AlbumsPage;
   let albumCreate: AlbumCreatePage;
-  let coverURL: Promise<string>;
-  let title: Promise<string>;
-  let performers: Promise<string>;
-  let releaseDate: Promise<string>;
+  let albumCount: Promise<number>;
 
   const ALBUM = {
     name: faker.company.companyName(),
@@ -43,6 +40,7 @@ describe('Albums create', () => {
     page.wait();
     album.navigateTo();
     album.wait();
+    albumCount = album.getRowCount();
     album.navigateToAddAlbum();
     albumCreate.wait();
     expect(albumCreate.getPageTitle()).toEqual('Agregar nuevo álbum');
@@ -113,10 +111,7 @@ describe('Albums create', () => {
     albumCreate.activateDescription();
     albumCreate.activateCreateButton();
     album.wait();
-    expect(album.getLastAlbumCoverUrl()).toEqual(ALBUM.cover);
-    expect(album.getLastAlbumTitle()).toEqual(ALBUM.name);
-    expect(album.getLastAlbumPerformers()).toEqual('');
-    expect(album.getLastAlbumReleaseDate()).toEqual(formatDate(ALBUM.releaseDate, 'MM/dd/yyyy', 'en-US'));
+    expect(album.getRowCount()).toBeGreaterThan(albumCount);
 
   });
 
