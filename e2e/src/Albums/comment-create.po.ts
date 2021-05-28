@@ -53,6 +53,7 @@ export class CommentCreate {
 
   fillDescription(description: string): void {
     element(by.name('description')).sendKeys(description);
+    element(by.name('collectorId')).click();
     $('body').click();
   }
 

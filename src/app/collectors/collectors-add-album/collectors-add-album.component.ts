@@ -32,7 +32,7 @@ export class CollectorsAddAlbumComponent implements OnInit {
   public tableContentName = 'albumes';
   public rows: TableRow[] = [];
 
-  public breadcrumbs = ['Home', 'Coleccionistas', 'Asociar un álbum'];
+  public breadcrumbs = ['Home', $localize`:@@7b58538b1dd31df6643c09049be1550edbc8641e:Coleccionistas`, $localize`:@@AsociarAlbum:Asociar un álbum`];
 
       constructor(
         private albumsService: AlbumsService,

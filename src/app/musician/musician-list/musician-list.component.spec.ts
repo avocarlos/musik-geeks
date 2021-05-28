@@ -56,7 +56,7 @@ describe('MusicianListComponent', () => {
     const musicianList = fixture.debugElement.nativeElement;
     const title = musicianList.querySelector('h1');
 
-    expect(title.textContent).toEqual('Músicos');
+    expect(title.textContent).toContain('Músicos');
   });
 
   it('should render the table with default headers', () => {

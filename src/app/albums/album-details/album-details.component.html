@@ -49,7 +49,7 @@
           id="addCommentButton"
         >
           <em class="bi bi-plus"></em>
-          <span id="addButton" i18n>Agregar</span>
+          <span id="addCommentsButton" i18n>Agregar</span>
         </button>
       </div>
     </div>
@@ -60,16 +60,14 @@
             <em class="comment-icon bi bi-chat-square-quote"></em>
             <p
               class="card-title padded comment-description"
-              aria-label="Comentario sobre álbum"
-              i18n-aria-label
+
             >
               {{ comment.description }}
             </p>
           </div>
           <div
             class="card-footer fw-bold text-uppercase mb-0 text-muted comment-rating"
-            aria-label="rating dado al álbum"
-            i18n-aria-label
+            i18n
           >
             Calificación {{ comment.rating }}/5
           </div>

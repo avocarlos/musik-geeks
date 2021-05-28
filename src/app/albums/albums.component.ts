@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject, LOCALE_ID } from '@angular/core';
 import { formatDate } from '@angular/common';
 import { Album } from './album';
 import { AlbumsService } from './albums.service';
@@ -26,7 +26,9 @@ export class AlbumsComponent implements OnInit {
   constructor(
     private albumsService: AlbumsService,
     private route: ActivatedRoute,
-    private router: Router) { }
+    private router: Router,
+    @Inject(LOCALE_ID) public locale: string
+  ) {}
 
   getAlbumsList(): void {
     this.albumsService.getAlbums()
@@ -48,7 +50,7 @@ export class AlbumsComponent implements OnInit {
         }
         this.rows = cs.map(({ cover, name, listaPerformers, releaseDate, id }) => {
           const formattedImg = imgTag(cover);
-          const formattedDate = formatDate(releaseDate, 'shortDate', 'en-US');
+          const formattedDate = formatDate(releaseDate, 'shortDate', this.locale, '+0');
 
           return {
             columns: [formattedImg, name, listaPerformers, formattedDate],

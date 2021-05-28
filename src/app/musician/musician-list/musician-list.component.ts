@@ -17,11 +17,11 @@ interface MusiciansTable {
 export class MusicianListComponent implements OnInit {
   musicians: Musician[];
   table: MusiciansTable = {
-    headers: ['Músico', 'Nombre'],
+    headers: [$localize`:@@AlbumsMusico:Músico`, $localize`:@@NombreMusico:Nombre`],
     rows: [],
     tableContentName: 'musicos'
   };
-  title = 'Músicos';
+  title = $localize`:@@6fa400b45b8518d2bdc434c365dbf6c62c1b485c: Músicos `;
 
   constructor(
     private musicianService: MusicianService,

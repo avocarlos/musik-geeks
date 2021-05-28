@@ -16,7 +16,7 @@ import { AlbumsService } from '../../albums.service';
   styleUrls: ['./comment-create.component.css']
 })
 export class CommentCreateComponent implements OnInit {
-  public title = 'Agregar comentario';
+  public title = $localize`:@@880f6494b32c79a3a45c6e35753890ef04251346:Agregar comentario`;
   public commentForm: FormGroup;
   public maxDescriptionLength = 500;
   public collectorOptions: Array<{ label: string, value: number }> = [];
