@@ -1,13 +1,17 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { formatDate } from '@angular/common';
-import { Collector } from '../collector';
-import { Router, ActivatedRoute } from '@angular/router';
-import { CollectorsService } from '../collectors.service';
+import { Component, OnInit } from '@angular/core';
+import {
+  AbstractControl,
+  FormBuilder,
+  FormGroup,
+  Validators,
+} from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
-import { CollectorsAddAlbumService } from '../collectors-add-album/collectors-add-album.service';
-import { Album } from '../../albums/album';
-import { AlbumsService } from '../../albums/albums.service';
-import { TableRow } from '../../shared/table/table.component';
+import { CollectorsService } from 'src/app/collectors/collectors.service';
+import { Album } from 'src/app/albums/album';
+import { AlbumsService } from 'src/app/albums/albums.service';
+import { CollectorsAddAlbumService } from 'src/app/collectors/collectors-add-album/collectors-add-album.service';
+import { Collector } from '../collector';
 
 @Component({
   selector: 'app-collectors-add-album',
@@ -15,92 +19,85 @@ import { TableRow } from '../../shared/table/table.component';
   styleUrls: ['./collectors-add-album.component.scss']
 })
 export class CollectorsAddAlbumComponent implements OnInit {
-  @Input() collectorId: number;
-  @Input() collectordel: Collector;
+  public title = 'Agregar álbum a coleccionista';
+  public commentForm: FormGroup;
+  public maxDescriptionLength = 500;
+  public musicanOptions: Array<{ label: string, value: number }> = [];
+  public collectorId: number;
   public collector?: Collector;
+  public isLoading = true;
+  public albums?: Album[];
+  public breadcrumbs = ['Home', 'Coleccionistas'];
 
-  public albumes?: Album[];
-  public selectedAlbum = 0;
-  public title = $localize`:@@AlbumsTitulo:Álbumes`;
-  public headers = [
-    $localize`:@@AlbumsPortada:Portada`,
-    $localize`:@@AlbumsTitulo:Álbumes`,
-    $localize`:@@AlbumsMusico:Musico`,
-    $localize`:@@AlbumsLanzamiento:Lanzamiento`
-  ];
+  constructor(
+    private formBuilder: FormBuilder,
+    private collectorsService: CollectorsService,
+    private collersalbumsService: CollectorsAddAlbumService,
+    private albumsService: AlbumsService,
+    private toastrService: ToastrService,
+    private router: Router,
+    private route: ActivatedRoute
+  ) {}
 
-  public tableContentName = 'albumes';
-  public rows: TableRow[] = [];
+  ngOnInit(): void {
+    this.route.params.subscribe((params) => {
+      this.collectorId = params.id;
+    });
 
-  public breadcrumbs = ['Home', 'Coleccionistas', 'Asociar un álbum'];
+    this.commentForm = this.formBuilder.group({
+      albumId: ['', Validators.required]
+    });
 
-      constructor(
-        private albumsService: AlbumsService,
-        private route: ActivatedRoute,
-        private router: Router,
-        private collectorsService: CollectorsService,
-        private collectorsaddAlbumService: CollectorsAddAlbumService,
-        private toastr: ToastrService,
-      ) { }
+    this.route.params.subscribe(params => this.getCollector(params.id));
+    this.getAlbums();
+  }
 
-      ngOnInit(): void {
-        this.route.params.subscribe(params => this.getCollector(params.id));
-        this.getAlbumsList();
+  get albumId(): AbstractControl {
+    return this.commentForm.get('albumId');
+  }
+
+  getCollector(id: number): void {
+    this.collectorsService.getCollector(id)
+      .subscribe((collector) => {
+        this.collector = collector;
+        this.breadcrumbs.push(collector.name);
+      });
+  }
+
+  getAlbums(): void {
+    this.albumsService.getAlbums()
+      .subscribe((albums) => {
+        this.isLoading = false; this.musicanOptions = albums.map((musician) =>
+          ({label: musician.name, value: musician.id})
+        );
+      });
+  }
+
+
+  addAlbums(): void {
+    const ida =  this.commentForm.value.musicianId;
+    const payload = {
+      price: '25000',
+      status: 'Active',
+      album: {
+        id: this.commentForm.value.albumId
+      },
+      collector: {
+        id: this.collectorId
       }
 
-      getCollector(id: number): void {
-        this.collectorsService.getCollector(id)
-          .subscribe((collector) => {
-            this.collector = collector;
-            this.breadcrumbs.push(collector.name);
-          });
-      }
+    };
 
-      getAlbumsList(): void {
-        this.albumsService.getAlbums()
-          .subscribe(cs => {
-            this.albumes = cs;
-            if (this.albumes) {
-              this.albumes.forEach((album) => {
-                if (album.performers) {
-                  album.performers.forEach(performer => {
-                    if (album.listaPerformers) {
-                      album.listaPerformers += ', ' + performer.name;
-                    }
-                    else {
-                      album.listaPerformers = performer.name;
-                    }
-                  });
-                }
-              });
-            }
-            this.rows = cs.map(({ cover, name, listaPerformers, releaseDate, id }) => {
-              const formattedImg = imgTag(cover);
-              const formattedDate = formatDate(releaseDate, 'shortDate', 'en-US');
+    this.collersalbumsService.addCollerAlbums(this.collectorId, ida, payload).subscribe(() => {
+      this.toastrService.success(
+        'El álbum ha sido creado exitosamente.',
+        'Álbum creado'
+      );
+      this.router.navigate(['coleccionistas', this.collectorId]);
+    });
+  }
 
-              return {
-                columns: [formattedImg, name, listaPerformers, formattedDate],
-                viewButtonClickadd: () =>  this.route.params.subscribe(params => this.addCollerAlbum(params.id, id))
-              };
-            });
-          });
-      }
-
-      addCollerAlbum(idc: number, ida: number): void {
-        this.collectorsaddAlbumService.addCollerAlbum(idc, ida).subscribe(collector => {
-          this.toastr.success('Album, asociado al coleccionista, agreagdo con éxito');
-          this.router.navigate([`../../coleccionistas/${idc}`], { relativeTo: this.route });
-        });
-      }
-
-      detailsCollertor(id: number): void {
-        this.router.navigate([`../../coleccionistas/${id}`], { relativeTo: this.route });
-      }
-
-
-}
-
-
-function imgTag(src: string): string {
-  return `<img class="table-avatar" src="${src}" alt="${$localize`:@@AlbumsPortada:AlbumsDescripcionPortada`}" />`;
+  navigateBack(): void {
+    this.router.navigate(['coleccionistas', this.collectorId]);
+  }
 }
