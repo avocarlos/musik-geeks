@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, LOCALE_ID, Inject } from '@angular/core';
 import { formatDate } from '@angular/common';
 import { Musician } from '../musician';
 import { MusicianService } from '../musician.service';
@@ -13,9 +13,9 @@ export class MusicianDetailsComponent implements OnInit {
   public musician?: Musician;
   public albumsTable = {
     headers: [
-      'Portada',
-      'Título',
-      'Lanzamiento'
+      $localize`:@@AlbumsPortada:Portada`,
+      $localize`:@@ListaCancionesTítulo:Título`,
+      $localize`:@@AlbumsLanzamiento:Lanzamiento`
     ],
     rows: [],
     tableContentName: 'albumes'
@@ -29,15 +29,16 @@ export class MusicianDetailsComponent implements OnInit {
     rows: [],
     tableContentName: 'awards'
   };
-  public breadcrumbs = ['Home', 'Músicos'];
+  public breadcrumbs = ['Home', $localize`:@@6fa400b45b8518d2bdc434c365dbf6c62c1b485c:Músicos`];
   public featured = [{
-    title: 'Cumpleaños',
+    title: $localize`:@@CumpleñosMusico:Cumpleaños`,
     subtitle: ''
   }];
 
   constructor(
     private musicianService: MusicianService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    @Inject(LOCALE_ID) public locale: string
   ) { }
 
   ngOnInit(): void {
@@ -50,10 +51,10 @@ export class MusicianDetailsComponent implements OnInit {
         this.musician = musician;
         this.breadcrumbs.push(musician.name);
 
-        this.featured[0].subtitle = formatDate(musician.birthDate, 'longDate', 'en-US', '+0');
+        this.featured[0].subtitle = formatDate(musician.birthDate, 'longDate', this.locale, '+0');
         this.albumsTable.rows = musician.albums.map(({ cover, releaseDate, name }) => {
           const formattedImg = imgTag(cover);
-          const formattedDate = formatDate(releaseDate, 'longDate', 'en-US', '+0');
+          const formattedDate = formatDate(releaseDate, 'longDate', this.locale, '+0');
 
           return {
             columns: [formattedImg, name, formattedDate]

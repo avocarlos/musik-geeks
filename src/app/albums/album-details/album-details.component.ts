@@ -1,9 +1,8 @@
 import { formatDate } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, LOCALE_ID, Inject } from '@angular/core';
 import { Album } from '../album';
 import { AlbumDetailsService } from './album-details.service';
-import { ActivatedRoute } from '@angular/router';
-import '@angular/localize/init';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-album-details',
@@ -39,9 +38,10 @@ export class AlbumDetailsComponent implements OnInit {
   }];
   constructor(
     private albumDetailsService: AlbumDetailsService,
-    private route: ActivatedRoute) {
-
-  }
+    private route: ActivatedRoute,
+    private router: Router,
+    @Inject(LOCALE_ID) public locale: string
+  ) { }
 
   ngOnInit(): void {
 
@@ -68,7 +68,7 @@ export class AlbumDetailsComponent implements OnInit {
 
 
       this.featured[0].subtitle = this.album.genre;
-      this.featured[1].subtitle = formatDate(this.album.releaseDate, 'longDate', 'en-US', '+0');
+      this.featured[1].subtitle = formatDate(this.album.releaseDate, 'longDate', this.locale, '+0');
       this.featured[2].subtitle = this.album.recordLabel;
       let index = 0;
       this.cancionesTable.rows = this.album.tracks.map(({ id, name, duration }) => {
@@ -79,5 +79,10 @@ export class AlbumDetailsComponent implements OnInit {
 
       });
     });
+  }
+
+  onClickCancion(): void {
+
+    this.router.navigate(['./canciones/agregar'], { relativeTo: this.route });
   }
 }

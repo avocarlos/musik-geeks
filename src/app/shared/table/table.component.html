@@ -1,7 +1,7 @@
 <table
   id="dataTable{{ tableContentName }}"
-  summary="lista de datos"
-  i18n-summary
+  caption="lista de datos"
+  i18n-caption
   class="table table-shadow"
 >
   <thead>
@@ -17,11 +17,15 @@
         aria-label="Acciones sobre los registros"
         i18n-aria-label
         id="table-actions{{ tableContentName }}"
-      ></th>
+        i18n
+        class="text-uppercase text-secondary"
+      >
+        <small>Detalle</small>
+      </th>
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let row of rows; index as idx">
+    <tr class="dataRow{{ tableContentName }}" *ngFor="let row of rows; index as idx">
       <td
         *ngFor="let value of row.columns; index as columnIdx"
         id="{{
@@ -29,12 +33,19 @@
             ? 'table-' + headers[columnIdx].toLowerCase() + idx
             : ''
         }}"
-        class="align-middle"
+        class="align-middle {{
+          headers[columnIdx]
+            ? 'field-' + headers[columnIdx].toLowerCase()
+            : ''
+        }}"
         [innerHTML]="value"
       ></td>
-      <td align="right">
+      <td>
         <button
           *ngIf="row.viewButtonClick"
+          id="{{
+               'viewDetails' + tableContentName + 'Button-' + idx
+          }}"
           type="button"
           class="btn btn-primary"
           (click)="row.viewButtonClick()"

@@ -16,7 +16,7 @@ import { MusicianService } from '../musician.service';
   styleUrls: ['./musician-create.component.css'],
 })
 export class MusicianCreateComponent implements OnInit {
-  public title = 'Agregar nuevo músico';
+  public title = $localize`:@@AgregarNuevoMusico:Agregar nuevo músico`;
   public musicianForm: FormGroup;
   public maxDescriptionLength = 500;
 
@@ -80,16 +80,7 @@ export class MusicianCreateComponent implements OnInit {
 function imageURIValidator(control: AbstractControl): ValidationErrors | null {
   try {
     if (control.value) {
-      const uri = new URL(control.value);
-
-      if (
-        !uri.pathname.endsWith('.jpg') &&
-        !uri.pathname.endsWith('.jpeg') &&
-        !uri.pathname.endsWith('.gif') &&
-        !uri.pathname.endsWith('.png')
-      ) {
-        throw new Error('Invalid image uri');
-      }
+      return new URL(control.value);
     }
 
     return null;

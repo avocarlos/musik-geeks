@@ -18,10 +18,10 @@ export class CollectorsDetailsComponent implements OnInit {
   public collectorAlbums?: CollectorAlbums;
   public albumsTable = {
     headers: [
-      'Portada',
-      'Título',
-      'Lanzamiento',
-      'Precio'
+      $localize`:@@AlbumsPortada:Portada`,
+      $localize`:@@AlbumsTitulo:Álbumes`,
+      $localize`:@@AlbumsLanzamiento:Lanzamiento`,
+      $localize`:@@AlbumsPrecio:Precio`
     ],
     rows: [],
     tableContentName: 'albumes'
@@ -29,20 +29,20 @@ export class CollectorsDetailsComponent implements OnInit {
 
   public favoritePerformersTable = {
     headers: [
-      'Músico',
-      'Nombre'
+      $localize`:@@AlbumsMusico:Músico`,
+      $localize`:@@NombreMusico:Nombre`
     ],
     rows: [],
     tableContentName: 'musicosFavoritos'
   };
 
-  public breadcrumbs = ['Home', 'Coleccionistas'];
+  public breadcrumbs = ['Home', $localize`:@@7b58538b1dd31df6643c09049be1550edbc8641e:Coleccionistas`];
   public featured = [{
-        title: 'Correo Electronico',
+        title: 'Email',
         subtitle: ''
       },
       {
-        title: 'Teléfono',
+        title: $localize`:@@TelefonoColeccionista:Teléfono`,
         subtitle: ''
       }];
 
@@ -67,7 +67,7 @@ export class CollectorsDetailsComponent implements OnInit {
         const peliculas = [collectorAlbums[0].album];
         this.albumsTable.rows = peliculas.map(({cover, name, releaseDate}) => {
           const formattedImg = imgTag(cover);
-          const formattedDate = formatDate(releaseDate, 'longDate', 'en-US', '+0');
+          const formattedDate = formatDate(releaseDate, 'longDate', 'en-MX', '+0');
           return {
             columns: [formattedImg, name, formattedDate, price],
             viewButtonClick: () => this.router.navigate([`../../albumes/${id}`], { relativeTo: this.route })

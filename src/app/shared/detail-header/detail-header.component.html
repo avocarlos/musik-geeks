@@ -23,9 +23,9 @@
               class="featured-text-item col"
             >
               <dt class="text-uppercase fw-bold mb-2">
-                <small>{{ feature.title }}</small>
+                <small id="featureTitle{{feature.title.replace(' ','')}}">{{ feature.title }}</small>
               </dt>
-              <dd class="h5">{{ feature.subtitle }}</dd>
+              <dd id="feature{{feature.title.replace(' ','')}}" class="h5">{{ feature.subtitle }}</dd>
             </dl>
           </div>
         </div>

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { Album } from '../album';
 import { AlbumCreateService } from './album-create.service';
@@ -17,8 +17,11 @@ export class AlbumCreateComponent implements OnInit {
   genreList: any = ['Classical', 'Salsa', 'Rock', 'Folk'];
   recordingLabelList: any = ['Sony Music', 'EMI', 'Discos Fuentes', 'Elektra', 'Fania Records'];
 
-  public title = $localize`:@@AlbumsTitulo:Álbumes`;
-  constructor(private createAlbumService: AlbumCreateService, private route: ActivatedRoute, private toastrService: ToastrService) {
+  public title = $localize`:@@AgregarAlbumTitulo:Agregar nuevo álbum`;
+  constructor(private createAlbumService: AlbumCreateService,
+              private route: ActivatedRoute,
+              private toastrService: ToastrService,
+              private router: Router) {
 
   }
 
@@ -35,6 +38,30 @@ export class AlbumCreateComponent implements OnInit {
     });
   }
 
+  get name(): AbstractControl {
+    return this.albumForm.get('name');
+  }
+
+  get cover(): AbstractControl {
+    return this.albumForm.get('cover');
+  }
+
+  get releaseDate(): AbstractControl {
+    return this.albumForm.get('releaseDate');
+  }
+
+  get description(): AbstractControl {
+    return this.albumForm.get('description');
+  }
+
+  get genre(): AbstractControl {
+    return this.albumForm.get('genre');
+  }
+
+  get recordLabel(): AbstractControl {
+    return this.albumForm.get('recordLabel');
+  }
+
   createNewAlbum(newAlbum: Album): void {
     // Process checkout data here
 
@@ -42,14 +69,19 @@ export class AlbumCreateComponent implements OnInit {
 
       this.createAlbumService.createAlbum(newAlbum).subscribe((item) => {
         this.toastrService.success('Guardado con éxito');
-        this.albumForm.reset();
+        this.router.navigate(['albumes']);
       });
     }
 
   }
 
   cancelCreation(): void {
+    this.router.navigate(['albumes']);
+  }
+
+  cleanFields(): void {
     this.albumForm.reset();
+    this.albumForm.reset({ genre: '', recordLabel: '' });
   }
 
   changeGenre(e): void {

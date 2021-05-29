@@ -1,4 +1,4 @@
-<app-list-header [title]="title"></app-list-header>
+<app-list-header [title]="title" ></app-list-header>
 <div class="container mt-5 mb-5">
   <div class="row">
     <div class="col-12 col-md-6">
@@ -7,19 +7,22 @@
         (ngSubmit)="!albumForm.invalid && createNewAlbum(albumForm.value)"
       >
         <div class="mb-4" [formGroup]="albumForm">
-          <label for="name" class="form-label" i18n> Título </label>
+          <label for="name" id="nameLabel" class="form-label" i18n> Título </label>
           <input
             novalidate
             id="name"
             name="name"
-            class="form-control"
+            class="form-control w-100"
+            [class.is-valid]="name.valid && name.touched"
+            [class.is-invalid]="name.invalid && name.touched"
             formControlName="name"
             i18n-placeholder
             placeholder="Título del album"
             required
           />
           <div
-            class="alert alert-danger alert-dismissible fade show"
+            id="nameRequiredError"
+            class="invalid-feedback"
             *ngIf="
               albumForm.get('name').hasError('required') &&
               albumForm.get('name').touched
@@ -30,20 +33,23 @@
           </div>
         </div>
         <div class="mb-4" [formGroup]="albumForm">
-          <label for="cover" class="form-label" i18n> Portada </label>
+          <label id="coverLabel" for="cover" class="form-label" i18n> Portada </label>
           <input
             type="url"
             novalidate
             id="cover"
             name="cover"
-            class="form-control"
+            class="form-control w-100"
+            [class.is-valid]="cover.valid && cover.touched"
+            [class.is-invalid]="cover.invalid && cover.touched"
             formControlName="cover"
             i18n-placeholder
             placeholder="URL de la portada del album"
             required
           />
           <div
-            class="alert alert-danger alert-dismissible fade show"
+            id="coverRequiredError"
+            class="invalid-feedback"
             *ngIf="
               albumForm.get('cover').hasError('required') &&
               albumForm.get('name').touched
@@ -53,7 +59,8 @@
             URL del cover es requerido
           </div>
           <div
-            class="alert alert-danger alert-dismissible fade show"
+            id="coverPatternError"
+            class="invalid-feedback"
             *ngIf="
               albumForm.get('cover').hasError('pattern') &&
               albumForm.get('name').touched
@@ -64,20 +71,23 @@
           </div>
         </div>
         <div class="mb-4" [formGroup]="albumForm">
-          <label for="releaseDate" class="form-label" i18n> Lanzamiento </label>
+          <label id="releaseDateLabel" for="releaseDate" class="form-label" i18n> Lanzamiento </label>
           <input
             type="date"
             novalidate
             id="releaseDate"
             name="releaseDate"
-            class="form-control"
+            class="form-control w-100"
+            [class.is-valid]="releaseDate.valid && releaseDate.touched"
+            [class.is-invalid]="releaseDate.invalid && releaseDate.touched"
             formControlName="releaseDate"
             i18n-placeholder
             placeholder="dd/mm/yyyy"
             required
           />
           <div
-            class="alert alert-danger alert-dismissible fade show"
+            id="releaseDateRequiredError"
+            class="invalid-feedback"
             *ngIf="
               albumForm.get('releaseDate').hasError('required') &&
               albumForm.get('releaseDate').touched
@@ -88,11 +98,13 @@
           </div>
         </div>
         <div class="mb-4" [formGroup]="albumForm">
-          <label for="genre" class="form-label" i18n> Género </label>
+          <label id="genreLabel" for="genre" class="form-label" i18n> Género </label>
           <select novalidate
           id="genre"
           name="genre"
-          class="form-control"
+          class="form-control w-100"
+          [class.is-valid]="genre.valid && genre.touched"
+          [class.is-invalid]="genre.invalid && genre.touched"
           formControlName="genre"
           i18n-placeholder
           placeholder="Género del album"
@@ -102,7 +114,8 @@
             <option *ngFor="let genre of genreList" id="genre{{genre}}" [ngValue]="genre">{{genre}}</option>
          </select>
           <div
-            class="alert alert-danger alert-dismissible fade show"
+            id="genreRequiredError"
+            class="invalid-feedback"
             *ngIf="
               albumForm.get('genre').hasError('required') &&
               albumForm.get('genre').touched
@@ -113,21 +126,24 @@
           </div>
         </div>
         <div class="mb-4" [formGroup]="albumForm">
-          <label for="recordLabel" class="form-label" i18n> Firma Discográfica </label>
+          <label id="recordLabelLabel" for="recordLabel" class="form-label" i18n> Firma Discográfica </label>
           <select novalidate
           id="recordLabel"
           name="recordLabel"
-          class="form-control"
+          class="form-control w-100"
+          [class.is-valid]="recordLabel.valid && recordLabel.touched"
+          [class.is-invalid]="recordLabel.invalid && recordLabel.touched"
           formControlName="recordLabel"
           i18n-placeholder
           placeholder="Firma discográfica de lanzamiento"
           required
           (change)="changeRecordLabel($event)">
             <option value="" disabled>Seleccione la firma</option>
-            <option *ngFor="let recordLabel of recordingLabelList" [ngValue]="recordLabel">{{recordLabel}}</option>
+            <option class="recordLabelOption" *ngFor="let recordLabel of recordingLabelList"  id="recordLabel{{recordLabel.replace(' ','')}}" [ngValue]="recordLabel">{{recordLabel}}</option>
          </select>
           <div
-            class="alert alert-danger alert-dismissible fade show"
+            id="recordLabelRequiredError"
+            class="invalid-feedback"
             *ngIf="
               albumForm.get('recordLabel').hasError('required') &&
               albumForm.get('recordLabel').touched
@@ -137,7 +153,8 @@
             Firma es requerida
           </div>
           <div
-            class="alert alert-danger alert-dismissible fade show"
+            id="recordLabelMaxLengthError"
+            class="invalid-feedback"
             *ngIf="
               albumForm.get('recordLabel').hasError('maxlength') &&
               albumForm.get('recordLabel').touched
@@ -148,19 +165,22 @@
           </div>
         </div>
         <div class="mb-4" [formGroup]="albumForm">
-          <label for="description" class="form-label" i18n> Descripción </label>
+          <label id="descriptionLabel" for="description" class="form-label" i18n> Descripción </label>
           <textarea
             novalidate
             id="description"
             name="description"
-            class="form-control"
+            class="form-control w-100"
+            [class.is-valid]="description.valid && description.touched"
+            [class.is-invalid]="description.invalid && description.touched"
             formControlName="description"
             i18n-placeholder
             placeholder="Descripción del album"
             required
           ></textarea>
           <div
-            class="alert alert-danger alert-dismissible fade show"
+            id="descriptionRequiredError"
+            class="invalid-feedback"
             *ngIf="
               albumForm.get('description').hasError('required') &&
               albumForm.get('description').touched
@@ -170,7 +190,8 @@
             Descripción es requerida
           </div>
           <div
-            class="alert alert-danger alert-dismissible fade show"
+            id="descriptionMaxLengthError"
+            class="invalid-feedback"
             *ngIf="
               albumForm.get('description').hasError('maxlength') &&
               albumForm.get('description').touched
@@ -180,7 +201,8 @@
             Tamaño máximo de la descripción son 500 caracterés
           </div>
           <div
-            class="alert alert-danger alert-dismissible fade show"
+            id="descriptionMinLengthError"
+            class="invalid-feedback"
             *ngIf="
               albumForm.get('description').hasError('minlength') &&
               albumForm.get('description').touched
@@ -196,6 +218,15 @@
           [disabled]="!albumForm.valid"
           i18n
         >Crear</button>
+        <button
+          id="cleanButton"
+          type="button"
+          class="btn btn-secondary ml-3"
+          (click)="cleanFields()"
+          i18n
+        >
+          Limpiar
+        </button>
         <button id="cancelButton"
           type="button"
           class="btn btn-danger ml-3"
