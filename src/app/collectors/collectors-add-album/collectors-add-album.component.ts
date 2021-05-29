@@ -78,7 +78,7 @@ export class CollectorsAddAlbumComponent implements OnInit {
     const ida =  this.commentForm.value.albumId;
     const payload = {
       price: 25,
-      status: "Active"
+      status: 'Active'
     };
 
     this.collersalbumsService.addCollerAlbums(this.collectorId, ida, payload).subscribe(() => {
