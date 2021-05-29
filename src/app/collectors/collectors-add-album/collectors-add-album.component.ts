@@ -75,23 +75,16 @@ export class CollectorsAddAlbumComponent implements OnInit {
 
 
   addAlbums(): void {
-    const ida =  this.commentForm.value.musicianId;
+    const ida =  this.commentForm.value.albumId;
     const payload = {
-      price: '25000',
-      status: 'Active',
-      album: {
-        id: this.commentForm.value.albumId
-      },
-      collector: {
-        id: this.collectorId
-      }
-
+      price: 25,
+      status: "Active"
     };
 
     this.collersalbumsService.addCollerAlbums(this.collectorId, ida, payload).subscribe(() => {
       this.toastrService.success(
-        'El álbum ha sido creado exitosamente.',
-        'Álbum creado'
+        'El álbum ha sido asignado exitosamente al coleccionista.',
+        'Álbum asignado al coleccionista'
       );
       this.router.navigate(['coleccionistas', this.collectorId]);
     });

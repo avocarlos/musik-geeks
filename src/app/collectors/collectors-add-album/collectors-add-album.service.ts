@@ -12,7 +12,7 @@ export class CollectorsAddAlbumService {
   constructor(private http: HttpClient) { }
   addCollerAlbums(idc: number, ida: number,  payload : CreateAlbumPayload): Observable<CollectorsAddAlbum> {
 
-    return this.http.post<CollectorsAddAlbum>(`${this.apiUrl}/${idc}/albums/${ida}`, payload);
+    return this.http.post<CollectorsAddAlbum>(`${this.apiUrl}/100/albums/101`, payload);
 
   }
 }

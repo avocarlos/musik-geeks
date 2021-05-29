@@ -1,19 +1,14 @@
 export class CollectorsAddAlbum {
   public constructor(
-    public price: string,
-    public status: string,
-    public id?: number,
+    public price: number,
+    public status: string
+
 ) { }
 }
 
 export interface CreateAlbumPayload {
-  price: string;
+  price: number;
   status: string;
-  album: {
-    id: number;
-  };
-  collector: {
-    id: number;
-  };
+
 }
 
