@@ -16,17 +16,17 @@ import { Musician } from '../../musician/musician';
 export class AlbumCreateComponent implements OnInit {
   albumForm: FormGroup;
   formBuilder: FormBuilder;
-  musicianList:{};
+  musicianList: {};
   selectedMusician: Musician;
   genreList: any = ['Classical', 'Salsa', 'Rock', 'Folk'];
   recordingLabelList: any = ['Sony Music', 'EMI', 'Discos Fuentes', 'Elektra', 'Fania Records'];
 
   public title = $localize`:@@AgregarAlbumTitulo:Agregar nuevo álbum`;
   constructor(private createAlbumService: AlbumCreateService,
-              private musicianService: MusicianService,
-              private route: ActivatedRoute,
-              private toastrService: ToastrService,
-              private router: Router) {
+    private musicianService: MusicianService,
+    private route: ActivatedRoute,
+    private toastrService: ToastrService,
+    private router: Router) {
 
   }
 
@@ -87,8 +87,7 @@ export class AlbumCreateComponent implements OnInit {
         newAlbum.recordLabel
       );
       this.createAlbumService.createAlbum(album).subscribe((item) => {
-        console.log("New Album ID: " + item.id)
-        this.musicianService.addAlbumToMusician(this.selectedMusician.id, item.id).subscribe((item) => {
+        this.musicianService.addAlbumToMusician(this.selectedMusician.id, item.id).subscribe((result) => {
           this.toastrService.success('Guardado con éxito');
           this.router.navigate(['albumes']);
         });
@@ -98,8 +97,8 @@ export class AlbumCreateComponent implements OnInit {
 
   }
 
-  getMusiciansList(){
-    this.musicianService.getMusicians().subscribe((list) =>{
+  getMusiciansList(): void {
+    this.musicianService.getMusicians().subscribe((list) => {
       this.musicianList = list;
     });
   }

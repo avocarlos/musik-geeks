@@ -17,13 +17,13 @@ const albumId: number = faker.datatype.number();
 
 const musicianList = [
   {
-      id: faker.datatype.number(),
-      name: faker.name.firstName,
-      image: faker.image.imageUrl(),
-      description: faker.lorem.sentence(),
-      birthDate: faker.date.recent().toString(),
-      albums: [],
-      performerPrizes: []
+    id: faker.datatype.number(),
+    name: faker.name.firstName,
+    image: faker.image.imageUrl(),
+    description: faker.lorem.sentence(),
+    birthDate: faker.date.recent().toString(),
+    albums: [],
+    performerPrizes: []
   },
   {
     id: faker.datatype.number(),
@@ -34,7 +34,7 @@ const musicianList = [
     albums: [],
     performerPrizes: []
   }
-]
+];
 
 const ALBUM = {
   name: albumName,
@@ -234,8 +234,10 @@ describe('AlbumCreateComponent', () => {
 
     expect(form.valid).toBeTrue();
 
-    component.selectedMusician = {id: ALBUM.performerId,
-      albums: [], performerPrizes:[], name: '', image:'',description: '', birthDate:''};
+    component.selectedMusician = {
+      id: ALBUM.performerId,
+      albums: [], performerPrizes: [], name: '', image: '', description: '', birthDate: ''
+    };
     component.createNewAlbum(
       new Album(
         ALBUM.name,
@@ -249,7 +251,7 @@ describe('AlbumCreateComponent', () => {
     let req = httpTestingController.expectOne(environment.baseUrl + 'albums');
     expect(req.request.method).toBe('POST');
     req.flush(ALBUM);
-    req = httpTestingController.expectOne(environment.baseUrl + 'musicians/'+ALBUM.performerId +'/albums/'+ALBUM.id);
+    req = httpTestingController.expectOne(environment.baseUrl + 'musicians/' + ALBUM.performerId + '/albums/' + ALBUM.id);
     expect(req.request.method).toBe('POST');
     req.flush(ALBUM);
     fixture.detectChanges();
