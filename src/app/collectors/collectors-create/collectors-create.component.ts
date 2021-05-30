@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
 import { Collector } from '../collector';
 import { CollectorsCreateService } from '../collectors-create/collectors-create.service';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-collectors-create',
@@ -17,7 +18,8 @@ export class CollectorsCreateComponent implements OnInit {
   constructor(
     private createCollectorService: CollectorsCreateService,
     private formBuilder: FormBuilder,
-    private toastr: ToastrService
+    private toastr: ToastrService,
+    private router: Router,
   ) {
 
   }
@@ -34,11 +36,13 @@ export class CollectorsCreateComponent implements OnInit {
 
   showSuccess(c: Collector): void {
     this.toastr.success('Guardado con éxito');
+    this.router.navigate(['coleccionistas']);
   }
 
   cancelCreation(): void {
     console.log('Cancelando ...');
     this.collectorForm.reset();
+    this.router.navigate(['coleccionistas']);
   }
 
   ngOnInit(): void {
