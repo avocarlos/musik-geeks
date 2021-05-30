@@ -4,7 +4,7 @@ import { environment } from '../../../environments/environment';
 import { Observable } from 'rxjs';
 import { Collector } from '../collector';
 import { Musician } from '../../musician/musician';
-import { CreateMusicianPayload, CollectorsAddMusican } from './collectors-add-musician';
+import { CreateMusicianPayload, CollectorsAddMusican } from './collectors-add-musican';
 
 
 @Injectable({
