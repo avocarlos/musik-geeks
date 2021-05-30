@@ -18,7 +18,7 @@
             placeholder="Your Full Name"
           />
           <div
-            class="alert alert-danger alert-dismissible fade show"
+            class="nameRequiredError alert alert-danger alert-dismissible fade show"
             *ngIf="
             collectorForm.get('name').hasError('required') &&
             collectorForm.get('name').touched
@@ -27,7 +27,7 @@
             Nombre requerido
           </div>
           <div
-            class="alert alert-danger alert-dismissible fade show"
+            class="namePatternError alert alert-danger alert-dismissible fade show"
             *ngIf="
             collectorForm.get('name').hasError('minlength') &&
             collectorForm.get('name').touched
@@ -48,7 +48,7 @@
             placeholder="Your Email"
           />
           <div
-            class="alert alert-danger alert-dismissible fade show"
+            class="emailRequiredError alert alert-danger alert-dismissible fade show"
             *ngIf="
             collectorForm.get('email').hasError('required') &&
             collectorForm.get('email').touched
@@ -57,7 +57,7 @@
             Correo es requerido
           </div>
           <div
-            class="alert alert-danger alert-dismissible fade show"
+            class="namePatternError alert alert-danger alert-dismissible fade show"
             *ngIf="
             collectorForm.get('email').touched &&
             collectorForm.get('email').hasError('email')
@@ -78,22 +78,22 @@
             placeholder="Your telephone"
           />
           <div
-            class="alert alert-danger alert-dismissible fade show"
+            class="telephoneRequiredError alert alert-danger alert-dismissible fade show"
             *ngIf="
-            collectorForm.get('telephone').hasError('minlength') &&
+            collectorForm.get('telephone').hasError('required') &&
             collectorForm.get('telephone').touched
             " i18n
           >
           Teléfono es requerido
           </div>
           <div
-            class="alert alert-danger alert-dismissible fade show"
+            class="telephonePatternError alert alert-danger alert-dismissible fade show"
             *ngIf="
             collectorForm.get('telephone').touched &&
-            collectorForm.get('telephone').hasError('telephone')
+            collectorForm.get('telephone').hasError('minlength')
             " i18n
           >
-            Formato incorrecto de teléfono
+          Formato telefono es demasiado corto. Deberían tener al menos 6 caracteres
           </div>
         </div>
         <div class="form-group mx-sm-12 mb-12">
