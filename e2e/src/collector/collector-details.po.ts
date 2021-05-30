@@ -1,8 +1,8 @@
-import { browser, by, element, ExpectedConditions } from 'protractor';
+import { browser, by, element } from 'protractor';
 
 export class CollectorDetails {
   navigateTo(): Promise<unknown> {
-    browser.get(`${browser.baseUrl}/coleccionistas`) as Promise<unknown>;
+    browser.get(`${browser.baseUrl}/coleccionistas`);
     return element(by.css('app-table tbody td button')).click() as Promise<void>;
   }
 
