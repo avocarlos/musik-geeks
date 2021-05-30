@@ -17,7 +17,8 @@ describe('Albums create', () => {
     releaseDate: faker.date.recent().toString(),
     description: faker.lorem.sentence(),
     genre: 'Salsa',
-    recordLabel: 'EMI'
+    recordLabel: 'EMI',
+    performerId: 100
   };
 
   const ALBUMWRONGDATA = {
@@ -26,7 +27,8 @@ describe('Albums create', () => {
     releaseDate: faker.lorem.sentence(),
     description: faker.lorem.word(5),
     genre: faker.lorem.sentence(),
-    recordLabel: faker.lorem.sentence()
+    recordLabel: faker.lorem.sentence(),
+    performerId: 555
   };
 
   beforeAll(() => {
@@ -47,17 +49,19 @@ describe('Albums create', () => {
     expect(albumCreate.getCreateButton()).toEqual('Crear');
     expect(albumCreate.getCancelButton()).toEqual('Cancelar');
     expect(albumCreate.getCleanButton()).toEqual('Limpiar');
-    expect(albumCreate.getCoverLabel()).toEqual('Portada');
-    expect(albumCreate.getNameLabel()).toEqual('Título');
-    expect(albumCreate.getReleaseDateLabel()).toEqual('Lanzamiento');
-    expect(albumCreate.getGenreLabel()).toEqual('Género');
-    expect(albumCreate.getRecordLabelLabel()).toEqual('Firma Discográfica');
-    expect(albumCreate.getDescriptionLabel()).toEqual('Descripción');
+    expect(albumCreate.getCoverLabel()).toEqual('Portada*');
+    expect(albumCreate.getNameLabel()).toEqual('Título*');
+    expect(albumCreate.getReleaseDateLabel()).toEqual('Lanzamiento*');
+    expect(albumCreate.getGenreLabel()).toEqual('Género*');
+    expect(albumCreate.getRecordLabelLabel()).toEqual('Firma Discográfica*');
+    expect(albumCreate.getDescriptionLabel()).toEqual('Descripción*');
+    expect(albumCreate.getMusicianLabel()).toEqual('Músico*');
   });
 
 
   it('should display validations', () => {
     albumCreate.activateCover();
+    albumCreate.activateMusician();
     albumCreate.activateDescription();
     albumCreate.activateGenre();
     albumCreate.activateName();
@@ -71,6 +75,7 @@ describe('Albums create', () => {
     expect(albumCreate.getGenreRequiredError()).toEqual('Género es requerido');
     expect(albumCreate.getRecordLabelRequiredError()).toEqual('Firma es requerida');
     expect(albumCreate.getDescriptionRequiredError()).toEqual('Descripción es requerida');
+    expect(albumCreate.getMusicianRequiredError()).toEqual('Músico es requerido');
 
     albumCreate.setDescription(ALBUMWRONGDATA.description);
     albumCreate.setCover(ALBUMWRONGDATA.cover);
@@ -86,6 +91,7 @@ describe('Albums create', () => {
     albumCreate.setDescription(ALBUMWRONGDATA.description);
     albumCreate.setGenre(ALBUM.genre);
     albumCreate.setName(ALBUMWRONGDATA.name);
+    albumCreate.setMusican(ALBUM.performerId);
     albumCreate.setRecordLabel(ALBUM.recordLabel);
     albumCreate.setReleaseDate(ALBUMWRONGDATA.releaseDate);
     albumCreate.activateCleanButton();
@@ -107,6 +113,7 @@ describe('Albums create', () => {
     albumCreate.setGenre(ALBUM.genre);
     albumCreate.setName(ALBUM.name);
     albumCreate.setRecordLabel(ALBUM.recordLabel);
+    albumCreate.setMusican(ALBUM.performerId);
     albumCreate.setReleaseDate(formatDate(ALBUM.releaseDate, 'MM/dd/yyyy', 'en-US'));
     albumCreate.activateDescription();
     albumCreate.activateCreateButton();
