@@ -147,6 +147,10 @@ export class AlbumCreatePage {
     return element(by.css('#releaseDateRequiredError')).getText() as Promise<string>;
   }
 
+  getMusicianRequiredError(): Promise<string> {
+    return element(by.css('#performerIdRequiredError')).getText() as Promise<string>;
+  }
+
   getGenreRequiredError(): Promise<string> {
     return element(by.css('#genreRequiredError')).getText() as Promise<string>;
   }
@@ -165,6 +169,24 @@ export class AlbumCreatePage {
 
   getCoverPatternError(): Promise<string> {
     return element(by.css('#coverPatternError')).getText() as Promise<string>;
+  }
+
+  getMusicianLabel(): Promise<string> {
+    return element(by.css('#performerIdLabel')).getText() as Promise<string>;
+
+  }
+
+  getMusician(): Promise<string> {
+    return element(by.css('#performerId')).getAttribute('value') as Promise<string>;
+  }
+
+  setMusican(text: number): Promise<unknown> {
+    element(by.css('#performerId')).click();
+    return element(by.css('#musician' + text)).click() as Promise<unknown>;
+  }
+
+  activateMusician(): Promise<unknown> {
+    return element(by.css('#performerId')).click() as Promise<unknown>;
   }
 
 }

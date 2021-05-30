@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { environment } from '../../environments/environment';
-
 import type { Musician, MusicianCreateKeys } from './musician';
 
 interface CreateMusicianResponse extends MusicianCreateKeys {
@@ -27,5 +26,9 @@ export class MusicianService {
 
   createMusician(musician: MusicianCreateKeys): Observable<CreateMusicianResponse> {
     return this.http.post<CreateMusicianResponse>(this.apiUrl, musician);
+  }
+
+  addAlbumToMusician(musicanId: number, albumId: number): Observable<CreateMusicianResponse> {
+    return this.http.post<CreateMusicianResponse>(`${this.apiUrl}/${musicanId}/albums/${albumId}`, { });
   }
 }

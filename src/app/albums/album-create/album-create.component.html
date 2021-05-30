@@ -7,7 +7,7 @@
         (ngSubmit)="!albumForm.invalid && createNewAlbum(albumForm.value)"
       >
         <div class="mb-4" [formGroup]="albumForm">
-          <label for="name" id="nameLabel" class="form-label" i18n> Título </label>
+          <label for="name" id="nameLabel" class="form-label" i18n> Título* </label>
           <input
             novalidate
             id="name"
@@ -33,7 +33,7 @@
           </div>
         </div>
         <div class="mb-4" [formGroup]="albumForm">
-          <label id="coverLabel" for="cover" class="form-label" i18n> Portada </label>
+          <label id="coverLabel" for="cover" class="form-label" i18n> Portada* </label>
           <input
             type="url"
             novalidate
@@ -71,7 +71,7 @@
           </div>
         </div>
         <div class="mb-4" [formGroup]="albumForm">
-          <label id="releaseDateLabel" for="releaseDate" class="form-label" i18n> Lanzamiento </label>
+          <label id="releaseDateLabel" for="releaseDate" class="form-label" i18n> Lanzamiento* </label>
           <input
             type="date"
             novalidate
@@ -97,8 +97,38 @@
             Fecha de lanzamiento es requerida
           </div>
         </div>
+
         <div class="mb-4" [formGroup]="albumForm">
-          <label id="genreLabel" for="genre" class="form-label" i18n> Género </label>
+          <label id="performerIdLabel" for="performerId" class="form-label" i18n> Músico* </label>
+          <select novalidate
+          id="performerId"
+          name="performerId"
+          class="form-control w-100"
+          [class.is-valid]="performerId.valid && performerId.touched"
+          [class.is-invalid]="performerId.invalid && performerId.touched"
+          formControlName="performerId"
+          i18n-placeholder
+          placeholder="Músico del album"
+          required
+          (change)="changeMusician($event)">
+            <option value="" disabled>Seleccione el músico</option>
+            <option *ngFor="let musico of musicianList" id="musician{{musico.id}}" [ngValue]="musico.id">{{musico.name}}</option>
+         </select>
+          <div
+            id="performerIdRequiredError"
+            class="invalid-feedback"
+            *ngIf="
+              albumForm.get('performerId').hasError('required') &&
+              albumForm.get('performerId').touched
+            "
+            i18n
+          >
+            Músico es requerido
+          </div>
+        </div>
+
+        <div class="mb-4" [formGroup]="albumForm">
+          <label id="genreLabel" for="genre" class="form-label" i18n> Género* </label>
           <select novalidate
           id="genre"
           name="genre"
@@ -126,7 +156,7 @@
           </div>
         </div>
         <div class="mb-4" [formGroup]="albumForm">
-          <label id="recordLabelLabel" for="recordLabel" class="form-label" i18n> Firma Discográfica </label>
+          <label id="recordLabelLabel" for="recordLabel" class="form-label" i18n> Firma Discográfica* </label>
           <select novalidate
           id="recordLabel"
           name="recordLabel"
@@ -165,7 +195,7 @@
           </div>
         </div>
         <div class="mb-4" [formGroup]="albumForm">
-          <label id="descriptionLabel" for="description" class="form-label" i18n> Descripción </label>
+          <label id="descriptionLabel" for="description" class="form-label" i18n> Descripción* </label>
           <textarea
             novalidate
             id="description"
@@ -212,6 +242,7 @@
             Tamaño mínimo de la descripción son 10 caracterés
           </div>
         </div>
+        <div i18n>* Campos son requeridos</div>
         <button id="createButton"
           type="submit"
           class="btn btn-primary"

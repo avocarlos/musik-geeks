@@ -11,9 +11,9 @@ export class Album {
     public description: string,
     public genre: string,
     public recordLabel: string,
-    public performers: Musician[],
-    public tracks: Track[],
-    public comments: Comment[],
+    public performers?: Musician[],
+    public tracks?: Track[],
+    public comments?: Comment[],
     public id?: number,
     public listaPerformers?: string
   ) {
