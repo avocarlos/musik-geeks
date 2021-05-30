@@ -96,7 +96,7 @@ describe('Service: MusicianService', () => {
         expect(musician).toEqual(MusicianFixture.createMusicianResponse);
       });
 
-      const req = httpTestingController.expectOne(service.apiUrl+'/albums/100');
+      const req = httpTestingController.expectOne(service.apiUrl+'/'+ MusicianFixture.createMusicianResponse.id+ '/albums/100');
       expect(req.request.method).toEqual('POST');
 
       req.flush(MusicianFixture.createMusicianResponse);

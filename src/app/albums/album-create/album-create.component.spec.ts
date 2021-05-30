@@ -10,9 +10,31 @@ import { AlbumCreateComponent } from './album-create.component';
 import * as faker from 'faker';
 import { environment } from 'src/environments/environment';
 import { ActivatedRoute } from '@angular/router';
+import { Musician } from 'src/app/musician/musician';
 
 const albumName: string = faker.lorem.sentence();
 const albumId: number = faker.datatype.number();
+
+const musicianList = [
+  {
+      id: faker.datatype.number(),
+      name: faker.name.firstName,
+      image: faker.image.imageUrl(),
+      description: faker.lorem.sentence(),
+      birthDate: faker.date.recent().toString(),
+      albums: [],
+      performerPrizes: []
+  },
+  {
+    id: faker.datatype.number(),
+    name: faker.name.firstName,
+    image: faker.image.imageUrl(),
+    description: faker.lorem.sentence(),
+    birthDate: faker.date.recent().toString(),
+    albums: [],
+    performerPrizes: []
+  }
+]
 
 const ALBUM = {
   name: albumName,
@@ -21,6 +43,7 @@ const ALBUM = {
   description: faker.lorem.sentence(),
   genre: 'Salsa',
   recordLabel: 'EMI',
+  performerId: musicianList[0].id,
   id: albumId
 };
 
@@ -31,6 +54,7 @@ const ALBUMWRONGDATA = {
   description: faker.lorem.word(5),
   genre: faker.lorem.sentence(),
   recordLabel: faker.lorem.sentence(),
+  performerId: faker.lorem.sentence(),
   id: albumId
 };
 
@@ -71,6 +95,11 @@ describe('AlbumCreateComponent', () => {
 
     fixture.detectChanges();
 
+    const req = httpTestingController.expectOne(environment.baseUrl + 'musicians');
+    expect(req.request.method).toBe('GET');
+    req.flush(musicianList);
+    fixture.detectChanges();
+
     // Intercept and mock outgoing request
     httpTestingController.expectNone(environment.baseUrl + 'albums/');
 
@@ -97,12 +126,14 @@ describe('AlbumCreateComponent', () => {
     const name = fixture.debugElement.query(By.css('#name'));
     const cover = fixture.debugElement.query(By.css('#cover'));
     const releaseDate = fixture.debugElement.query(By.css('#releaseDate'));
+    const performer = fixture.debugElement.query(By.css('#performerId'));
     const genre = fixture.debugElement.query(By.css('#genre'));
     const recordLabel = fixture.debugElement.query(By.css('#recordLabel'));
     const description = fixture.debugElement.query(By.css('#description'));
     const createButton = fixture.debugElement.query(By.css('#createButton'));
     const cancelButton = fixture.debugElement.query(By.css('#cancelButton'));
 
+    expect(performer).toBeTruthy();
     expect(name).toBeTruthy();
     expect(cover).toBeTruthy();
     expect(releaseDate).toBeTruthy();
@@ -161,7 +192,7 @@ describe('AlbumCreateComponent', () => {
     const genre = form.controls.genre;
     const recordLabel = form.controls.recordLabel;
     const description = form.controls.description;
-    const createButton = fixture.debugElement.query(By.css('#createButton'));
+    const performer = form.controls.performerId;
 
     name.setValue(ALBUM.name);
     cover.setValue(ALBUM.cover);
@@ -169,6 +200,7 @@ describe('AlbumCreateComponent', () => {
     genre.setValue(ALBUM.genre);
     recordLabel.setValue(ALBUM.recordLabel);
     description.setValue(ALBUM.description);
+    performer.setValue(ALBUM.performerId);
     fixture.detectChanges();
 
     expect(form.valid).toBeTrue();
@@ -189,18 +221,21 @@ describe('AlbumCreateComponent', () => {
     const genre = form.controls.genre;
     const recordLabel = form.controls.recordLabel;
     const description = form.controls.description;
-    const createButton = fixture.debugElement.query(By.css('#createButton'));
+    const performer = form.controls.performerId;
 
     name.setValue(ALBUM.name);
     cover.setValue(ALBUM.cover);
     releaseDate.setValue(ALBUM.releaseDate);
     genre.setValue(ALBUM.genre);
+    performer.setValue(ALBUM.performerId);
     recordLabel.setValue(ALBUM.recordLabel);
     description.setValue(ALBUM.description);
     fixture.detectChanges();
 
     expect(form.valid).toBeTrue();
 
+    component.selectedMusician = {id: ALBUM.performerId,
+      albums: [], performerPrizes:[], name: '', image:'',description: '', birthDate:''};
     component.createNewAlbum(
       new Album(
         ALBUM.name,
@@ -208,11 +243,13 @@ describe('AlbumCreateComponent', () => {
         ALBUM.releaseDate,
         ALBUM.description,
         ALBUM.genre,
-        ALBUM.recordLabel,
-        [], [], []));
+        ALBUM.recordLabel));
     fixture.detectChanges();
 
-    const req = httpTestingController.expectOne(environment.baseUrl + 'albums');
+    let req = httpTestingController.expectOne(environment.baseUrl + 'albums');
+    expect(req.request.method).toBe('POST');
+    req.flush(ALBUM);
+    req = httpTestingController.expectOne(environment.baseUrl + 'musicians/'+ALBUM.performerId +'/albums/'+ALBUM.id);
     expect(req.request.method).toBe('POST');
     req.flush(ALBUM);
     fixture.detectChanges();
