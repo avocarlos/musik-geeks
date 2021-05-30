@@ -23,10 +23,10 @@ export class AlbumCreateComponent implements OnInit {
 
   public title = $localize`:@@AgregarAlbumTitulo:Agregar nuevo álbum`;
   constructor(private createAlbumService: AlbumCreateService,
-    private musicianService: MusicianService,
-    private route: ActivatedRoute,
-    private toastrService: ToastrService,
-    private router: Router) {
+              private musicianService: MusicianService,
+              private route: ActivatedRoute,
+              private toastrService: ToastrService,
+              private router: Router) {
 
   }
 
@@ -78,13 +78,12 @@ export class AlbumCreateComponent implements OnInit {
 
     if (this.albumForm.valid) {
       console.log(newAlbum.performerId);
-      const album = new Album(
-        newAlbum.name,
-        newAlbum.cover,
-        newAlbum.releaseDate,
-        newAlbum.description,
-        newAlbum.genre,
-        newAlbum.recordLabel
+      const album = new Album(newAlbum.name,
+                              newAlbum.cover,
+                              newAlbum.releaseDate,
+                              newAlbum.description,
+                              newAlbum.genre,
+                              newAlbum.recordLabel
       );
       this.createAlbumService.createAlbum(album).subscribe((item) => {
         this.musicianService.addAlbumToMusician(this.selectedMusician.id, item.id).subscribe((result) => {

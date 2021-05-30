@@ -73,11 +73,11 @@ describe('Service: MusicianService', () => {
 
   describe('#AddMusicialToAlbum', () => {
     it('should call the API and return musician', inject([MusicianService], (service: MusicianService) => {
-      service.addAlbumToMusician(MusicianFixture.createMusicianResponse.id,100).subscribe((musician) => {
+      service.addAlbumToMusician(MusicianFixture.createMusicianResponse.id, 100).subscribe((musician) => {
         expect(musician).toEqual(MusicianFixture.createMusicianResponse);
       });
 
-      const req = httpTestingController.expectOne(service.apiUrl+'/'+ MusicianFixture.createMusicianResponse.id+ '/albums/100');
+      const req = httpTestingController.expectOne(service.apiUrl + '/' + MusicianFixture.createMusicianResponse.id + '/albums/100');
       expect(req.request.method).toEqual('POST');
 
       req.flush(MusicianFixture.createMusicianResponse);

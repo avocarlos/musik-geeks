@@ -29,6 +29,6 @@ export class MusicianService {
   }
 
   addAlbumToMusician(musicanId: number, albumId: number): Observable<CreateMusicianResponse> {
-    return this.http.post<CreateMusicianResponse>(`${this.apiUrl}/${musicanId}/albums/${albumId}`, {});
+    return this.http.post<CreateMusicianResponse>(`${this.apiUrl}/${musicanId}/albums/${albumId}`, { });
   }
 }
